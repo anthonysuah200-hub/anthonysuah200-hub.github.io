@@ -2,17 +2,25 @@
 
 /* Founder Profile Photo */
 .profile-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
 }
 
 .profile-photo img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #00bfff;
-  box-shadow: 0 0 30px rgba(0, 191, 255, 0.35);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    transform: none;
+    transition: none;
+}
+
+.profile-photo:hover img {
+    transform: none;
 }
