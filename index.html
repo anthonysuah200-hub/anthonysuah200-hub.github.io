@@ -218,18 +218,28 @@
 <footer><b>Smart Tech Hub</b><span>Free cybersecurity education • Built for learners</span></footer>
 <script>
 function checkQuiz() {
-  const selected = document.querySelector('input[name="question1"]:checked');
-  const resultDiv = document.getElementById('quizResult');
-  
+  const selected = document.querySelector(
+    'input[name="question1"]:checked'
+  );
+
+  const result = document.getElementById("quizResult");
+
   if (!selected) {
-    resultDiv.innerHTML = '<p style="color: #ffb000;">Please select an answer first.</p>';
+    result.className = "quiz-result wrong";
+    result.innerHTML = "⚠️ Please select an answer first.";
     return;
   }
-  
-  if (selected.value === 'correct') {
-    resultDiv.innerHTML = '<p style="color: #4da3ff;"><strong>✅ Correct!</strong> Phishing uses deceptive messages or websites to trick victims into revealing sensitive information.</p>';
+
+  if (selected.value === "correct") {
+    result.className = "quiz-result correct";
+    result.innerHTML =
+      "✅ <strong>Correct!</strong><br>" +
+      "Phishing uses fake messages, websites or emails to trick people into revealing information such as passwords.";
   } else {
-    resultDiv.innerHTML = '<p style="color: #ff6b6b;"><strong>❌ Not quite.</strong> The correct answer is: Receiving a fake login email designed to steal your password. This is a classic example of phishing.</p>';
+    result.className = "quiz-result wrong";
+    result.innerHTML =
+      "❌ <strong>Not quite.</strong><br>" +
+      "Phishing commonly uses deceptive messages or websites to trick people into giving away sensitive information.";
   }
 }
 </script>
