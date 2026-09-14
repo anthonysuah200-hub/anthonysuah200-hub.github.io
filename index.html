@@ -41,188 +41,300 @@
 <a href="https://overthewire.org/wargames/" target="_blank" rel="noopener"><b>OverTheWire</b><span>Security games for practicing Linux and security skills.</span></a>
 </div></section>
 
-<section class="lessons">
+<section class="lessons" id="course">
 
-<article id="basics" class="lesson-detail">
-  <p class="eyebrow">LESSON 1 • BEGINNER</p>
+  <!-- COURSE HEADER -->
+  <div class="course-header">
+    <p class="eyebrow">SMART TECH HUB COURSE</p>
+    <h2>Cybersecurity Foundations</h2>
+    <p>
+      Learn the fundamentals of cybersecurity through short lessons,
+      practical knowledge and interactive questions.
+    </p>
 
-  <h2>What Is Cybersecurity?</h2>
+    <div class="progress-container">
+      <div class="progress-info">
+        <span>Course Progress</span>
+        <strong id="progressText">0%</strong>
+      </div>
 
-  <p>
-    Cybersecurity is the practice of protecting computers, phones,
-    networks, applications and digital information from unauthorized
-    access, attacks, damage or theft.
-  </p>
-
-  <h3>🎯 What You'll Learn</h3>
-
-  <ul>
-    <li>What cybersecurity means</li>
-    <li>Why cybersecurity is important</li>
-    <li>Common types of cyber threats</li>
-    <li>How attackers target people and organizations</li>
-    <li>Basic ways to protect yourself</li>
-  </ul>
-
-  <h3>🛡️ Why Does Cybersecurity Matter?</h3>
-
-  <p>
-    Almost everything we do today involves technology. We use phones
-    and computers for communication, banking, education, business and
-    entertainment.
-  </p>
-
-  <p>
-    If these systems are not protected, attackers may steal information,
-    take over accounts, spread malware or disrupt important services.
-  </p>
-
-  <div class="lesson-tip">
-    <strong>💡 Smart Tip:</strong>
-    Cybersecurity is not only about protecting computers.
-    It is also about protecting people, information and digital identities.
-  </div>
-
-  <h3>⚠️ Common Cyber Threats</h3>
-
-  <div class="threat-list">
-    <div>
-      <strong>🎣 Phishing</strong>
-      <p>Fake messages or websites designed to trick people into giving away information.</p>
-    </div>
-
-    <div>
-      <strong>🦠 Malware</strong>
-      <p>Malicious software designed to damage systems, steal information or gain unauthorized access.</p>
-    </div>
-
-    <div>
-      <strong>🔑 Password Attacks</strong>
-      <p>Attempts to discover or steal passwords and gain access to accounts.</p>
-    </div>
-
-    <div>
-      <strong>👤 Social Engineering</strong>
-      <p>Manipulating people into revealing information or performing an unsafe action.</p>
+      <div class="progress-bar">
+        <div id="progressBar"></div>
+      </div>
     </div>
   </div>
 
-  <h3>🌍 Real-World Example</h3>
 
-  <p>
-    Imagine receiving an email saying:
-    <strong>"Your bank account will be closed today. Click here to verify."</strong>
-  </p>
+  <!-- LESSON 1 -->
+  <article id="basics" class="course-lesson">
 
-  <p>
-    The message may look legitimate, but the link could lead to a fake
-    website designed to steal your login information.
-  </p>
+    <div class="lesson-number">01</div>
 
-  <div class="lesson-warning">
-    <strong>🚨 Remember:</strong>
-    Never enter your password or sensitive information on a website
-    simply because a message tells you to.
-  </div>
+    <p class="eyebrow">LESSON 1</p>
 
-  <h3>🧠 Quick Check</h3>
+    <h3>What Is Cybersecurity?</h3>
 
-  <div class="quiz" id="quiz1">
-    <h4>🧠 Quick Check</h4>
+    <p>
+      Cybersecurity is the practice of protecting computers, networks,
+      applications and information from unauthorized access, misuse,
+      damage or disruption.
+    </p>
 
-    <p><strong>Which of these is an example of phishing?</strong></p>
+    <h4>Common threats</h4>
 
-    <label class="quiz-option">
-      <input type="radio" name="question1" value="wrong">
-      Installing a software update from your computer settings
-    </label>
+    <ul>
+      <li><strong>Phishing:</strong> deceptive messages designed to trick people.</li>
+      <li><strong>Malware:</strong> harmful software that can damage or compromise systems.</li>
+      <li><strong>Password attacks:</strong> attempts to steal or guess passwords.</li>
+      <li><strong>Social engineering:</strong> manipulating people into revealing information.</li>
+    </ul>
 
-    <label class="quiz-option">
-      <input type="radio" name="question1" value="correct">
-      Receiving a fake login email designed to steal your password
-    </label>
+    <div class="warning-box">
+      <strong>⚠️ Security Tip</strong>
+      <p>
+        Never test, access or attack a computer system without permission.
+        Practice cybersecurity only in authorized environments.
+      </p>
+    </div>
 
-    <label class="quiz-option">
-      <input type="radio" name="question1" value="wrong">
-      Creating a strong password
-    </label>
+    <!-- QUIZ 1 -->
+    <div class="quiz">
+      <h4>🧠 Lesson 1 Quiz</h4>
 
-    <label class="quiz-option">
-      <input type="radio" name="question1" value="wrong">
-      Turning on multi-factor authentication
-    </label>
+      <p><strong>What is the main purpose of cybersecurity?</strong></p>
 
-    <button class="quiz-check" onclick="checkQuiz()">
-      Check Answer
+      <label class="quiz-option">
+        <input type="radio" name="q1" value="wrong">
+        To make computers run faster
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q1" value="correct">
+        To protect systems, networks and information
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q1" value="wrong">
+        To create social media accounts
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q1" value="wrong">
+        To increase internet speed
+      </label>
+
+      <button class="quiz-check" onclick="checkQuestion('q1')">
+        Check Answer
+      </button>
+
+      <div id="result-q1" class="quiz-result"></div>
+    </div>
+
+    <button class="continue-btn" onclick="completeLesson(1)">
+      Continue to Lesson 2 →
     </button>
 
-    <div id="quizResult" class="quiz-result"></div>
-  </div>
-
-  <h3>🏁 Lesson Complete</h3>
-
-  <p>
-    You now understand the basic meaning of cybersecurity and some
-    of the most common threats people face online.
-  </p>
-
-  <a class="btn" href="#safety">Continue to Lesson 2 →</a>
-
-</article>
+  </article>
 
 
-<article id="safety" class="lesson-detail">
-  <p class="eyebrow">LESSON 2 • BEGINNER</p>
+  <!-- LESSON 2 -->
+  <article id="safety" class="course-lesson locked" data-lesson="2">
 
-  <h2>Protect Your Accounts</h2>
+    <div class="lesson-number">02</div>
 
-  <p>
-    Learn how to create stronger passwords, protect your accounts,
-    recognize suspicious login attempts and use multi-factor authentication.
-  </p>
+    <p class="eyebrow">LESSON 2</p>
 
-  <a class="btn" href="#network">Continue to Lesson 3 →</a>
-</article>
+    <h3>Protect Your Accounts</h3>
+
+    <p>
+      Your online accounts contain valuable personal information.
+      Strong authentication and good security habits can greatly reduce
+      the risk of account compromise.
+    </p>
+
+    <h4>Good security habits</h4>
+
+    <ul>
+      <li>Use strong and unique passwords.</li>
+      <li>Enable multi-factor authentication.</li>
+      <li>Keep your software updated.</li>
+      <li>Never share passwords or verification codes.</li>
+      <li>Be careful with unexpected links and attachments.</li>
+    </ul>
+
+    <div class="quiz">
+
+      <h4>🧠 Lesson 2 Quiz</h4>
+
+      <p>
+        <strong>
+          Which security habit provides the strongest protection for an account?
+        </strong>
+      </p>
+
+      <label class="quiz-option">
+        <input type="radio" name="q2" value="wrong">
+        Using the same password everywhere
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q2" value="correct">
+        Using a unique password and multi-factor authentication
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q2" value="wrong">
+        Sharing your password with friends
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q2" value="wrong">
+        Disabling security updates
+      </label>
+
+      <button class="quiz-check" onclick="checkQuestion('q2')">
+        Check Answer
+      </button>
+
+      <div id="result-q2" class="quiz-result"></div>
+
+    </div>
+
+    <button class="continue-btn" onclick="completeLesson(2)">
+      Continue to Lesson 3 →
+    </button>
+
+  </article>
 
 
-<article id="network" class="lesson-detail">
-  <p class="eyebrow">LESSON 3 • BEGINNER</p>
+  <!-- LESSON 3 -->
+  <article id="network" class="course-lesson locked" data-lesson="3">
 
-  <h2>Network Security Basics</h2>
+    <div class="lesson-number">03</div>
 
-  <p>
-    Learn the fundamentals of Wi-Fi security, routers, firewalls,
-    encryption and safer network connections.
-  </p>
+    <p class="eyebrow">LESSON 3</p>
 
-  <a class="btn" href="#ethical">Continue to Lesson 4 →</a>
-</article>
+    <h3>Network Security Basics</h3>
+
+    <p>
+      Networks allow computers and devices to communicate.
+      Network security focuses on protecting those connections,
+      devices and the information moving through them.
+    </p>
+
+    <h4>Important concepts</h4>
+
+    <ul>
+      <li><strong>Router:</strong> directs traffic between networks.</li>
+      <li><strong>Firewall:</strong> helps control network traffic.</li>
+      <li><strong>Encryption:</strong> protects information by transforming it into a protected form.</li>
+      <li><strong>Wi-Fi security:</strong> helps protect wireless networks from unauthorized access.</li>
+    </ul>
+
+    <div class="quiz">
+
+      <h4>🧠 Lesson 3 Quiz</h4>
+
+      <p>
+        <strong>
+          What is one important purpose of a firewall?
+        </strong>
+      </p>
+
+      <label class="quiz-option">
+        <input type="radio" name="q3" value="correct">
+        To help control network traffic
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q3" value="wrong">
+        To increase monitor brightness
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q3" value="wrong">
+        To create stronger passwords automatically
+      </label>
+
+      <label class="quiz-option">
+        <input type="radio" name="q3" value="wrong">
+        To replace an operating system
+      </label>
+
+      <button class="quiz-check" onclick="checkQuestion('q3')">
+        Check Answer
+      </button>
+
+      <div id="result-q3" class="quiz-result"></div>
+
+    </div>
+
+    <button class="continue-btn" onclick="completeLesson(3)">
+      Finish Course 🏆
+    </button>
+
+  </article>
 
 
-<article id="ethical" class="lesson-detail">
-  <p class="eyebrow">LESSON 4 • BEGINNER</p>
+  <!-- FINAL CERTIFICATE -->
+  <section id="certificate" class="certificate" style="display:none;">
 
-  <h2>Ethical Security Testing</h2>
+    <div class="certificate-icon">🏆</div>
 
-  <p>
-    Learn what ethical hacking means and why security testing must
-    always be performed with proper authorization.
-  </p>
+    <p class="eyebrow">COURSE COMPLETED</p>
 
-</article>
+    <h2>Congratulations!</h2>
+
+    <p>
+      You have successfully completed the
+      <strong>Cybersecurity Foundations</strong> course.
+    </p>
+
+    <div class="certificate-card">
+
+      <p>SMART TECH HUB</p>
+
+      <h3>Certificate of Completion</h3>
+
+      <span>This certificate recognizes the successful completion of</span>
+
+      <h4>Cybersecurity Foundations</h4>
+
+      <span>Final Score</span>
+
+      <strong id="finalScore">0 / 3</strong>
+
+    </div>
+
+    <button class="continue-btn" onclick="window.print()">
+      🖨️ Print Certificate
+    </button>
+
+  </section>
 
 </section>
 
-<section id="about" class="cta"><h2>Smarter Today. Safer Tomorrow.</h2><p>Build your cybersecurity knowledge one lesson at a time.</p><a class="btn" href="#lessons">Start Learning Free →</a></section>
+<section id="about" class="cta"><h2>Smarter Today. Safer Tomorrow.</h2><p>Build your cybersecurity knowledge one lesson at a time.</p><a class="btn" href="#course">Start Learning Free →</a></section>
 </main>
 <footer><b>Smart Tech Hub</b><span>Free cybersecurity education • Built for learners</span></footer>
 <script>
-function checkQuiz() {
+
+let score = 0;
+let completedLessons = 0;
+
+const answers = {
+  q1: "correct",
+  q2: "correct",
+  q3: "correct"
+};
+
+function checkQuestion(question) {
+
   const selected = document.querySelector(
-    'input[name="question1"]:checked'
+    'input[name="' + question + '"]:checked'
   );
 
-  const result = document.getElementById("quizResult");
+  const result = document.getElementById("result-" + question);
 
   if (!selected) {
     result.className = "quiz-result wrong";
@@ -230,17 +342,82 @@ function checkQuiz() {
     return;
   }
 
-  if (selected.value === "correct") {
+  if (selected.value === answers[question]) {
+
     result.className = "quiz-result correct";
-    result.innerHTML =
-      "✅ <strong>Correct!</strong><br>" +
-      "Phishing uses fake messages, websites or emails to trick people into revealing information such as passwords.";
+    result.innerHTML = "✅ Correct! Great job.";
+
   } else {
+
     result.className = "quiz-result wrong";
     result.innerHTML =
-      "❌ <strong>Not quite.</strong><br>" +
-      "Phishing commonly uses deceptive messages or websites to trick people into giving away sensitive information.";
+      "❌ Not quite. Review the lesson and try again.";
+
   }
 }
+
+function completeLesson(lesson) {
+
+  const question = "q" + lesson;
+
+  const selected = document.querySelector(
+    'input[name="' + question + '"]:checked'
+  );
+
+  if (!selected) {
+    alert("Please answer the quiz before continuing.");
+    return;
+  }
+
+  if (selected.value !== "correct") {
+    alert("Please answer the quiz correctly before continuing.");
+    return;
+  }
+
+  if (!completedLessons || completedLessons < lesson) {
+    completedLessons = lesson;
+    score = lesson;
+  }
+
+  updateProgress();
+
+  if (lesson === 1) {
+    document.querySelector('[data-lesson="2"]').classList.remove("locked");
+    document.querySelector('[data-lesson="2"]').scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  if (lesson === 2) {
+    document.querySelector('[data-lesson="3"]').classList.remove("locked");
+    document.querySelector('[data-lesson="3"]').scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  if (lesson === 3) {
+    document.getElementById("certificate").style.display = "block";
+
+    document.getElementById("finalScore").textContent =
+      score + " / 3";
+
+    document.getElementById("certificate").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+}
+
+function updateProgress() {
+
+  const percentage =
+    Math.round((completedLessons / 3) * 100);
+
+  document.getElementById("progressBar").style.width =
+    percentage + "%";
+
+  document.getElementById("progressText").textContent =
+    percentage + "%";
+}
+
 </script>
 </body></html>
