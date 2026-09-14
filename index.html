@@ -125,40 +125,38 @@
     simply because a message tells you to.
   </div>
 
-  <h3>🧠 Quick Quiz</h3>
+  <h3>🧠 Quick Check</h3>
 
-  <p><strong>Which of the following is an example of phishing?</strong></p>
+  <div class="quiz" id="quiz1">
+    <h4>🧠 Quick Check</h4>
 
-  <div class="quiz-box">
+    <p><strong>Which of these is an example of phishing?</strong></p>
 
-    <label>
-      <input type="radio" name="quiz1">
-      A. Updating your computer
+    <label class="quiz-option">
+      <input type="radio" name="question1" value="wrong">
+      Installing a software update from your computer settings
     </label>
 
-    <label>
-      <input type="radio" name="quiz1">
-      B. Receiving a fake login link designed to steal your password
+    <label class="quiz-option">
+      <input type="radio" name="question1" value="correct">
+      Receiving a fake login email designed to steal your password
     </label>
 
-    <label>
-      <input type="radio" name="quiz1">
-      C. Creating a strong password
+    <label class="quiz-option">
+      <input type="radio" name="question1" value="wrong">
+      Creating a strong password
     </label>
 
-    <label>
-      <input type="radio" name="quiz1">
-      D. Installing a security update
+    <label class="quiz-option">
+      <input type="radio" name="question1" value="wrong">
+      Turning on multi-factor authentication
     </label>
 
-  </div>
+    <button class="quiz-check" onclick="checkQuiz()">
+      Check Answer
+    </button>
 
-  <div class="lesson-answer">
-    <strong>✅ Correct Answer: B</strong>
-    <p>
-      Phishing uses deceptive messages or websites to trick victims
-      into revealing sensitive information.
-    </p>
+    <div id="quizResult" class="quiz-result"></div>
   </div>
 
   <h3>🏁 Lesson Complete</h3>
@@ -218,4 +216,21 @@
 <section id="about" class="cta"><h2>Smarter Today. Safer Tomorrow.</h2><p>Build your cybersecurity knowledge one lesson at a time.</p><a class="btn" href="#lessons">Start Learning Free →</a></section>
 </main>
 <footer><b>Smart Tech Hub</b><span>Free cybersecurity education • Built for learners</span></footer>
+<script>
+function checkQuiz() {
+  const selected = document.querySelector('input[name="question1"]:checked');
+  const resultDiv = document.getElementById('quizResult');
+  
+  if (!selected) {
+    resultDiv.innerHTML = '<p style="color: #ffb000;">Please select an answer first.</p>';
+    return;
+  }
+  
+  if (selected.value === 'correct') {
+    resultDiv.innerHTML = '<p style="color: #4da3ff;"><strong>✅ Correct!</strong> Phishing uses deceptive messages or websites to trick victims into revealing sensitive information.</p>';
+  } else {
+    resultDiv.innerHTML = '<p style="color: #ff6b6b;"><strong>❌ Not quite.</strong> The correct answer is: Receiving a fake login email designed to steal your password. This is a classic example of phishing.</p>';
+  }
+}
+</script>
 </body></html>
