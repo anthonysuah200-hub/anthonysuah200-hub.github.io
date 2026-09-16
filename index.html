@@ -348,6 +348,11 @@ function checkQuestion(question) {
     result.className = "quiz-result correct";
     result.innerHTML = "✅ Correct! Great job.";
 
+    if (!answeredQuestions[question]) {
+      score++;
+      answeredQuestions[question] = true;
+    }
+
   } else {
 
     result.className = "quiz-result wrong";
