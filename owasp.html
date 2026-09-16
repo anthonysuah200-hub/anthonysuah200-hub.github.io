@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>OWASP Top 10 | Smart Tech Hub</title>
+
+<meta name="description"
+content="Learn the OWASP Top 10 through lessons, vulnerable code examples, defensive fixes, quizzes and safe CTF challenges.">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical"
+href="https://anthonysuah200-hub.github.io/owasp.html">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="nav">
+
+<a class="brand" href="index.html">
+<b>🛡️ Smart Tech <i>Hub</i></b>
+<small>Learn • Protect • Stay Ahead</small>
+</a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="owasp.html">OWASP</a>
+<a href="#ctf">CTF</a>
+</nav>
+
+<a class="btn" href="#lesson1">
+Start Learning
+</a>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="course-page-hero">
+
+<p class="eyebrow">
+SMART TECH HUB • WEB SECURITY
+</p>
+
+<h1>
+OWASP Top 10
+</h1>
+
+<p>
+Learn the most important categories of web application security risks
+through simple explanations, safe code examples, defensive fixes,
+quizzes and practical challenges.
+</p>
+
+</section>
+
+
+<!-- COURSE PROGRESS -->
+
+<section class="section">
+
+<div class="course-header">
+
+<p class="eyebrow">
+YOUR PROGRESS
+</p>
+
+<h2>
+OWASP Security Path
+</h2>
+
+<div class="progress-container">
+
+<div class="progress-info">
+<span>Module Progress</span>
+<strong id="owaspProgressText">0%</strong>
+</div>
+
+<div class="progress-bar">
+<div id="owaspProgressBar"></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LESSON 1 -->
+
+<section class="section">
+
+<article class="course-lesson" id="lesson1">
+
+<div class="lesson-number">
+01
+</div>
+
+<p class="eyebrow">
+OWASP TOP 10
+</p>
+
+<h2>
+Injection
+</h2>
+
+<p>
+Injection vulnerabilities occur when untrusted input is interpreted
+as part of a command or query instead of being treated strictly as data.
+</p>
+
+<h3>Why does it matter?</h3>
+
+<p>
+If an application builds commands or database queries directly from
+untrusted input, an attacker may be able to manipulate the application's
+intended behavior.
+</p>
+
+<div class="warning-box">
+
+<strong>🛡️ Defensive principle</strong>
+
+<p>
+Applications should separate data from instructions and validate input
+according to the application's requirements.
+</p>
+
+</div>
+
+
+<h3>Safe training example</h3>
+
+<p>
+The following intentionally vulnerable example is for a local classroom
+lab only.
+</p>
+
+<pre><code># INTENTIONALLY VULNERABLE — TRAINING ONLY
+
+username = request.form["username"]
+
+query = "SELECT * FROM users WHERE username = '" + username + "'"
+
+database.execute(query)</code></pre>
+
+
+<h3>How should it be fixed?</h3>
+
+<pre><code># SAFER APPROACH
+
+username = request.form["username"]
+
+query = "SELECT * FROM users WHERE username = ?"
+
+database.execute(query, (username,))</code></pre>
+
+<p>
+The safer approach uses a parameterized query so the database can
+distinguish the user's data from the SQL statement.
+</p>
+
+
+<!-- QUIZ -->
+
+<div class="quiz">
+
+<h3>🧠 Lesson Quiz</h3>
+
+<p>
+<strong>
+What defensive technique helps prevent SQL injection?
+</strong>
+</p>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq1" value="wrong">
+Putting SQL commands directly into user input
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq1" value="correct">
+Using parameterized queries
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq1" value="wrong">
+Disabling database backups
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq1" value="wrong">
+Increasing screen brightness
+</label>
+
+<button class="quiz-check"
+onclick="checkOwaspQuestion('owaspq1')">
+Check Answer
+</button>
+
+<div id="result-owaspq1"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button class="continue-btn"
+onclick="completeOwaspLesson(1)">
+Complete Lesson →
+</button>
+
+</article>
+
+</section>
+
+
+<!-- LESSON 2 -->
+
+<section class="section">
+
+<article class="course-lesson locked"
+data-owasp-lesson="2">
+
+<div class="lesson-number">
+02
+</div>
+
+<p class="eyebrow">
+OWASP TOP 10
+</p>
+
+<h2>
+Broken Access Control
+</h2>
+
+<p>
+Access control determines which users are allowed to perform particular
+actions or access particular resources.
+</p>
+
+<h3>Example</h3>
+
+<p>
+Imagine an application where a normal user can view their own profile.
+The application should verify authorization before allowing access to
+another user's private information.
+</p>
+
+<div class="warning-box">
+
+<strong>🔐 Security principle</strong>
+
+<p>
+Authentication answers "Who are you?" while authorization determines
+"What are you allowed to do?"
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h3>🧠 Lesson Quiz</h3>
+
+<p>
+<strong>
+What is the main purpose of authorization?
+</strong>
+</p>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq2" value="wrong">
+To identify the color of a user's device
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq2" value="correct">
+To determine what actions or resources a user is allowed to access
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq2" value="wrong">
+To increase internet bandwidth
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq2" value="wrong">
+To automatically encrypt every file
+</label>
+
+<button class="quiz-check"
+onclick="checkOwaspQuestion('owaspq2')">
+Check Answer
+</button>
+
+<div id="result-owaspq2"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button class="continue-btn"
+onclick="completeOwaspLesson(2)">
+Complete Lesson →
+</button>
+
+</article>
+
+</section>
+
+
+<!-- LESSON 3 -->
+
+<section class="section">
+
+<article class="course-lesson locked"
+data-owasp-lesson="3">
+
+<div class="lesson-number">
+03
+</div>
+
+<p class="eyebrow">
+OWASP TOP 10
+</p>
+
+<h2>
+Cross-Site Scripting (XSS)
+</h2>
+
+<p>
+Cross-Site Scripting occurs when an application allows untrusted content
+to be interpreted as executable content in a user's browser.
+</p>
+
+<h3>Common defenses</h3>
+
+<ul>
+<li>Validate input according to application requirements.</li>
+<li>Encode output appropriately for its context.</li>
+<li>Use secure browser security controls such as Content Security Policy
+where appropriate.</li>
+<li>Avoid inserting untrusted content into dangerous HTML contexts.</li>
+</ul>
+
+
+<div class="warning-box">
+
+<strong>⚠️ Important</strong>
+
+<p>
+Only test XSS in applications you own or in intentionally vulnerable
+training environments.
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h3>🧠 Lesson Quiz</h3>
+
+<p>
+<strong>
+Which environment is appropriate for practicing XSS?
+</strong>
+</p>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq3" value="wrong">
+A random website on the internet
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq3" value="correct">
+An authorized local or intentionally vulnerable training lab
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq3" value="wrong">
+A stranger's social media account
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="owaspq3" value="wrong">
+A public banking website
+</label>
+
+<button class="quiz-check"
+onclick="checkOwaspQuestion('owaspq3')">
+Check Answer
+</button>
+
+<div id="result-owaspq3"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button class="continue-btn"
+onclick="completeOwaspLesson(3)">
+Continue to CTF →
+</button>
+
+</article>
+
+</section>
+
+
+<!-- CTF -->
+
+<section class="section dark" id="ctf">
+
+<div class="course-header">
+
+<p class="eyebrow">
+PRACTICAL CHALLENGE
+</p>
+
+<h2>
+🚩 Mini Web Security CTF
+</h2>
+
+<p>
+Analyze the fictional application below and identify the security
+principle being violated.
+</p>
+
+</div>
+
+
+<article class="course-lesson">
+
+<h3>
+Challenge: The Forgotten Door
+</h3>
+
+<p>
+You are reviewing a fictional training application called
+<strong>SecureBank.test</strong>.
+</p>
+
+<p>
+The application contains an administrator dashboard.
+During your security review, you discover that the application checks
+whether a user is logged in, but does not properly verify whether that
+user is authorized to access the administrator function.
+</p>
+
+<h3>Your Mission</h3>
+
+<p>
+Identify the OWASP vulnerability category represented by this scenario.
+</p>
+
+<div class="quiz">
+
+<p>
+<strong>
+Which security weakness is demonstrated?
+</strong>
+</p>
+
+<label class="quiz-option">
+<input type="radio" name="ctfq1" value="wrong">
+Injection
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="ctfq1" value="correct">
+Broken Access Control
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="ctfq1" value="wrong">
+Cryptographic Failure
+</label>
+
+<label class="quiz-option">
+<input type="radio" name="ctfq1" value="wrong">
+Security Misconfiguration
+</label>
+
+<button class="quiz-check"
+onclick="checkOwaspQuestion('ctfq1')">
+Submit CTF Answer
+</button>
+
+<div id="result-ctfq1"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<h3>🚩 Flag</h3>
+
+<div id="flagBox"
+class="warning-box"
+style="display:none;">
+
+<strong>
+FLAG{ACCESS_CONTROL_MATTERS}
+</strong>
+
+<p>
+You identified the authorization weakness in the fictional application.
+</p>
+
+</div>
+
+</article>
+
+</section>
+
+
+<!-- FINAL SCORE -->
+
+<section class="cta">
+
+<p class="eyebrow">
+MODULE COMPLETE
+</p>
+
+<h2>
+OWASP Training Score
+</h2>
+
+<p>
+Your current score:
+</p>
+
+<h2 id="owaspScore">
+0 / 4
+</h2>
+
+<button class="btn"
+onclick="resetOwaspCourse()">
+Reset Module
+</button>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<b>Smart Tech Hub</b>
+
+<span>
+Free cybersecurity education • Learn • Practice • Protect
+</span>
+
+</footer>
+
+
+<script>
+
+let owaspScore = 0;
+let completedOwaspLessons = 0;
+let answeredOwaspQuestions = {};
+
+const owaspAnswers = {
+
+  owaspq1: "correct",
+  owaspq2: "correct",
+  owaspq3: "correct",
+  ctfq1: "correct"
+
+};
+
+
+function checkOwaspQuestion(question) {
+
+  const selected = document.querySelector(
+    'input[name="' + question + '"]:checked'
+  );
+
+  const result = document.getElementById(
+    "result-" + question
+  );
+
+  if (!selected) {
+
+    result.className = "quiz-result wrong";
+
+    result.innerHTML =
+      "⚠️ Please select an answer first.";
+
+    return;
+
+  }
+
+
+  if (selected.value === owaspAnswers[question]) {
+
+    result.className = "quiz-result correct";
+
+    result.innerHTML =
+      "✅ Correct! Excellent work.";
+
+    if (!answeredOwaspQuestions[question]) {
+
+      owaspScore++;
+
+      answeredOwaspQuestions[question] = true;
+
+      updateOwaspScore();
+
+    }
+
+
+    if (question === "ctfq1") {
+
+      document.getElementById("flagBox").style.display =
+        "block";
+
+    }
+
+  } else {
+
+    result.className = "quiz-result wrong";
+
+    result.innerHTML =
+      "❌ Not quite. Review the lesson and try again.";
+
+  }
+
+}
+
+
+function completeOwaspLesson(lesson) {
+
+  const question =
+    "owaspq" + lesson;
+
+  const selected =
+    document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
+
+  if (!selected) {
+
+    alert(
+      "Please answer the quiz before continuing."
+    );
+
+    return;
+
+  }
+
+
+  if (selected.value !== "correct") {
+
+    alert(
+      "Please answer the quiz correctly before continuing."
+    );
+
+    return;
+
+  }
+
+
+  if (lesson > completedOwaspLessons) {
+
+    completedOwaspLessons = lesson;
+
+  }
+
+
+  updateOwaspProgress();
+
+
+  if (lesson === 1) {
+
+    document.querySelector(
+      '[data-owasp-lesson="2"]'
+    ).classList.remove("locked");
+
+    document.querySelector(
+      '[data-owasp-lesson="2"]'
+    ).scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }
+
+
+  if (lesson === 2) {
+
+    document.querySelector(
+      '[data-owasp-lesson="3"]'
+    ).classList.remove("locked");
+
+    document.querySelector(
+      '[data-owasp-lesson="3"]'
+    ).scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }
+
+
+  if (lesson === 3) {
+
+    document.getElementById("ctf")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  }
+
+}
+
+
+function updateOwaspProgress() {
+
+  const percentage =
+    Math.round(
+      (completedOwaspLessons / 3) * 100
+    );
+
+
+  document.getElementById(
+    "owaspProgressBar"
+  ).style.width =
+    percentage + "%";
+
+
+  document.getElementById(
+    "owaspProgressText"
+  ).textContent =
+    percentage + "%";
+
+}
+
+
+function updateOwaspScore() {
+
+  document.getElementById(
+    "owaspScore"
+  ).textContent =
+    owaspScore + " / 4";
+
+}
+
+
+function resetOwaspCourse() {
+
+  owaspScore = 0;
+
+  completedOwaspLessons = 0;
+
+  answeredOwaspQuestions = {};
+
+  document.querySelectorAll(
+    ".course-lesson.locked"
+  ).forEach(function(lesson) {
+
+    lesson.classList.add("locked");
+
+  });
+
+
+  document.getElementById(
+    "owaspProgressBar"
+  ).style.width = "0%";
+
+
+  document.getElementById(
+    "owaspProgressText"
+  ).textContent = "0%";
+
+
+  updateOwaspScore();
+
+  document.getElementById(
+    "flagBox"
+  ).style.display = "none";
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
