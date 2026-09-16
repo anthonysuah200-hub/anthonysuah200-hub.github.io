@@ -1,0 +1,8 @@
+services:
+
+  securebank:
+    build: .
+    container_name: smarttechhub-securebank
+    ports:
+      - "8080:8080"
+    restart: "no"
