@@ -1,0 +1,1740 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Network Security Course | Smart Tech Hub</title>
+
+<meta name="description"
+content="Learn network security fundamentals including IP addresses, ports, TCP, UDP, DNS, firewalls and safe network scanning.">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical"
+href="https://anthonysuah200-hub.github.io/network-security.html">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="nav">
+
+<a class="brand" href="index.html">
+
+<b>
+🛡️ Smart Tech <i>Hub</i>
+</b>
+
+<small>
+Learn • Practice • Protect
+</small>
+
+</a>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="courses.html">Courses</a>
+
+<a href="owasp.html">OWASP</a>
+
+<a href="labs.html">Labs</a>
+
+<a href="ctf.html">CTF</a>
+
+<a href="index.html#resources">Resources</a>
+
+</nav>
+
+
+<a class="btn" href="#lesson1">
+Start Course
+</a>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="course-page-hero">
+
+<p class="eyebrow">
+SMART TECH HUB • NETWORK SECURITY
+</p>
+
+<h1>
+🌐 Network Security
+</h1>
+
+<p>
+
+Understand how computers communicate across networks
+and learn the fundamentals security professionals use
+to protect those connections.
+
+</p>
+
+</section>
+
+
+
+<main>
+
+
+<!-- =========================================
+     COURSE PROGRESS
+========================================= -->
+
+<section class="section">
+
+<div class="course-header">
+
+<p class="eyebrow">
+YOUR PROGRESS
+</p>
+
+<h2>
+Network Security Foundations
+</h2>
+
+<p>
+Complete each lesson and quiz to progress through
+the course.
+</p>
+
+
+<div class="progress-container">
+
+<div class="progress-info">
+
+<span>
+Course Progress
+</span>
+
+<strong id="networkProgressText">
+0%
+</strong>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div id="networkProgressBar">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 1
+========================================= -->
+
+<section class="section">
+
+<article
+class="course-lesson"
+id="lesson1">
+
+<div class="lesson-number">
+01
+</div>
+
+<p class="eyebrow">
+LESSON 1
+</p>
+
+<h2>
+IP Addresses
+</h2>
+
+<p>
+
+An IP address identifies a device or network interface
+on an IP network. It allows devices to know where
+network traffic should be delivered.
+
+</p>
+
+
+<h3>
+IPv4 Example
+</h3>
+
+<pre><code>192.168.1.10</code></pre>
+
+
+<h3>
+Private IPv4 Addresses</h3>
+
+<p>
+
+Private addresses are commonly used inside local
+networks and are not directly routable across the
+public Internet.
+
+</p>
+
+
+<ul>
+
+<li>
+10.0.0.0 – 10.255.255.255
+</li>
+
+<li>
+172.16.0.0 – 172.31.255.255
+</li>
+
+<li>
+192.168.0.0 – 192.168.255.255
+</li>
+
+</ul>
+
+
+<div class="warning-box">
+
+<strong>
+🛡️ Security Tip
+</strong>
+
+<p>
+
+An IP address by itself does not tell you everything
+about a device. Network security requires understanding
+the device, services, permissions and context.
+
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 1 Quiz
+</h4>
+
+<p>
+<strong>
+What is one important purpose of an IP address?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq1"
+value="wrong">
+
+To increase CPU speed
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq1"
+value="correct">
+
+To identify a network interface and help deliver traffic
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq1"
+value="wrong">
+
+To replace a password
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq1"
+value="wrong">
+
+To increase screen brightness
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq1')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq1"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(1)">
+
+Continue to Lesson 2 →
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 2
+========================================= -->
+
+<section class="section dark">
+
+<article
+class="course-lesson locked"
+data-network-lesson="2">
+
+<div class="lesson-number">
+02
+</div>
+
+<p class="eyebrow">
+LESSON 2
+</p>
+
+<h2>
+🔌 Ports & Services
+</h2>
+
+<p>
+
+A port is a logical communication endpoint.
+Applications can use different ports to communicate
+over a network.
+
+</p>
+
+
+<h3>
+Common Examples
+</h3>
+
+
+<table style="width:100%;border-collapse:collapse;margin:20px 0;">
+
+<tr>
+
+<th style="padding:12px;text-align:left;">
+Port
+</th>
+
+<th style="padding:12px;text-align:left;">
+Common Service
+</th>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:12px;">
+22
+</td>
+
+<td style="padding:12px;">
+SSH
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:12px;">
+53
+</td>
+
+<td style="padding:12px;">
+DNS
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:12px;">
+80
+</td>
+
+<td style="padding:12px;">
+HTTP
+</td>
+
+</tr>
+
+
+<tr>
+
+<td style="padding:12px;">
+443
+</td>
+
+<td style="padding:12px;">
+HTTPS
+</td>
+
+</tr>
+
+</table>
+
+
+<div class="warning-box">
+
+<strong>
+⚠️ Remember
+</strong>
+
+<p>
+
+An open port does not automatically mean a system
+has been compromised. It means a service is listening
+for network communication.
+
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 2 Quiz
+</h4>
+
+
+<p>
+<strong>
+Which service commonly uses TCP port 443?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq2"
+value="wrong">
+
+DNS
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq2"
+value="correct">
+
+HTTPS
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq2"
+value="wrong">
+
+FTP
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq2"
+value="wrong">
+
+SSH
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq2')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq2"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(2)">
+
+Continue to Lesson 3 →
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 3
+========================================= -->
+
+<section class="section">
+
+<article
+class="course-lesson locked"
+data-network-lesson="3">
+
+<div class="lesson-number">
+03
+</div>
+
+<p class="eyebrow">
+LESSON 3
+</p>
+
+<h2>
+📡 TCP vs UDP
+</h2>
+
+<p>
+
+TCP and UDP are transport-layer protocols used
+to move data between applications.
+
+</p>
+
+
+<h3>
+TCP</h3>
+
+<ul>
+
+<li>
+Connection-oriented
+</li>
+
+<li>
+Designed for reliable delivery
+</li>
+
+<li>
+Uses acknowledgements and sequencing
+</li>
+
+</ul>
+
+
+<h3>
+UDP</h3>
+
+<ul>
+
+<li>
+Connectionless
+</li>
+
+<li>
+Lower overhead
+</li>
+
+<li>
+Does not provide TCP-style delivery guarantees
+</li>
+
+</ul>
+
+
+<div class="warning-box">
+
+<strong>
+💡 Simple Way to Remember
+</strong>
+
+<p>
+
+TCP focuses on reliable communication.
+UDP focuses on lightweight communication without
+TCP's connection and delivery mechanisms.
+
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 3 Quiz
+</h4>
+
+
+<p>
+<strong>
+Which protocol is connection-oriented?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq3"
+value="correct">
+
+TCP
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq3"
+value="wrong">
+
+UDP
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq3"
+value="wrong">
+
+DNS
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq3"
+value="wrong">
+
+HTTP
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq3')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq3"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(3)">
+
+Continue to Lesson 4 →
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 4
+========================================= -->
+
+<section class="section dark">
+
+<article
+class="course-lesson locked"
+data-network-lesson="4">
+
+<div class="lesson-number">
+04
+</div>
+
+<p class="eyebrow">
+LESSON 4
+</p>
+
+<h2>
+🧭 DNS
+</h2>
+
+<p>
+
+The Domain Name System, or DNS, translates domain
+names into information such as IP addresses so that
+clients can locate services on networks.
+
+</p>
+
+
+<h3>
+Example</h3>
+
+<pre><code>example.com
+      ↓
+   DNS lookup
+      ↓
+IP address</code></pre>
+
+
+<h3>
+Why DNS Security Matters
+</h3>
+
+<ul>
+
+<li>
+DNS is an important part of normal Internet communication.
+</li>
+
+<li>
+Incorrect DNS information can redirect users to unwanted destinations.
+</li>
+
+<li>
+Security teams monitor DNS activity for suspicious behavior.
+</li>
+
+</ul>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 4 Quiz
+</h4>
+
+
+<p>
+<strong>
+What is a primary purpose of DNS?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq4"
+value="correct">
+
+Helping translate domain names into network information
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq4"
+value="wrong">
+
+Encrypting every file on a computer
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq4"
+value="wrong">
+
+Increasing monitor resolution
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq4"
+value="wrong">
+
+Replacing a firewall
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq4')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq4"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(4)">
+
+Continue to Lesson 5 →
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 5
+========================================= -->
+
+<section class="section">
+
+<article
+class="course-lesson locked"
+data-network-lesson="5">
+
+<div class="lesson-number">
+05
+</div>
+
+<p class="eyebrow">
+LESSON 5
+</p>
+
+<h2>
+🔥 Firewalls
+</h2>
+
+<p>
+
+A firewall helps control network traffic according
+to configured rules. Firewalls can exist on individual
+devices, servers or network infrastructure.
+
+</p>
+
+
+<h3>
+Firewall Rules Can Consider
+</h3>
+
+<ul>
+
+<li>
+Source and destination
+</li>
+
+<li>
+Protocol
+</li>
+
+<li>
+Port
+</li>
+
+<li>
+Direction of traffic
+</li>
+
+<li>
+Application or service
+</li>
+
+</ul>
+
+
+<div class="warning-box">
+
+<strong>
+🛡️ Security Principle
+</strong>
+
+<p>
+
+A firewall should allow necessary communication
+while restricting traffic that is not authorized
+or required.
+
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 5 Quiz
+</h4>
+
+
+<p>
+<strong>
+What is an important purpose of a firewall?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq5"
+value="correct">
+
+To control network traffic according to security rules
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq5"
+value="wrong">
+
+To create social media accounts
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq5"
+value="wrong">
+
+To increase monitor brightness
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq5"
+value="wrong">
+
+To replace the computer's operating system
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq5')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq5"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(5)">
+
+Continue to Lesson 6 →
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     LESSON 6 — SAFE NMAP
+========================================= -->
+
+<section class="section dark">
+
+<article
+class="course-lesson locked"
+data-network-lesson="6">
+
+<div class="lesson-number">
+06
+</div>
+
+<p class="eyebrow">
+LESSON 6
+</p>
+
+<h2>
+🔎 Network Discovery with Nmap
+</h2>
+
+<p>
+
+Nmap is a network discovery and security auditing
+tool. Security professionals can use it to identify
+hosts, services and other network information in
+authorized environments.
+
+</p>
+
+
+<div class="warning-box">
+
+<strong>
+⚠️ Authorization Required
+</strong>
+
+<p>
+
+Only scan devices and networks that you own or have
+explicit permission to test. For practice, use your
+own computer, your own virtual machines or an
+intentionally provided training environment.
+
+</p>
+
+</div>
+
+
+<h3>
+Safe Local Example
+</h3>
+
+
+<p>
+
+If you are running a training service on your own
+computer, you can practice against the local host:
+
+</p>
+
+
+<pre><code>nmap 127.0.0.1</code></pre>
+
+
+<p>
+
+To learn more about the command and its options:
+
+</p>
+
+
+<pre><code>nmap --help</code></pre>
+
+
+<h3>
+What Nmap Can Help Identify
+</h3>
+
+<ul>
+
+<li>
+Available hosts
+</li>
+
+<li>
+Open ports
+</li>
+
+<li>
+Detected services
+</li>
+
+<li>
+Service versions in authorized assessments
+</li>
+
+</ul>
+
+
+<div class="quiz">
+
+<h4>
+🧠 Lesson 6 Quiz
+</h4>
+
+
+<p>
+<strong>
+What should you do before scanning a device
+that you do not own?
+</strong>
+</p>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq6"
+value="wrong">
+
+Scan it immediately.
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq6"
+value="correct">
+
+Obtain explicit authorization first.
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq6"
+value="wrong">
+
+Guess the owner's password.
+
+</label>
+
+
+<label class="quiz-option">
+
+<input
+type="radio"
+name="networkq6"
+value="wrong">
+
+Disable the device's firewall.
+
+</label>
+
+
+<button
+class="quiz-check"
+onclick="checkNetworkQuestion('networkq6')">
+
+Check Answer
+
+</button>
+
+
+<div
+id="result-networkq6"
+class="quiz-result">
+</div>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="completeNetworkLesson(6)">
+
+Finish Course 🏆
+
+</button>
+
+
+</article>
+
+</section>
+
+
+
+<!-- =========================================
+     CERTIFICATE
+========================================= -->
+
+<section
+id="networkCertificate"
+class="certificate"
+style="display:none;">
+
+
+<div class="certificate-icon">
+🏆
+</div>
+
+
+<p class="eyebrow">
+COURSE COMPLETED
+</p>
+
+
+<h2>
+Congratulations!
+</h2>
+
+
+<p>
+
+You completed the
+<strong>
+Network Security Foundations
+</strong>
+course.
+
+</p>
+
+
+<div class="certificate-card">
+
+<p>
+SMART TECH HUB
+</p>
+
+
+<h3>
+Certificate of Completion
+</h3>
+
+
+<span>
+This certificate recognizes successful completion of
+</span>
+
+
+<h4>
+Network Security Foundations
+</h4>
+
+
+<span>
+Final Score
+</span>
+
+
+<strong id="networkFinalScore">
+0 / 6
+</strong>
+
+</div>
+
+
+<button
+class="continue-btn"
+onclick="window.print()">
+
+🖨️ Print Certificate
+
+</button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     NEXT LEARNING
+========================================= -->
+
+<section class="cta">
+
+<p class="eyebrow">
+NEXT STEP
+</p>
+
+<h2>
+Ready for More Cybersecurity?
+</h2>
+
+<p>
+
+Continue with web security, cryptography,
+practical labs and CTF challenges.
+
+</p>
+
+
+<a
+class="btn"
+href="owasp.html">
+
+Learn OWASP →
+
+</a>
+
+
+<a
+class="btn ghost"
+href="ctf.html">
+
+Try CTF →
+
+</a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+<b>
+🛡️ Smart Tech Hub
+</b>
+
+
+<span>
+Free cybersecurity education •
+Learn • Practice • Protect
+</span>
+
+
+<div>
+
+<a href="index.html">Home</a>
+&nbsp; • &nbsp;
+<a href="courses.html">Courses</a>
+&nbsp; • &nbsp;
+<a href="owasp.html">OWASP</a>
+&nbsp; • &nbsp;
+<a href="labs.html">Labs</a>
+&nbsp; • &nbsp;
+<a href="ctf.html">CTF</a>
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+const networkAnswers = {
+
+networkq1: "correct",
+
+networkq2: "correct",
+
+networkq3: "correct",
+
+networkq4: "correct",
+
+networkq5: "correct",
+
+networkq6: "correct"
+
+};
+
+
+let networkScore =
+parseInt(
+localStorage.getItem("sth_network_score")
+) || 0;
+
+
+let completedNetworkLessons =
+parseInt(
+localStorage.getItem("sth_network_progress")
+) || 0;
+
+
+let answeredNetworkQuestions =
+JSON.parse(
+localStorage.getItem("sth_network_answers")
+) || {};
+
+
+
+function checkNetworkQuestion(question) {
+
+
+const selected =
+document.querySelector(
+'input[name="' + question + '"]:checked'
+);
+
+
+const result =
+document.getElementById(
+"result-" + question
+);
+
+
+if (!selected) {
+
+result.className =
+"quiz-result wrong";
+
+result.innerHTML =
+"⚠️ Please select an answer first.";
+
+return;
+
+}
+
+
+if (
+selected.value ===
+networkAnswers[question]
+) {
+
+
+result.className =
+"quiz-result correct";
+
+result.innerHTML =
+"✅ Correct! Great job.";
+
+
+if (!answeredNetworkQuestions[question]) {
+
+networkScore++;
+
+answeredNetworkQuestions[question] =
+true;
+
+
+saveNetworkProgress();
+
+}
+
+} else {
+
+result.className =
+"quiz-result wrong";
+
+result.innerHTML =
+"❌ Not quite. Review the lesson and try again.";
+
+}
+
+}
+
+
+
+function completeNetworkLesson(lesson) {
+
+
+const question =
+"networkq" + lesson;
+
+
+const selected =
+document.querySelector(
+'input[name="' + question + '"]:checked'
+);
+
+
+if (!selected) {
+
+alert(
+"Please answer the quiz before continuing."
+);
+
+return;
+
+}
+
+
+if (selected.value !== "correct") {
+
+alert(
+"Please answer the quiz correctly before continuing."
+);
+
+return;
+
+}
+
+
+if (
+lesson >
+completedNetworkLessons
+) {
+
+completedNetworkLessons =
+lesson;
+
+}
+
+
+saveNetworkProgress();
+
+updateNetworkProgress();
+
+
+
+if (lesson < 6) {
+
+
+const nextLesson =
+document.querySelector(
+'[data-network-lesson="' +
+(lesson + 1) +
+'"]'
+);
+
+
+if (nextLesson) {
+
+nextLesson.classList.remove(
+"locked"
+);
+
+
+nextLesson.scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+}
+
+
+if (lesson === 6) {
+
+
+document.getElementById(
+"networkCertificate"
+).style.display =
+"block";
+
+
+document.getElementById(
+"networkFinalScore"
+).textContent =
+networkScore + " / 6";
+
+
+document.getElementById(
+"networkCertificate"
+).scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+}
+
+
+
+function updateNetworkProgress() {
+
+
+const percentage =
+Math.round(
+(completedNetworkLessons / 6) * 100
+);
+
+
+document.getElementById(
+"networkProgressBar"
+).style.width =
+percentage + "%";
+
+
+document.getElementById(
+"networkProgressText"
+).textContent =
+percentage + "%";
+
+}
+
+
+
+function saveNetworkProgress() {
+
+
+localStorage.setItem(
+"sth_network_score",
+networkScore
+);
+
+
+localStorage.setItem(
+"sth_network_progress",
+completedNetworkLessons
+);
+
+
+localStorage.setItem(
+"sth_network_answers",
+JSON.stringify(
+answeredNetworkQuestions
+)
+);
+
+}
+
+
+
+function restoreNetworkProgress() {
+
+
+for (
+let lesson = 2;
+lesson <= completedNetworkLessons;
+lesson++
+) {
+
+
+const lessonElement =
+document.querySelector(
+'[data-network-lesson="' +
+lesson +
+'"]'
+);
+
+
+if (lessonElement) {
+
+lessonElement.classList.remove(
+"locked"
+);
+
+}
+
+}
+
+
+if (
+completedNetworkLessons >= 6
+) {
+
+document.getElementById(
+"networkCertificate"
+).style.display =
+"block";
+
+
+document.getElementById(
+"networkFinalScore"
+).textContent =
+networkScore + " / 6";
+
+}
+
+
+updateNetworkProgress();
+
+}
+
+
+restoreNetworkProgress();
+
+
+</script>
+
+
+</body>
+
+</html>
