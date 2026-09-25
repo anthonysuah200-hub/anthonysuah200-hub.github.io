@@ -1,1740 +1,2171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Network Security | Smart Tech Hub</title>
 
-<title>Network Security Course | Smart Tech Hub</title>
+  <meta name="description"
+        content="Learn network security, networking fundamentals, protocols, ports, cybersecurity concepts, Nmap, and defensive security through Smart Tech Hub.">
 
-<meta name="description"
-content="Learn network security fundamentals including IP addresses, ports, TCP, UDP, DNS, firewalls and safe network scanning.">
+  <link rel="canonical"
+        href="https://anthonysuah200-hub.github.io/network-security.html">
 
-<meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="style.css">
 
-<link rel="canonical"
-href="https://anthonysuah200-hub.github.io/network-security.html">
+  <style>
+    .network-hero {
+      padding: 70px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #071a33, #0b2d52);
+      border-radius: 18px;
+      margin-bottom: 30px;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .network-hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
 
+    .network-hero p {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+      color: #d9e7f5;
+    }
+
+    .progress-container {
+      max-width: 850px;
+      margin: 25px auto;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #172b43;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: #29a9ff;
+      transition: width 0.3s ease;
+    }
+
+    .lesson-card,
+    .definition-card,
+    .quiz-box,
+    .certificate {
+      background: #0b1d32;
+      border: 1px solid #193b5c;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 25px 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    }
+
+    .lesson-card h2,
+    .definition-card h3 {
+      color: #48b7ff;
+    }
+
+    .lesson-card p,
+    .definition-card p {
+      line-height: 1.8;
+      color: #d7e3ef;
+    }
+
+    .definition-card {
+      scroll-margin-top: 90px;
+    }
+
+    .term-number {
+      color: #7ac7ff;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .category-title {
+      margin-top: 45px;
+      color: #ffffff;
+      border-left: 5px solid #29a9ff;
+      padding-left: 15px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 800px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #285273;
+      background: #071525;
+      color: white;
+      font-size: 16px;
+      margin: 15px 0 30px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: #29a9ff;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      background: #123b5d;
+      color: #8fd4ff;
+      font-size: 13px;
+    }
+
+    .example-box {
+      background: #071525;
+      border-left: 4px solid #29a9ff;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .example-box strong {
+      color: #ffffff;
+    }
+
+    .quiz-option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #285273;
+      border-radius: 8px;
+      background: #081a2d;
+      color: white;
+      cursor: pointer;
+    }
+
+    .quiz-option:hover {
+      background: #102e49;
+    }
+
+    .quiz-result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .certificate {
+      text-align: center;
+      display: none;
+      border: 2px solid #29a9ff;
+    }
+
+    .certificate h2 {
+      color: #48b7ff;
+      font-size: 30px;
+    }
+
+    .warning-box {
+      background: #241b08;
+      border: 1px solid #765a18;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    .warning-box strong {
+      color: #ffd36a;
+    }
+
+    .no-results {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      color: #a9bfd1;
+    }
+
+    @media (max-width: 700px) {
+      .network-hero h1 {
+        font-size: 31px;
+      }
+
+      .lesson-card,
+      .definition-card,
+      .quiz-box {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+<header>
+  <div class="container">
+    <h2>Smart Tech Hub</h2>
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
-
-<header class="nav">
-
-<a class="brand" href="index.html">
-
-<b>
-🛡️ Smart Tech <i>Hub</i>
-</b>
-
-<small>
-Learn • Practice • Protect
-</small>
-
-</a>
-
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="courses.html">Courses</a>
-
-<a href="owasp.html">OWASP</a>
-
-<a href="labs.html">Labs</a>
-
-<a href="ctf.html">CTF</a>
-
-<a href="index.html#resources">Resources</a>
-
-</nav>
-
-
-<a class="btn" href="#lesson1">
-Start Course
-</a>
-
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="owasp.html">OWASP</a>
+      <a href="labs.html">Labs</a>
+      <a href="ctf.html">CTF</a>
+      <a href="network-security.html">Network Security</a>
+    </nav>
+  </div>
 </header>
 
 
+<main class="container">
 
-<!-- =========================================
-     HERO
-========================================= -->
+  <!-- HERO -->
+  <section class="network-hero">
 
-<section class="course-page-hero">
+    <h1>Network Security</h1>
 
-<p class="eyebrow">
-SMART TECH HUB • NETWORK SECURITY
-</p>
+    <p>
+      Learn how computer networks communicate, how network devices work,
+      how protocols transfer information, and how cybersecurity professionals
+      protect networks from threats.
+    </p>
 
-<h1>
-🌐 Network Security
-</h1>
+    <div class="progress-container">
 
-<p>
+      <p>
+        Course Progress:
+        <strong id="progressText">0%</strong>
+      </p>
 
-Understand how computers communicate across networks
-and learn the fundamentals security professionals use
-to protect those connections.
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
 
-</p>
+    </div>
 
-</section>
+  </section>
 
 
+  <!-- SAFETY -->
+  <div class="warning-box">
 
-<main>
+    <strong>⚠️ Safe Learning Rule</strong>
 
+    <p>
+      Practice networking and security techniques only on systems, devices,
+      networks, and applications that you own or have explicit permission
+      to test.
+    </p>
 
-<!-- =========================================
-     COURSE PROGRESS
-========================================= -->
+    <p>
+      The Nmap examples on this page are intended for localhost, your own
+      laboratory, or authorized training environments.
+    </p>
 
-<section class="section">
+  </div>
 
-<div class="course-header">
 
-<p class="eyebrow">
-YOUR PROGRESS
-</p>
+  <!-- LESSONS -->
 
-<h2>
-Network Security Foundations
-</h2>
+  <h2>📚 Network Security Lessons</h2>
 
-<p>
-Complete each lesson and quiz to progress through
-the course.
-</p>
 
+  <section class="lesson-card">
 
-<div class="progress-container">
+    <h2>Lesson 1: IP Addresses</h2>
 
-<div class="progress-info">
+    <p>
+      An IP address identifies a device or network interface on an IP network.
+      IPv4 addresses are commonly written in dotted-decimal form, such as
+      <strong>192.168.1.10</strong>. IPv6 uses a much larger address space and
+      is written using hexadecimal notation.
+    </p>
 
-<span>
-Course Progress
-</span>
+    <p>
+      Understanding IP addresses is important for cybersecurity because
+      security professionals use them when analyzing network connections,
+      investigating logs, identifying systems, and understanding how traffic
+      moves between devices.
+    </p>
 
-<strong id="networkProgressText">
-0%
-</strong>
+  </section>
 
-</div>
 
+  <section class="lesson-card">
 
-<div class="progress-bar">
+    <h2>Lesson 2: Ports and Services</h2>
 
-<div id="networkProgressBar">
-</div>
+    <p>
+      A port is a logical communication endpoint used by network applications.
+      Different services commonly use different port numbers. For example,
+      HTTPS commonly uses port 443.
+    </p>
 
-</div>
+    <p>
+      Security professionals examine ports to understand which services are
+      available on a system. Unnecessary services should generally be disabled
+      or properly secured because every exposed service can contribute to a
+      system's attack surface.
+    </p>
 
-</div>
+  </section>
 
-</div>
 
-</section>
+  <section class="lesson-card">
 
+    <h2>Lesson 3: TCP and UDP</h2>
 
+    <p>
+      TCP and UDP are transport-layer protocols. TCP provides connection-oriented
+      communication and includes mechanisms for reliable delivery, while UDP
+      provides a simpler connectionless method of sending data.
+    </p>
 
-<!-- =========================================
-     LESSON 1
-========================================= -->
+    <p>
+      Different applications use different transport protocols depending on
+      their requirements. Understanding TCP and UDP helps cybersecurity
+      students interpret network traffic and understand how services
+      communicate.
+    </p>
 
-<section class="section">
+  </section>
 
-<article
-class="course-lesson"
-id="lesson1">
 
-<div class="lesson-number">
-01
-</div>
+  <section class="lesson-card">
 
-<p class="eyebrow">
-LESSON 1
-</p>
+    <h2>Lesson 4: DNS</h2>
 
-<h2>
-IP Addresses
-</h2>
+    <p>
+      DNS stands for Domain Name System. It translates human-readable domain
+      names such as example.com into IP addresses that computers can use.
+    </p>
 
-<p>
+    <p>
+      DNS is important to cybersecurity because attackers and defenders both
+      interact with DNS infrastructure. Security teams may monitor DNS activity
+      for unusual domains, suspicious requests, or signs of malicious activity.
+    </p>
 
-An IP address identifies a device or network interface
-on an IP network. It allows devices to know where
-network traffic should be delivered.
+  </section>
 
-</p>
 
+  <section class="lesson-card">
 
-<h3>
-IPv4 Example
-</h3>
+    <h2>Lesson 5: Firewalls</h2>
 
-<pre><code>192.168.1.10</code></pre>
+    <p>
+      A firewall controls network traffic according to security rules.
+      It can allow approved connections and block or restrict traffic that
+      violates the organization's security policy.
+    </p>
 
+    <p>
+      Firewalls are an important layer of defense, but they are not a complete
+      cybersecurity solution. Organizations also need secure configurations,
+      authentication, patching, monitoring, encryption, and other controls.
+    </p>
 
-<h3>
-Private IPv4 Addresses</h3>
+  </section>
 
-<p>
 
-Private addresses are commonly used inside local
-networks and are not directly routable across the
-public Internet.
+  <section class="lesson-card">
 
-</p>
+    <h2>Lesson 6: Network Discovery with Nmap</h2>
 
+    <p>
+      Nmap is a network exploration and security auditing tool. It can help
+      authorized users discover hosts, identify open ports, and learn about
+      services running in a controlled environment.
+    </p>
 
-<ul>
+    <p>
+      Beginners should practice Nmap on their own computer, a private lab,
+      or an intentionally vulnerable training environment. For example:
+    </p>
 
-<li>
-10.0.0.0 – 10.255.255.255
-</li>
+    <div class="example-box">
 
-<li>
-172.16.0.0 – 172.31.255.255
-</li>
+      <strong>Safe localhost scan:</strong>
 
-<li>
-192.168.0.0 – 192.168.255.255
-</li>
+      <pre><code>nmap 127.0.0.1</code></pre>
 
-</ul>
+      <strong>Nmap help:</strong>
 
+      <pre><code>nmap --help</code></pre>
 
-<div class="warning-box">
+    </div>
 
-<strong>
-🛡️ Security Tip
-</strong>
+  </section>
 
-<p>
 
-An IP address by itself does not tell you everything
-about a device. Network security requires understanding
-the device, services, permissions and context.
+  <!-- GLOSSARY -->
 
-</p>
+  <h2 style="margin-top:60px;">📖 Network Security Dictionary</h2>
 
-</div>
+  <p>
+    Below are important networking and cybersecurity terms. Each definition
+    explains the concept, how it relates to networks, and why it matters
+    to cybersecurity.
+  </p>
 
+  <input
+    type="text"
+    id="searchBox"
+    class="search-box"
+    placeholder="🔎 Search a definition... e.g. DNS, Firewall, TCP"
+    onkeyup="searchDefinitions()"
+  >
 
-<div class="quiz">
 
-<h4>
-🧠 Lesson 1 Quiz
-</h4>
+  <div id="definitions">
 
-<p>
-<strong>
-What is one important purpose of an IP address?
-</strong>
-</p>
 
+    <!-- 1 -->
 
-<label class="quiz-option">
+    <h2 class="category-title">🌐 Networking Fundamentals</h2>
 
-<input
-type="radio"
-name="networkq1"
-value="wrong">
+    <article class="definition-card">
 
-To increase CPU speed
+      <span class="term-number">Definition 01</span>
 
-</label>
+      <span class="tag">Networking</span>
 
+      <h3>1. Network</h3>
 
-<label class="quiz-option">
+      <p>
+        A <strong>network</strong> is a group of computers, phones, servers,
+        and other devices connected so they can communicate and share
+        information or resources. Networks can be very small, such as two
+        computers connected together, or very large, such as the Internet.
+      </p>
 
-<input
-type="radio"
-name="networkq1"
-value="correct">
+      <p>
+        In cybersecurity, understanding networks is fundamental because
+        security threats often travel through network connections. Security
+        professionals need to understand how devices communicate so they can
+        identify unusual traffic, protect systems, and investigate incidents.
+      </p>
 
-To identify a network interface and help deliver traffic
+    </article>
 
-</label>
 
+    <!-- 2 -->
 
-<label class="quiz-option">
+    <article class="definition-card">
 
-<input
-type="radio"
-name="networkq1"
-value="wrong">
+      <span class="term-number">Definition 02</span>
 
-To replace a password
+      <span class="tag">Networking</span>
 
-</label>
+      <h3>2. IP Address</h3>
 
+      <p>
+        An <strong>IP address</strong> is a numerical address used to identify
+        a device or network interface on an IP network. IPv4 addresses look
+        like <strong>192.168.1.10</strong>, while IPv6 addresses use a much
+        larger address space.
+      </p>
 
-<label class="quiz-option">
+      <p>
+        IP addresses are important in cybersecurity because logs, firewalls,
+        monitoring systems, and network tools often use them to identify
+        communication endpoints. A security analyst may examine IP addresses
+        when investigating suspicious network activity.
+      </p>
 
-<input
-type="radio"
-name="networkq1"
-value="wrong">
+    </article>
 
-To increase screen brightness
 
-</label>
+    <!-- 3 -->
 
+    <article class="definition-card">
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq1')">
+      <span class="term-number">Definition 03</span>
 
-Check Answer
+      <span class="tag">Networking</span>
 
-</button>
+      <h3>3. IPv4</h3>
 
+      <p>
+        <strong>IPv4</strong> is the fourth version of the Internet Protocol.
+        It uses 32-bit addresses and is commonly written as four decimal
+        numbers separated by periods, such as <strong>10.0.0.5</strong>.
+      </p>
 
-<div
-id="result-networkq1"
-class="quiz-result">
-</div>
+      <p>
+        IPv4 remains widely used in networks around the world. Cybersecurity
+        students should understand IPv4 because many internal networks,
+        security tools, firewall rules, and network logs still use IPv4
+        addresses.
+      </p>
 
-</div>
+    </article>
 
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(1)">
+    <!-- 4 -->
 
-Continue to Lesson 2 →
+    <article class="definition-card">
 
-</button>
+      <span class="term-number">Definition 04</span>
 
+      <span class="tag">Networking</span>
 
-</article>
+      <h3>4. IPv6</h3>
 
-</section>
+      <p>
+        <strong>IPv6</strong> is a newer version of the Internet Protocol
+        designed to provide a much larger number of addresses than IPv4.
+        IPv6 addresses use 128 bits and are normally written using hexadecimal
+        characters.
+      </p>
 
+      <p>
+        IPv6 is increasingly important as networks grow and more devices
+        connect to the Internet. Security professionals need to understand
+        IPv6 because security policies and monitoring must account for both
+        IPv4 and IPv6 traffic.
+      </p>
 
+    </article>
 
-<!-- =========================================
-     LESSON 2
-========================================= -->
 
-<section class="section dark">
+    <!-- 5 -->
 
-<article
-class="course-lesson locked"
-data-network-lesson="2">
+    <article class="definition-card">
 
-<div class="lesson-number">
-02
-</div>
+      <span class="term-number">Definition 05</span>
 
-<p class="eyebrow">
-LESSON 2
-</p>
+      <span class="tag">Networking</span>
 
-<h2>
-🔌 Ports & Services
-</h2>
+      <h3>5. MAC Address</h3>
 
-<p>
+      <p>
+        A <strong>MAC address</strong> is a link-layer identifier associated
+        with a network interface. It is normally represented as a sequence
+        of hexadecimal values, such as <strong>00:1A:2B:3C:4D:5E</strong>.
+      </p>
 
-A port is a logical communication endpoint.
-Applications can use different ports to communicate
-over a network.
+      <p>
+        MAC addresses are used for communication within local network
+        segments. Security professionals may use MAC addresses when
+        investigating local network devices, analyzing network access,
+        or troubleshooting connectivity.
+      </p>
 
-</p>
+    </article>
 
 
-<h3>
-Common Examples
-</h3>
+    <!-- 6 -->
 
+    <article class="definition-card">
 
-<table style="width:100%;border-collapse:collapse;margin:20px 0;">
+      <span class="term-number">Definition 06</span>
 
-<tr>
+      <span class="tag">Networking</span>
 
-<th style="padding:12px;text-align:left;">
-Port
-</th>
+      <h3>6. LAN</h3>
 
-<th style="padding:12px;text-align:left;">
-Common Service
-</th>
+      <p>
+        <strong>LAN</strong> stands for Local Area Network. It describes a
+        network covering a relatively small area, such as a home, classroom,
+        office, computer laboratory, or school building.
+      </p>
 
-</tr>
+      <p>
+        LANs are important in cybersecurity because many organizations keep
+        internal computers and services within local networks. Security teams
+        protect LANs using firewalls, access controls, segmentation, monitoring,
+        and secure configurations.
+      </p>
 
+    </article>
 
-<tr>
 
-<td style="padding:12px;">
-22
-</td>
+    <!-- 7 -->
 
-<td style="padding:12px;">
-SSH
-</td>
+    <article class="definition-card">
 
-</tr>
+      <span class="term-number">Definition 07</span>
 
+      <span class="tag">Networking</span>
 
-<tr>
+      <h3>7. WAN</h3>
 
-<td style="padding:12px;">
-53
-</td>
+      <p>
+        <strong>WAN</strong> means Wide Area Network. A WAN connects networks
+        across larger geographical areas, such as different cities, countries,
+        or regions.
+      </p>
 
-<td style="padding:12px;">
-DNS
-</td>
+      <p>
+        The Internet can be viewed as a very large interconnected network
+        of networks. WAN security is important because communication may cross
+        multiple locations and network providers, requiring controls such as
+        encryption, authentication, and secure routing.
+      </p>
 
-</tr>
+    </article>
 
 
-<tr>
+    <!-- 8 -->
 
-<td style="padding:12px;">
-80
-</td>
+    <article class="definition-card">
 
-<td style="padding:12px;">
-HTTP
-</td>
+      <span class="term-number">Definition 08</span>
 
-</tr>
+      <span class="tag">Networking</span>
 
+      <h3>8. WLAN</h3>
 
-<tr>
+      <p>
+        <strong>WLAN</strong> stands for Wireless Local Area Network. It is a
+        local network that allows devices to communicate using wireless
+        technologies such as Wi-Fi instead of requiring physical Ethernet
+        cables for every connection.
+      </p>
 
-<td style="padding:12px;">
-443
-</td>
+      <p>
+        Wireless networks require strong security because radio communication
+        can extend beyond the physical walls of a building. Encryption,
+        strong passwords, secure authentication, and appropriate wireless
+        configuration are important parts of WLAN security.
+      </p>
 
-<td style="padding:12px;">
-HTTPS
-</td>
+    </article>
 
-</tr>
 
-</table>
+    <!-- 9 -->
 
+    <article class="definition-card">
 
-<div class="warning-box">
+      <span class="term-number">Definition 09</span>
 
-<strong>
-⚠️ Remember
-</strong>
+      <span class="tag">Networking</span>
 
-<p>
+      <h3>9. Subnet</h3>
 
-An open port does not automatically mean a system
-has been compromised. It means a service is listening
-for network communication.
+      <p>
+        A <strong>subnet</strong> is a smaller logical network created from a
+        larger IP network. Subnetting allows administrators to divide networks
+        into organized sections.
+      </p>
 
-</p>
+      <p>
+        Subnetting can improve network organization, address management, and
+        security. For example, an organization may place employees, servers,
+        and guest devices into separate network segments to reduce unnecessary
+        communication between them.
+      </p>
 
-</div>
+    </article>
 
 
-<div class="quiz">
+    <!-- 10 -->
 
-<h4>
-🧠 Lesson 2 Quiz
-</h4>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 10</span>
 
-<p>
-<strong>
-Which service commonly uses TCP port 443?
-</strong>
-</p>
+      <span class="tag">Networking</span>
 
+      <h3>10. Subnet Mask</h3>
 
-<label class="quiz-option">
+      <p>
+        A <strong>subnet mask</strong> helps determine which portion of an IPv4
+        address represents the network and which portion represents the host.
+        A common example is <strong>255.255.255.0</strong>.
+      </p>
 
-<input
-type="radio"
-name="networkq2"
-value="wrong">
+      <p>
+        Understanding subnet masks is important for network configuration,
+        troubleshooting, and security. Incorrect subnetting can cause
+        communication problems or unintentionally expose systems to other
+        network segments.
+      </p>
 
-DNS
+    </article>
 
-</label>
 
+    <!-- 11 -->
 
-<label class="quiz-option">
+    <article class="definition-card">
 
-<input
-type="radio"
-name="networkq2"
-value="correct">
+      <span class="term-number">Definition 11</span>
 
-HTTPS
+      <span class="tag">Networking</span>
 
-</label>
+      <h3>11. Default Gateway</h3>
 
+      <p>
+        A <strong>default gateway</strong> is the device a computer normally
+        sends traffic to when the destination is outside its local network.
+        In many home networks, the router acts as the default gateway.
+      </p>
 
-<label class="quiz-option">
+      <p>
+        From a security perspective, the gateway is an important control point.
+        Network administrators can use routers and firewalls at gateways to
+        control traffic between internal networks and external networks.
+      </p>
 
-<input
-type="radio"
-name="networkq2"
-value="wrong">
+    </article>
 
-FTP
 
-</label>
+    <!-- 12 -->
 
+    <article class="definition-card">
 
-<label class="quiz-option">
+      <span class="term-number">Definition 12</span>
 
-<input
-type="radio"
-name="networkq2"
-value="wrong">
+      <span class="tag">Network Devices</span>
 
-SSH
+      <h3>12. Router</h3>
 
-</label>
+      <p>
+        A <strong>router</strong> is a network device that forwards packets
+        between different networks. It examines destination information and
+        determines where network traffic should be sent.
+      </p>
 
+      <p>
+        Routers are important security devices because they can enforce
+        routing rules, separate networks, and sometimes provide firewall
+        functionality. Proper router configuration is an important part of
+        network security.
+      </p>
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq2')">
+    </article>
 
-Check Answer
 
-</button>
+    <!-- 13 -->
 
+    <article class="definition-card">
 
-<div
-id="result-networkq2"
-class="quiz-result">
-</div>
+      <span class="term-number">Definition 13</span>
 
-</div>
+      <span class="tag">Network Devices</span>
 
+      <h3>13. Switch</h3>
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(2)">
+      <p>
+        A <strong>network switch</strong> connects devices within a local
+        network and forwards Ethernet frames to appropriate ports. Unlike
+        a traditional hub, a switch can make forwarding decisions based on
+        MAC addresses.
+      </p>
 
-Continue to Lesson 3 →
+      <p>
+        Managed switches can provide useful security features such as VLANs,
+        port security, and network monitoring. These features can help
+        organizations separate devices and control how systems communicate.
+      </p>
 
-</button>
+    </article>
 
 
-</article>
+    <!-- 14 -->
 
-</section>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 14</span>
 
+      <span class="tag">Network Devices</span>
 
-<!-- =========================================
-     LESSON 3
-========================================= -->
+      <h3>14. DHCP</h3>
 
-<section class="section">
+      <p>
+        <strong>DHCP</strong> stands for Dynamic Host Configuration Protocol.
+        It automatically provides network configuration information such as
+        IP addresses, subnet masks, gateways, and DNS servers to clients.
+      </p>
 
-<article
-class="course-lesson locked"
-data-network-lesson="3">
+      <p>
+        DHCP makes network administration easier, but it must be properly
+        secured. Security teams may monitor DHCP activity because unexpected
+        DHCP servers or unusual assignments can indicate configuration problems
+        or malicious activity.
+      </p>
 
-<div class="lesson-number">
-03
-</div>
+    </article>
 
-<p class="eyebrow">
-LESSON 3
-</p>
 
-<h2>
-📡 TCP vs UDP
-</h2>
+    <!-- 15 -->
 
-<p>
+    <article class="definition-card">
 
-TCP and UDP are transport-layer protocols used
-to move data between applications.
+      <span class="term-number">Definition 15</span>
 
-</p>
+      <span class="tag">Networking</span>
 
+      <h3>15. NAT</h3>
 
-<h3>
-TCP</h3>
+      <p>
+        <strong>NAT</strong> means Network Address Translation. It allows
+        devices using private IP addresses to communicate through a device
+        that translates addresses between private and public networks.
+      </p>
 
-<ul>
+      <p>
+        NAT is commonly found in home and business routers. Although NAT can
+        reduce direct exposure of internal addresses, it should not be treated
+        as a replacement for a properly configured firewall or other security
+        controls.
+      </p>
 
-<li>
-Connection-oriented
-</li>
+    </article>
 
-<li>
-Designed for reliable delivery
-</li>
 
-<li>
-Uses acknowledgements and sequencing
-</li>
+    <!-- 16 -->
 
-</ul>
+    <h2 class="category-title">🔌 Ports & Protocols</h2>
 
 
-<h3>
-UDP</h3>
+    <article class="definition-card">
 
-<ul>
+      <span class="term-number">Definition 16</span>
 
-<li>
-Connectionless
-</li>
+      <span class="tag">Ports</span>
 
-<li>
-Lower overhead
-</li>
+      <h3>16. Port</h3>
 
-<li>
-Does not provide TCP-style delivery guarantees
-</li>
+      <p>
+        A <strong>port</strong> is a logical communication endpoint used by
+        network applications. Port numbers help the operating system determine
+        which application or service should receive incoming network traffic.
+      </p>
 
-</ul>
+      <p>
+        Ports are important in cybersecurity because open ports may indicate
+        services that are available for communication. Security professionals
+        should understand which services are intentionally exposed and whether
+        those services are properly secured.
+      </p>
 
+    </article>
 
-<div class="warning-box">
 
-<strong>
-💡 Simple Way to Remember
-</strong>
+    <article class="definition-card">
 
-<p>
+      <span class="term-number">Definition 17</span>
 
-TCP focuses on reliable communication.
-UDP focuses on lightweight communication without
-TCP's connection and delivery mechanisms.
+      <span class="tag">Networking</span>
 
-</p>
+      <h3>17. Protocol</h3>
 
-</div>
+      <p>
+        A <strong>protocol</strong> is a set of rules that defines how devices
+        communicate. Protocols specify how information is formatted, transmitted,
+        received, and interpreted.
+      </p>
 
+      <p>
+        Examples include TCP, UDP, HTTP, HTTPS, DNS, and SSH. Cybersecurity
+        professionals need to understand protocols because network security
+        involves monitoring and protecting the communication processes used
+        by applications and devices.
+      </p>
 
-<div class="quiz">
+    </article>
 
-<h4>
-🧠 Lesson 3 Quiz
-</h4>
 
+    <article class="definition-card">
 
-<p>
-<strong>
-Which protocol is connection-oriented?
-</strong>
-</p>
+      <span class="term-number">Definition 18</span>
 
+      <span class="tag">Transport</span>
 
-<label class="quiz-option">
+      <h3>18. TCP</h3>
 
-<input
-type="radio"
-name="networkq3"
-value="correct">
+      <p>
+        <strong>TCP</strong> stands for Transmission Control Protocol. It is
+        connection-oriented and provides mechanisms for reliable and ordered
+        delivery of data between communicating applications.
+      </p>
 
-TCP
+      <p>
+        TCP is widely used by services such as HTTPS and SSH. Security
+        professionals often analyze TCP connections when investigating network
+        behavior, troubleshooting services, or monitoring suspicious traffic.
+      </p>
 
-</label>
+    </article>
 
 
-<label class="quiz-option">
+    <article class="definition-card">
 
-<input
-type="radio"
-name="networkq3"
-value="wrong">
+      <span class="term-number">Definition 19</span>
 
-UDP
+      <span class="tag">Transport</span>
 
-</label>
+      <h3>19. UDP</h3>
 
+      <p>
+        <strong>UDP</strong> stands for User Datagram Protocol. Unlike TCP,
+        UDP does not establish a traditional connection before sending data
+        and does not provide the same built-in reliability mechanisms.
+      </p>
 
-<label class="quiz-option">
+      <p>
+        UDP can be useful where speed and low overhead are more important than
+        guaranteed delivery. DNS, streaming, and some real-time applications
+        may use UDP. Security analysts should understand UDP when examining
+        network traffic.
+      </p>
 
-<input
-type="radio"
-name="networkq3"
-value="wrong">
+    </article>
 
-DNS
 
-</label>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 20</span>
 
-<label class="quiz-option">
+      <span class="tag">Web</span>
 
-<input
-type="radio"
-name="networkq3"
-value="wrong">
+      <h3>20. HTTP</h3>
 
-HTTP
+      <p>
+        <strong>HTTP</strong> stands for Hypertext Transfer Protocol. It is a
+        protocol used for communication between web clients and web servers.
+        Web browsers commonly use HTTP to request and receive web resources.
+      </p>
 
-</label>
+      <p>
+        Standard HTTP does not provide encryption for the communication.
+        For sensitive information, modern websites generally use HTTPS, which
+        protects HTTP traffic using TLS.
+      </p>
 
+    </article>
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq3')">
 
-Check Answer
+    <article class="definition-card">
 
-</button>
+      <span class="term-number">Definition 21</span>
 
+      <span class="tag">Web Security</span>
 
-<div
-id="result-networkq3"
-class="quiz-result">
-</div>
+      <h3>21. HTTPS</h3>
 
-</div>
+      <p>
+        <strong>HTTPS</strong> is HTTP protected by TLS. It helps provide
+        confidentiality and integrity for communication between a client and
+        a server.
+      </p>
 
+      <p>
+        HTTPS is important because it helps prevent network observers from
+        simply reading or modifying protected web traffic. However, HTTPS
+        does not automatically make a website secure against every application
+        vulnerability.
+      </p>
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(3)">
+    </article>
 
-Continue to Lesson 4 →
 
-</button>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 22</span>
 
-</article>
+      <span class="tag">Remote Access</span>
 
-</section>
+      <h3>22. SSH</h3>
 
+      <p>
+        <strong>SSH</strong> stands for Secure Shell. It is a protocol commonly
+        used to securely access and manage remote computers through an encrypted
+        connection.
+      </p>
 
+      <p>
+        SSH is widely used by system administrators and cybersecurity
+        professionals. Strong authentication, secure key management, and
+        appropriate access restrictions are important for protecting SSH
+        services.
+      </p>
 
-<!-- =========================================
-     LESSON 4
-========================================= -->
+    </article>
 
-<section class="section dark">
 
-<article
-class="course-lesson locked"
-data-network-lesson="4">
+    <article class="definition-card">
 
-<div class="lesson-number">
-04
-</div>
+      <span class="term-number">Definition 23</span>
 
-<p class="eyebrow">
-LESSON 4
-</p>
+      <span class="tag">Encryption</span>
 
-<h2>
-🧭 DNS
-</h2>
+      <h3>23. TLS</h3>
 
-<p>
+      <p>
+        <strong>TLS</strong> stands for Transport Layer Security. It is a
+        cryptographic protocol designed to protect communication between
+        systems by providing encryption, integrity protection, and
+        authentication mechanisms.
+      </p>
 
-The Domain Name System, or DNS, translates domain
-names into information such as IP addresses so that
-clients can locate services on networks.
+      <p>
+        TLS is used by HTTPS and many other secure services. Security
+        professionals need to understand TLS because weak configurations,
+        outdated versions, and certificate problems can create security and
+        trust issues.
+      </p>
 
-</p>
+    </article>
 
 
-<h3>
-Example</h3>
+    <article class="definition-card">
 
-<pre><code>example.com
-      ↓
-   DNS lookup
-      ↓
-IP address</code></pre>
+      <span class="term-number">Definition 24</span>
 
+      <span class="tag">Networking</span>
 
-<h3>
-Why DNS Security Matters
-</h3>
+      <h3>24. Packet</h3>
 
-<ul>
+      <p>
+        A <strong>packet</strong> is a unit of data transmitted across a
+        network. Network protocols add information to packets so devices can
+        determine where the data came from, where it should go, and how it
+        should be processed.
+      </p>
 
-<li>
-DNS is an important part of normal Internet communication.
-</li>
+      <p>
+        Security professionals can analyze packets to understand network
+        behavior. Packet analysis can help identify unusual communication,
+        troubleshoot problems, and investigate potential security incidents.
+      </p>
 
-<li>
-Incorrect DNS information can redirect users to unwanted destinations.
-</li>
+    </article>
 
-<li>
-Security teams monitor DNS activity for suspicious behavior.
-</li>
 
-</ul>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 25</span>
 
-<div class="quiz">
+      <span class="tag">Performance</span>
 
-<h4>
-🧠 Lesson 4 Quiz
-</h4>
+      <h3>25. Bandwidth</h3>
 
+      <p>
+        <strong>Bandwidth</strong> describes the maximum amount of data that
+        a network connection can theoretically transfer over a given period.
+        It is commonly measured in bits per second, such as Mbps or Gbps.
+      </p>
 
-<p>
-<strong>
-What is a primary purpose of DNS?
-</strong>
-</p>
+      <p>
+        Bandwidth is different from actual performance. A network can have
+        high bandwidth but still experience delays because of congestion,
+        latency, packet loss, or other problems. Security monitoring may also
+        examine unusual increases in network traffic.
+      </p>
 
+    </article>
 
-<label class="quiz-option">
 
-<input
-type="radio"
-name="networkq4"
-value="correct">
+    <article class="definition-card">
 
-Helping translate domain names into network information
+      <span class="term-number">Definition 26</span>
 
-</label>
+      <span class="tag">Performance</span>
 
+      <h3>26. Latency</h3>
 
-<label class="quiz-option">
+      <p>
+        <strong>Latency</strong> is the time it takes for data to travel between
+        two points in a network. It is often experienced as delay, especially
+        during interactive activities such as video calls or online gaming.
+      </p>
 
-<input
-type="radio"
-name="networkq4"
-value="wrong">
+      <p>
+        High latency can result from distance, congestion, routing, processing,
+        or other network conditions. Understanding latency helps cybersecurity
+        students distinguish performance problems from possible security or
+        network configuration issues.
+      </p>
 
-Encrypting every file on a computer
+    </article>
 
-</label>
 
+    <!-- SECURITY -->
 
-<label class="quiz-option">
+    <h2 class="category-title">🛡️ Network Security</h2>
 
-<input
-type="radio"
-name="networkq4"
-value="wrong">
 
-Increasing monitor resolution
+    <article class="definition-card">
 
-</label>
+      <span class="term-number">Definition 27</span>
 
+      <span class="tag">Security</span>
 
-<label class="quiz-option">
+      <h3>27. Firewall</h3>
 
-<input
-type="radio"
-name="networkq4"
-value="wrong">
+      <p>
+        A <strong>firewall</strong> is a security control that monitors and
+        controls network traffic according to defined rules. It can operate
+        on a computer, server, router, or dedicated security appliance.
+      </p>
 
-Replacing a firewall
+      <p>
+        Firewalls can reduce unwanted network access by restricting traffic
+        that does not meet security requirements. They are an important layer
+        of defense, but they should be combined with other security controls.
+      </p>
 
-</label>
+    </article>
 
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq4')">
+    <article class="definition-card">
 
-Check Answer
+      <span class="term-number">Definition 28</span>
 
-</button>
+      <span class="tag">Security Monitoring</span>
 
+      <h3>28. IDS</h3>
 
-<div
-id="result-networkq4"
-class="quiz-result">
-</div>
+      <p>
+        <strong>IDS</strong> stands for Intrusion Detection System. It monitors
+        network or system activity and looks for patterns that may indicate
+        suspicious or malicious behavior.
+      </p>
 
-</div>
+      <p>
+        An IDS generally focuses on detecting and alerting rather than directly
+        blocking traffic. Security teams can investigate IDS alerts alongside
+        logs and other evidence to determine whether an event requires action.
+      </p>
 
+    </article>
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(4)">
 
-Continue to Lesson 5 →
+    <article class="definition-card">
 
-</button>
+      <span class="term-number">Definition 29</span>
 
+      <span class="tag">Security Monitoring</span>
 
-</article>
+      <h3>29. IPS</h3>
 
-</section>
+      <p>
+        <strong>IPS</strong> stands for Intrusion Prevention System. It monitors
+        traffic for suspicious activity and can take configured actions to
+        block or prevent certain traffic.
+      </p>
 
+      <p>
+        An IPS can provide an additional layer of automated protection.
+        However, security teams must carefully configure and monitor IPS rules
+        to reduce false positives and avoid blocking legitimate communication.
+      </p>
 
+    </article>
 
-<!-- =========================================
-     LESSON 5
-========================================= -->
 
-<section class="section">
+    <article class="definition-card">
 
-<article
-class="course-lesson locked"
-data-network-lesson="5">
+      <span class="term-number">Definition 30</span>
 
-<div class="lesson-number">
-05
-</div>
+      <span class="tag">Privacy</span>
 
-<p class="eyebrow">
-LESSON 5
-</p>
+      <h3>30. VPN</h3>
 
-<h2>
-🔥 Firewalls
-</h2>
+      <p>
+        A <strong>VPN</strong>, or Virtual Private Network, creates a protected
+        communication tunnel between a device and another network endpoint.
+        VPNs are commonly used to protect traffic across untrusted networks
+        and to provide remote access to organizational resources.
+      </p>
 
-<p>
+      <p>
+        A VPN can improve the security of a connection, but it does not make
+        the user anonymous or protect against every cybersecurity threat.
+        Strong authentication and proper VPN configuration remain important.
+      </p>
 
-A firewall helps control network traffic according
-to configured rules. Firewalls can exist on individual
-devices, servers or network infrastructure.
+    </article>
 
-</p>
 
+    <article class="definition-card">
 
-<h3>
-Firewall Rules Can Consider
-</h3>
+      <span class="term-number">Definition 31</span>
 
-<ul>
+      <span class="tag">Network Security</span>
 
-<li>
-Source and destination
-</li>
+      <h3>31. Network Segmentation</h3>
 
-<li>
-Protocol
-</li>
+      <p>
+        <strong>Network segmentation</strong> divides a network into separate
+        logical or physical sections. Different sections can have different
+        security rules and access requirements.
+      </p>
 
-<li>
-Port
-</li>
+      <p>
+        Segmentation can limit how far an attacker can move if one system is
+        compromised. For example, an organization may separate guest Wi-Fi,
+        employee computers, and sensitive servers into different network
+        segments.
+      </p>
 
-<li>
-Direction of traffic
-</li>
+    </article>
 
-<li>
-Application or service
-</li>
 
-</ul>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 32</span>
 
-<div class="warning-box">
+      <span class="tag">Security Model</span>
 
-<strong>
-🛡️ Security Principle
-</strong>
+      <h3>32. Zero Trust</h3>
 
-<p>
+      <p>
+        <strong>Zero Trust</strong> is a security approach based on the idea
+        that access should not automatically be trusted simply because a
+        user or device is inside a particular network.
+      </p>
 
-A firewall should allow necessary communication
-while restricting traffic that is not authorized
-or required.
+      <p>
+        Zero Trust emphasizes verification, least privilege, device and user
+        context, continuous monitoring, and appropriate access controls.
+        The goal is to reduce unnecessary trust and limit the impact of
+        compromised accounts or devices.
+      </p>
 
-</p>
+    </article>
 
-</div>
 
+    <article class="definition-card">
 
-<div class="quiz">
+      <span class="term-number">Definition 33</span>
 
-<h4>
-🧠 Lesson 5 Quiz
-</h4>
+      <span class="tag">Cryptography</span>
 
+      <h3>33. Encryption</h3>
 
-<p>
-<strong>
-What is an important purpose of a firewall?
-</strong>
-</p>
+      <p>
+        <strong>Encryption</strong> converts readable information into a
+        protected form using a cryptographic algorithm and key. The purpose
+        is to prevent unauthorized people from understanding the protected
+        information.
+      </p>
 
+      <p>
+        Encryption is widely used in network security, including HTTPS,
+        VPNs, wireless security, and secure messaging. Good encryption depends
+        not only on the algorithm but also on proper key management and
+        implementation.
+      </p>
 
-<label class="quiz-option">
+    </article>
 
-<input
-type="radio"
-name="networkq5"
-value="correct">
 
-To control network traffic according to security rules
+    <article class="definition-card">
 
-</label>
+      <span class="term-number">Definition 34</span>
 
+      <span class="tag">Cryptography</span>
 
-<label class="quiz-option">
+      <h3>34. Hashing</h3>
 
-<input
-type="radio"
-name="networkq5"
-value="wrong">
+      <p>
+        <strong>Hashing</strong> transforms data into a fixed-length value
+        called a hash. A cryptographic hash function is designed so that
+        changing the input produces a different hash.
+      </p>
 
-To create social media accounts
+      <p>
+        Hashing is commonly used for integrity checking and secure password
+        storage when combined with appropriate password-hashing algorithms.
+        Hashing is not the same as encryption because hashes are designed to
+        be one-way rather than normally decrypted back into the original data.
+      </p>
 
-</label>
+    </article>
 
 
-<label class="quiz-option">
+    <article class="definition-card">
 
-<input
-type="radio"
-name="networkq5"
-value="wrong">
+      <span class="term-number">Definition 35</span>
 
-To increase monitor brightness
+      <span class="tag">Identity</span>
 
-</label>
+      <h3>35. Authentication</h3>
 
+      <p>
+        <strong>Authentication</strong> is the process of verifying who a user,
+        device, or service claims to be. Passwords, security keys, certificates,
+        and biometric methods can all be used as authentication factors.
+      </p>
 
-<label class="quiz-option">
+      <p>
+        Strong authentication is important because stolen credentials can give
+        attackers unauthorized access. Multi-factor authentication adds another
+        layer by requiring more than one type of authentication factor.
+      </p>
 
-<input
-type="radio"
-name="networkq5"
-value="wrong">
+    </article>
 
-To replace the computer's operating system
 
-</label>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 36</span>
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq5')">
+      <span class="tag">Access Control</span>
 
-Check Answer
+      <h3>36. Authorization</h3>
 
-</button>
+      <p>
+        <strong>Authorization</strong> determines what an authenticated user
+        or system is allowed to access or perform. Authentication answers
+        "Who are you?" while authorization answers "What are you allowed to do?"
+      </p>
 
+      <p>
+        Poor authorization can allow users to access information or functions
+        they should not have. Strong authorization checks are therefore an
+        important part of application and network security.
+      </p>
 
-<div
-id="result-networkq5"
-class="quiz-result">
-</div>
+    </article>
 
-</div>
 
+    <article class="definition-card">
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(5)">
+      <span class="term-number">Definition 37</span>
 
-Continue to Lesson 6 →
+      <span class="tag">Access Control</span>
 
-</button>
+      <h3>37. Least Privilege</h3>
 
+      <p>
+        <strong>Least privilege</strong> means giving a user, application,
+        or system only the permissions required to perform its legitimate
+        tasks.
+      </p>
 
-</article>
+      <p>
+        This reduces unnecessary access and can limit the damage caused by
+        compromised accounts or applications. Least privilege is a major
+        principle in secure system and network administration.
+      </p>
 
-</section>
+    </article>
 
 
+    <!-- CYBERSECURITY -->
 
-<!-- =========================================
-     LESSON 6 — SAFE NMAP
-========================================= -->
+    <h2 class="category-title">🚨 Cybersecurity Concepts</h2>
 
-<section class="section dark">
 
-<article
-class="course-lesson locked"
-data-network-lesson="6">
+    <article class="definition-card">
 
-<div class="lesson-number">
-06
-</div>
+      <span class="term-number">Definition 38</span>
 
-<p class="eyebrow">
-LESSON 6
-</p>
+      <span class="tag">Security</span>
 
-<h2>
-🔎 Network Discovery with Nmap
-</h2>
+      <h3>38. CIA Triad</h3>
 
-<p>
+      <p>
+        The <strong>CIA Triad</strong> is a basic cybersecurity model consisting
+        of Confidentiality, Integrity, and Availability. Confidentiality protects
+        information from unauthorized access, integrity protects information
+        from unauthorized modification, and availability helps ensure systems
+        and information remain accessible when needed.
+      </p>
 
-Nmap is a network discovery and security auditing
-tool. Security professionals can use it to identify
-hosts, services and other network information in
-authorized environments.
+      <p>
+        Security professionals use the CIA Triad when thinking about security
+        requirements and incidents. A security control may protect one or more
+        of these principles depending on its purpose and design.
+      </p>
 
-</p>
+    </article>
 
 
-<div class="warning-box">
+    <article class="definition-card">
 
-<strong>
-⚠️ Authorization Required
-</strong>
+      <span class="term-number">Definition 39</span>
 
-<p>
+      <span class="tag">Security</span>
 
-Only scan devices and networks that you own or have
-explicit permission to test. For practice, use your
-own computer, your own virtual machines or an
-intentionally provided training environment.
+      <h3>39. Threat</h3>
 
-</p>
+      <p>
+        A <strong>threat</strong> is a potential cause of harm to a system,
+        organization, or piece of information. Threats can come from people,
+        software, technical failures, natural events, or other sources.
+      </p>
 
-</div>
+      <p>
+        Security teams identify threats so they can determine which controls
+        are needed. A threat does not automatically mean that an attack will
+        happen; it represents a potential source of harm that should be
+        considered.
+      </p>
 
+    </article>
 
-<h3>
-Safe Local Example
-</h3>
 
+    <article class="definition-card">
 
-<p>
+      <span class="term-number">Definition 40</span>
 
-If you are running a training service on your own
-computer, you can practice against the local host:
+      <span class="tag">Security</span>
 
-</p>
+      <h3>40. Vulnerability</h3>
 
+      <p>
+        A <strong>vulnerability</strong> is a weakness in software, hardware,
+        configuration, process, or another system component that could be
+        exploited to cause harm.
+      </p>
 
-<pre><code>nmap 127.0.0.1</code></pre>
+      <p>
+        Vulnerabilities can result from outdated software, insecure
+        configurations, programming mistakes, weak credentials, or design
+        problems. Security teams work to identify and reduce vulnerabilities
+        before they can be exploited.
+      </p>
 
+    </article>
 
-<p>
 
-To learn more about the command and its options:
+    <article class="definition-card">
 
-</p>
+      <span class="term-number">Definition 41</span>
 
+      <span class="tag">Security</span>
 
-<pre><code>nmap --help</code></pre>
+      <h3>41. Risk</h3>
 
+      <p>
+        <strong>Risk</strong> describes the potential for a threat to take
+        advantage of a vulnerability and cause an unwanted impact. Risk
+        assessment considers both the likelihood and potential consequences
+        of security events.
+      </p>
 
-<h3>
-What Nmap Can Help Identify
-</h3>
+      <p>
+        Organizations use risk management to decide which security issues
+        require attention and which controls should be implemented. Good
+        cybersecurity is not only about finding vulnerabilities but also
+        understanding and managing risk.
+      </p>
 
-<ul>
+    </article>
 
-<li>
-Available hosts
-</li>
 
-<li>
-Open ports
-</li>
+    <article class="definition-card">
 
-<li>
-Detected services
-</li>
+      <span class="term-number">Definition 42</span>
 
-<li>
-Service versions in authorized assessments
-</li>
+      <span class="tag">Security</span>
 
-</ul>
+      <h3>42. Attack Surface</h3>
 
+      <p>
+        An <strong>attack surface</strong> is the collection of points where
+        an attacker could potentially interact with or attempt to compromise
+        a system, application, network, or organization.
+      </p>
 
-<div class="quiz">
+      <p>
+        Open ports, exposed services, applications, accounts, APIs, and remote
+        access systems can all contribute to an attack surface. Reducing
+        unnecessary exposure is an important defensive security practice.
+      </p>
 
-<h4>
-🧠 Lesson 6 Quiz
-</h4>
+    </article>
 
 
-<p>
-<strong>
-What should you do before scanning a device
-that you do not own?
-</strong>
-</p>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 43</span>
 
-<label class="quiz-option">
+      <span class="tag">Malicious Software</span>
 
-<input
-type="radio"
-name="networkq6"
-value="wrong">
+      <h3>43. Malware</h3>
 
-Scan it immediately.
+      <p>
+        <strong>Malware</strong> is software designed to perform harmful or
+        unauthorized actions. Examples include ransomware, spyware, worms,
+        trojans, and certain types of malicious scripts.
+      </p>
 
-</label>
+      <p>
+        Malware can steal information, disrupt systems, damage files, or
+        provide unauthorized access. Security controls such as endpoint
+        protection, patching, application controls, backups, and monitoring
+        can help reduce malware-related risk.
+      </p>
 
+    </article>
 
-<label class="quiz-option">
 
-<input
-type="radio"
-name="networkq6"
-value="correct">
+    <article class="definition-card">
 
-Obtain explicit authorization first.
+      <span class="term-number">Definition 44</span>
 
-</label>
+      <span class="tag">Social Engineering</span>
 
+      <h3>44. Phishing</h3>
 
-<label class="quiz-option">
+      <p>
+        <strong>Phishing</strong> is a form of social engineering in which
+        attackers attempt to trick people into revealing information,
+        opening malicious content, transferring money, or performing another
+        unsafe action.
+      </p>
 
-<input
-type="radio"
-name="networkq6"
-value="wrong">
+      <p>
+        Phishing messages can arrive through email, messaging applications,
+        websites, or other communication channels. Users should verify
+        unexpected requests, inspect links carefully, and use multi-factor
+        authentication where possible.
+      </p>
 
-Guess the owner's password.
+    </article>
 
-</label>
 
+    <article class="definition-card">
 
-<label class="quiz-option">
+      <span class="term-number">Definition 45</span>
 
-<input
-type="radio"
-name="networkq6"
-value="wrong">
+      <span class="tag">Availability</span>
 
-Disable the device's firewall.
+      <h3>45. DDoS</h3>
 
-</label>
+      <p>
+        <strong>DDoS</strong> stands for Distributed Denial-of-Service. It
+        involves many systems or sources generating traffic or requests
+        toward a target in an attempt to make a service unavailable or
+        difficult to access.
+      </p>
 
+      <p>
+        Organizations can prepare for DDoS attacks using traffic filtering,
+        rate limiting, scalable infrastructure, monitoring, and specialized
+        protection services. DDoS defense should be designed according to
+        the organization's actual network and application requirements.
+      </p>
 
-<button
-class="quiz-check"
-onclick="checkNetworkQuestion('networkq6')">
+    </article>
 
-Check Answer
 
-</button>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 46</span>
 
-<div
-id="result-networkq6"
-class="quiz-result">
-</div>
+      <span class="tag">Security Operations</span>
 
-</div>
+      <h3>46. Security Monitoring</h3>
 
+      <p>
+        <strong>Security monitoring</strong> is the continuous observation
+        of systems, networks, applications, and security events to identify
+        suspicious or abnormal activity.
+      </p>
 
-<button
-class="continue-btn"
-onclick="completeNetworkLesson(6)">
+      <p>
+        Monitoring can involve logs, network traffic, endpoint events,
+        authentication activity, and security alerts. Effective monitoring
+        helps organizations discover potential incidents and respond to them
+        more quickly.
+      </p>
 
-Finish Course 🏆
+    </article>
 
-</button>
 
+    <article class="definition-card">
 
-</article>
+      <span class="term-number">Definition 47</span>
 
-</section>
+      <span class="tag">Security Operations</span>
 
+      <h3>47. SIEM</h3>
 
+      <p>
+        <strong>SIEM</strong> stands for Security Information and Event
+        Management. A SIEM platform collects and analyzes security-related
+        logs and events from multiple systems.
+      </p>
 
-<!-- =========================================
-     CERTIFICATE
-========================================= -->
+      <p>
+        SIEM technology can help security teams identify patterns that may
+        be difficult to see from a single device. Analysts can use correlated
+        events, alerts, and historical information when investigating security
+        incidents.
+      </p>
 
-<section
-id="networkCertificate"
-class="certificate"
-style="display:none;">
+    </article>
 
 
-<div class="certificate-icon">
-🏆
-</div>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 48</span>
 
-<p class="eyebrow">
-COURSE COMPLETED
-</p>
+      <span class="tag">Incident Response</span>
 
+      <h3>48. Incident Response</h3>
 
-<h2>
-Congratulations!
-</h2>
+      <p>
+        <strong>Incident response</strong> is the organized process used to
+        identify, investigate, contain, eradicate, and recover from security
+        incidents.
+      </p>
 
+      <p>
+        A good incident response capability includes preparation, monitoring,
+        documented procedures, communication, evidence handling, and lessons
+        learned. The goal is to reduce the impact of incidents and improve
+        future security.
+      </p>
 
-<p>
+    </article>
 
-You completed the
-<strong>
-Network Security Foundations
-</strong>
-course.
 
-</p>
+    <!-- NMAP -->
 
+    <h2 class="category-title">🔎 Network Testing & Nmap</h2>
 
-<div class="certificate-card">
 
-<p>
-SMART TECH HUB
-</p>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 49</span>
 
-<h3>
-Certificate of Completion
-</h3>
+      <span class="tag">Nmap</span>
 
+      <h3>49. Nmap</h3>
 
-<span>
-This certificate recognizes successful completion of
-</span>
+      <p>
+        <strong>Nmap</strong> is a network exploration and security auditing
+        tool. It can be used to discover hosts, examine ports, identify
+        services, and gather information about authorized systems.
+      </p>
 
+      <p>
+        Nmap is widely used for legitimate network administration and security
+        testing. Beginners should practice only on systems they own or have
+        explicit permission to test. A safe starting point is scanning the
+        local computer using <strong>nmap 127.0.0.1</strong>.
+      </p>
 
-<h4>
-Network Security Foundations
-</h4>
+    </article>
 
 
-<span>
-Final Score
-</span>
+    <article class="definition-card">
 
+      <span class="term-number">Definition 50</span>
 
-<strong id="networkFinalScore">
-0 / 6
-</strong>
+      <span class="tag">Network Testing</span>
 
-</div>
+      <h3>50. Port Scanning</h3>
 
+      <p>
+        <strong>Port scanning</strong> is the process of checking network ports
+        on a system to determine which ports appear accessible. Security
+        professionals can use authorized port scans to understand what network
+        services are exposed.
+      </p>
 
-<button
-class="continue-btn"
-onclick="window.print()">
+      <p>
+        Port scanning can be useful for defensive security because administrators
+        can compare actual exposure against intended configurations. Scanning
+        systems without permission can violate policies or laws, so authorization
+        is essential.
+      </p>
 
-🖨️ Print Certificate
+    </article>
 
-</button>
 
+    <article class="definition-card">
 
-</section>
+      <span class="term-number">Definition 51</span>
 
+      <span class="tag">Network Testing</span>
 
+      <h3>51. Network Discovery</h3>
 
-<!-- =========================================
-     NEXT LEARNING
-========================================= -->
+      <p>
+        <strong>Network discovery</strong> is the process of identifying devices,
+        hosts, services, or network information within an authorized environment.
+        It helps administrators understand what systems exist and how they are
+        connected.
+      </p>
 
-<section class="cta">
+      <p>
+        Security teams can use network discovery during asset management and
+        security assessments. Knowing which devices and services are present
+        helps organizations identify unauthorized systems and reduce unknown
+        exposure.
+      </p>
 
-<p class="eyebrow">
-NEXT STEP
-</p>
+    </article>
 
-<h2>
-Ready for More Cybersecurity?
-</h2>
 
-<p>
+    <article class="definition-card">
 
-Continue with web security, cryptography,
-practical labs and CTF challenges.
+      <span class="term-number">Definition 52</span>
 
-</p>
+      <span class="tag">Network Analysis</span>
 
+      <h3>52. Packet Capture</h3>
 
-<a
-class="btn"
-href="owasp.html">
+      <p>
+        <strong>Packet capture</strong> is the process of collecting network
+        traffic for analysis. Tools can capture packets and display information
+        about protocols, addresses, ports, and other network details.
+      </p>
 
-Learn OWASP →
+      <p>
+        Packet capture is useful for troubleshooting and security investigations.
+        Analysts can examine traffic to understand how systems communicate and
+        identify unusual patterns. Captured traffic may contain sensitive
+        information, so it must be handled securely and only collected when
+        authorized.
+      </p>
 
-</a>
+    </article>
 
 
-<a
-class="btn ghost"
-href="ctf.html">
+    <article class="definition-card">
 
-Try CTF →
+      <span class="term-number">Definition 53</span>
 
-</a>
+      <span class="tag">Security Testing</span>
 
-</section>
+      <h3>53. Vulnerability Scanning</h3>
+
+      <p>
+        <strong>Vulnerability scanning</strong> is the process of using tools
+        and techniques to identify known weaknesses or potentially insecure
+        configurations in systems and applications.
+      </p>
+
+      <p>
+        Vulnerability scanners can help organizations prioritize security work,
+        but scan results require human review. A finding does not always mean
+        that a system is actually exploitable, and organizations should verify
+        results before taking action.
+      </p>
+
+    </article>
+
+
+    <article class="definition-card">
+
+      <span class="term-number">Definition 54</span>
+
+      <span class="tag">Security</span>
+
+      <h3>54. Defense in Depth</h3>
+
+      <p>
+        <strong>Defense in depth</strong> is a security strategy that uses
+        multiple layers of protection instead of depending on a single control.
+        Layers can include firewalls, authentication, encryption, endpoint
+        protection, monitoring, backups, and secure configuration.
+      </p>
+
+      <p>
+        The purpose is to make security failures less damaging. If one control
+        fails or is bypassed, another layer may still prevent, detect, or limit
+        the impact of the incident.
+      </p>
+
+    </article>
+
+
+    <article class="definition-card">
+
+      <span class="term-number">Definition 55</span>
+
+      <span class="tag">Security</span>
+
+      <h3>55. Security Assessment</h3>
+
+      <p>
+        A <strong>security assessment</strong> is a structured evaluation of
+        systems, networks, applications, processes, or controls to identify
+        security weaknesses and determine whether security requirements are
+        being met.
+      </p>
+
+      <p>
+        Security assessments can include configuration reviews, vulnerability
+        scanning, interviews, log analysis, and authorized technical testing.
+        The results can help an organization decide where security improvements
+        are needed.
+      </p>
+
+    </article>
+
+
+    <div id="noResults" class="no-results">
+      No definition found. Try another search term.
+    </div>
+
+  </div>
+
+
+  <!-- QUIZ -->
+
+  <h2 style="margin-top:60px;">🧠 Network Security Quiz</h2>
+
+
+  <section class="quiz-box">
+
+    <h3>Question 1</h3>
+
+    <p>
+      Which device normally forwards traffic between different networks?
+    </p>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(1, false, this)">
+      A. Switch
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(1, true, this)">
+      B. Router
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(1, false, this)">
+      C. Keyboard
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(1, false, this)">
+      D. Monitor
+    </button>
+
+    <div id="result1" class="quiz-result"></div>
+
+  </section>
+
+
+  <section class="quiz-box">
+
+    <h3>Question 2</h3>
+
+    <p>
+      Which protocol is commonly used to securely access a remote computer?
+    </p>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(2, false, this)">
+      A. HTTP
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(2, true, this)">
+      B. SSH
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(2, false, this)">
+      C. FTP
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(2, false, this)">
+      D. DNS
+    </button>
+
+    <div id="result2" class="quiz-result"></div>
+
+  </section>
+
+
+  <section class="quiz-box">
+
+    <h3>Question 3</h3>
+
+    <p>
+      What does DNS primarily do?
+    </p>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(3, true, this)">
+      A. Translates domain names into IP addresses
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(3, false, this)">
+      B. Encrypts every file on a computer
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(3, false, this)">
+      C. Replaces a firewall
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(3, false, this)">
+      D. Creates passwords
+    </button>
+
+    <div id="result3" class="quiz-result"></div>
+
+  </section>
+
+
+  <section class="quiz-box">
+
+    <h3>Question 4</h3>
+
+    <p>
+      What is the main purpose of a firewall?
+    </p>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(4, false, this)">
+      A. Increase monitor brightness
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(4, true, this)">
+      B. Control network traffic using security rules
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(4, false, this)">
+      C. Create websites
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(4, false, this)">
+      D. Replace the operating system
+    </button>
+
+    <div id="result4" class="quiz-result"></div>
+
+  </section>
+
+
+  <section class="quiz-box">
+
+    <h3>Question 5</h3>
+
+    <p>
+      Which command is a safe basic Nmap example for scanning your own
+      computer?
+    </p>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(5, true, this)">
+      A. nmap 127.0.0.1
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(5, false, this)">
+      B. nmap random-public-target
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(5, false, this)">
+      C. delete-network
+    </button>
+
+    <button class="quiz-option"
+            onclick="checkAnswer(5, false, this)">
+      D. hack-router
+    </button>
+
+    <div id="result5" class="quiz-result"></div>
+
+  </section>
+
+
+  <!-- CERTIFICATE -->
+
+  <section id="certificate" class="certificate">
+
+    <h2>🏆 Network Security Certificate</h2>
+
+    <p>
+      Congratulations!
+    </p>
+
+    <p>
+      You have completed the Network Security learning assessment on
+      <strong>Smart Tech Hub</strong>.
+    </p>
+
+    <p>
+      Your score:
+      <strong id="finalScore">0 / 5</strong>
+    </p>
+
+  </section>
 
 
 </main>
 
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
 <footer>
+  <div class="container">
 
-<b>
-🛡️ Smart Tech Hub
-</b>
+    <p>
+      © 2026 Smart Tech Hub. Learn • Practice • Protect.
+    </p>
 
+    <p>
+      Cybersecurity education for beginners and future security professionals.
+    </p>
 
-<span>
-Free cybersecurity education •
-Learn • Practice • Protect
-</span>
-
-
-<div>
-
-<a href="index.html">Home</a>
-&nbsp; • &nbsp;
-<a href="courses.html">Courses</a>
-&nbsp; • &nbsp;
-<a href="owasp.html">OWASP</a>
-&nbsp; • &nbsp;
-<a href="labs.html">Labs</a>
-&nbsp; • &nbsp;
-<a href="ctf.html">CTF</a>
-
-</div>
-
+  </div>
 </footer>
 
 
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script>
 
+  /* ============================
+     SEARCH DEFINITIONS
+  ============================ */
 
-const networkAnswers = {
+  function searchDefinitions() {
 
-networkq1: "correct",
+    const input =
+      document.getElementById("searchBox").value.toLowerCase().trim();
 
-networkq2: "correct",
+    const cards =
+      document.querySelectorAll(".definition-card");
 
-networkq3: "correct",
+    let visible = 0;
 
-networkq4: "correct",
+    cards.forEach(function(card) {
 
-networkq5: "correct",
+      const text =
+        card.innerText.toLowerCase();
 
-networkq6: "correct"
+      if (text.includes(input)) {
 
-};
+        card.style.display = "block";
+        visible++;
 
+      } else {
 
-let networkScore =
-parseInt(
-localStorage.getItem("sth_network_score")
-) || 0;
+        card.style.display = "none";
 
+      }
 
-let completedNetworkLessons =
-parseInt(
-localStorage.getItem("sth_network_progress")
-) || 0;
+    });
 
+    const categories =
+      document.querySelectorAll(".category-title");
 
-let answeredNetworkQuestions =
-JSON.parse(
-localStorage.getItem("sth_network_answers")
-) || {};
+    categories.forEach(function(category) {
 
+      category.style.display = input ? "none" : "block";
 
+    });
 
-function checkNetworkQuestion(question) {
+    const noResults =
+      document.getElementById("noResults");
 
+    if (visible === 0 && input !== "") {
 
-const selected =
-document.querySelector(
-'input[name="' + question + '"]:checked'
-);
+      noResults.style.display = "block";
 
+    } else {
 
-const result =
-document.getElementById(
-"result-" + question
-);
+      noResults.style.display = "none";
 
+    }
 
-if (!selected) {
+  }
 
-result.className =
-"quiz-result wrong";
 
-result.innerHTML =
-"⚠️ Please select an answer first.";
+  /* ============================
+     QUIZ SYSTEM
+  ============================ */
 
-return;
+  let score =
+    Number(localStorage.getItem("sth_network_score")) || 0;
 
-}
+  let answered =
+    JSON.parse(
+      localStorage.getItem("sth_network_answers") || "[]"
+    );
 
 
-if (
-selected.value ===
-networkAnswers[question]
-) {
+  function checkAnswer(question, correct, button) {
 
+    if (answered.includes(question)) {
+      return;
+    }
 
-result.className =
-"quiz-result correct";
+    answered.push(question);
 
-result.innerHTML =
-"✅ Correct! Great job.";
+    localStorage.setItem(
+      "sth_network_answers",
+      JSON.stringify(answered)
+    );
 
+    const result =
+      document.getElementById("result" + question);
 
-if (!answeredNetworkQuestions[question]) {
+    if (correct) {
 
-networkScore++;
+      score++;
 
-answeredNetworkQuestions[question] =
-true;
+      result.textContent =
+        "✅ Correct! Good job.";
 
+    } else {
 
-saveNetworkProgress();
+      result.textContent =
+        "❌ Not quite. Review the lesson and try the next question.";
 
-}
+    }
 
-} else {
+    localStorage.setItem(
+      "sth_network_score",
+      score
+    );
 
-result.className =
-"quiz-result wrong";
+    updateProgress();
 
-result.innerHTML =
-"❌ Not quite. Review the lesson and try again.";
+    button.style.borderColor = "#29a9ff";
 
-}
+  }
 
-}
 
+  /* ============================
+     PROGRESS
+  ============================ */
 
+  function updateProgress() {
 
-function completeNetworkLesson(lesson) {
+    const totalQuestions = 5;
 
+    const percentage =
+      Math.round((answered.length / totalQuestions) * 100);
 
-const question =
-"networkq" + lesson;
+    document.getElementById("progressFill").style.width =
+      percentage + "%";
 
+    document.getElementById("progressText").textContent =
+      percentage + "%";
 
-const selected =
-document.querySelector(
-'input[name="' + question + '"]:checked'
-);
+    if (answered.length === totalQuestions) {
 
+      document.getElementById("certificate").style.display =
+        "block";
 
-if (!selected) {
+      document.getElementById("finalScore").textContent =
+        score + " / " + totalQuestions;
 
-alert(
-"Please answer the quiz before continuing."
-);
+    }
 
-return;
+  }
 
-}
 
-
-if (selected.value !== "correct") {
-
-alert(
-"Please answer the quiz correctly before continuing."
-);
-
-return;
-
-}
-
-
-if (
-lesson >
-completedNetworkLessons
-) {
-
-completedNetworkLessons =
-lesson;
-
-}
-
-
-saveNetworkProgress();
-
-updateNetworkProgress();
-
-
-
-if (lesson < 6) {
-
-
-const nextLesson =
-document.querySelector(
-'[data-network-lesson="' +
-(lesson + 1) +
-'"]'
-);
-
-
-if (nextLesson) {
-
-nextLesson.classList.remove(
-"locked"
-);
-
-
-nextLesson.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-}
-
-
-if (lesson === 6) {
-
-
-document.getElementById(
-"networkCertificate"
-).style.display =
-"block";
-
-
-document.getElementById(
-"networkFinalScore"
-).textContent =
-networkScore + " / 6";
-
-
-document.getElementById(
-"networkCertificate"
-).scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-}
-
-
-
-function updateNetworkProgress() {
-
-
-const percentage =
-Math.round(
-(completedNetworkLessons / 6) * 100
-);
-
-
-document.getElementById(
-"networkProgressBar"
-).style.width =
-percentage + "%";
-
-
-document.getElementById(
-"networkProgressText"
-).textContent =
-percentage + "%";
-
-}
-
-
-
-function saveNetworkProgress() {
-
-
-localStorage.setItem(
-"sth_network_score",
-networkScore
-);
-
-
-localStorage.setItem(
-"sth_network_progress",
-completedNetworkLessons
-);
-
-
-localStorage.setItem(
-"sth_network_answers",
-JSON.stringify(
-answeredNetworkQuestions
-)
-);
-
-}
-
-
-
-function restoreNetworkProgress() {
-
-
-for (
-let lesson = 2;
-lesson <= completedNetworkLessons;
-lesson++
-) {
-
-
-const lessonElement =
-document.querySelector(
-'[data-network-lesson="' +
-lesson +
-'"]'
-);
-
-
-if (lessonElement) {
-
-lessonElement.classList.remove(
-"locked"
-);
-
-}
-
-}
-
-
-if (
-completedNetworkLessons >= 6
-) {
-
-document.getElementById(
-"networkCertificate"
-).style.display =
-"block";
-
-
-document.getElementById(
-"networkFinalScore"
-).textContent =
-networkScore + " / 6";
-
-}
-
-
-updateNetworkProgress();
-
-}
-
-
-restoreNetworkProgress();
-
+  updateProgress();
 
 </script>
 
-
 </body>
-
 </html>
