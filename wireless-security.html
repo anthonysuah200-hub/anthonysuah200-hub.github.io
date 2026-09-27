@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireless Security | Smart Tech Hub</title>
+<meta name="description" content="Learn Wi-Fi security fundamentals, WPA2 vs WPA3, common wireless attacks, defensive controls, and practice subnetting with an interactive calculator — Smart Tech Hub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1120;
+    --surface:#121B2E;
+    --surface-2:#17223A;
+    --border:#233150;
+    --text:#E7ECF3;
+    --muted:#94A3B8;
+    --teal:#00C2A8;
+    --amber:#F2B705;
+    --danger:#F2555A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    line-height:1.25;
+    margin:0 0 .5em 0;
+  }
+  code,.mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--teal);}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+  /* Nav */
+  nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(11,17,32,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .navrow{
+    max-width:880px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  .brand{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;color:var(--text);text-decoration:none;}
+  .navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem;}
+  .navlinks a{color:var(--muted);text-decoration:none;}
+  .navlinks a:hover,.navlinks a.active{color:var(--teal);}
+
+  /* Hero */
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--border);}
+  .eyebrow{color:var(--teal);font-family:'IBM Plex Mono';font-size:.82rem;margin-bottom:10px;}
+  .hero h1{font-size:2.3rem;max-width:14ch;}
+  .hero p{color:var(--muted);max-width:60ch;font-size:1.05rem;}
+  .progress-pill{
+    display:inline-block;margin-top:18px;padding:6px 14px;border-radius:999px;
+    background:var(--surface-2);border:1px solid var(--border);font-family:'IBM Plex Mono';font-size:.85rem;
+  }
+
+  .callout{
+    background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);
+    padding:16px 20px;border-radius:6px;margin:28px 0;color:var(--muted);font-size:.95rem;
+  }
+  .callout strong{color:var(--amber);}
+
+  section{padding:44px 0;border-bottom:1px solid var(--border);}
+  section h2{font-size:1.5rem;}
+  .section-label{font-family:'IBM Plex Mono';font-size:.78rem;color:var(--muted);letter-spacing:.02em;margin-bottom:6px;}
+
+  .lesson{margin-bottom:34px;}
+  .lesson h3{font-size:1.15rem;color:var(--text);}
+  .lesson p{color:var(--muted);margin:.4em 0;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono';font-size:.72rem;
+    padding:2px 8px;border-radius:4px;border:1px solid var(--border);color:var(--muted);margin-right:6px;
+  }
+  .badge.warn{color:var(--danger);border-color:var(--danger);}
+  .badge.good{color:var(--teal);border-color:var(--teal);}
+
+  .term-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .term{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;}
+  .term h4{margin:0 0 6px 0;font-family:'Space Grotesk';font-size:1rem;color:var(--text);}
+  .term p{margin:0;color:var(--muted);font-size:.93rem;}
+
+  /* Subnet calculator */
+  .tool{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px;}
+  .tool-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .tool input{
+    flex:1;min-width:220px;background:var(--bg);border:1px solid var(--border);color:var(--text);
+    font-family:'IBM Plex Mono';font-size:1rem;padding:10px 12px;border-radius:6px;
+  }
+  .tool input:focus{outline:2px solid var(--teal);outline-offset:1px;}
+  .tool button{
+    background:var(--teal);color:#052420;border:none;font-weight:600;
+    padding:10px 18px;border-radius:6px;cursor:pointer;font-family:'Inter';font-size:.95rem;
+  }
+  .tool button:hover{filter:brightness(1.08);}
+  .tool .hint{color:var(--muted);font-size:.82rem;margin-top:8px;}
+  .result-grid{
+    margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+    background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;
+  }
+  .result-cell{background:var(--surface-2);padding:14px 16px;}
+  .result-cell .k{color:var(--muted);font-size:.75rem;font-family:'IBM Plex Mono';margin-bottom:4px;}
+  .result-cell .v{font-family:'IBM Plex Mono';font-size:1rem;color:var(--teal);}
+  .error{color:var(--danger);font-family:'IBM Plex Mono';font-size:.88rem;margin-top:14px;}
+
+  /* Quiz */
+  .quiz-q{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:14px;}
+  .quiz-q
