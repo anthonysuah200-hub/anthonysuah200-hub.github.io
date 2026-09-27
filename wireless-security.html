@@ -114,4 +114,292 @@
 
   /* Quiz */
   .quiz-q{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:14px;}
-  .quiz-q
+  .quiz-q p.q{font-weight:600;margin:0 0 10px 0;}
+  .opt{display:block;width:100%;text-align:left;background:var(--bg);border:1px solid var(--border);color:var(--text);
+    padding:10px 12px;border-radius:6px;margin:6px 0;cursor:pointer;font-family:'Inter';font-size:.94rem;}
+  .opt:hover{border-color:var(--teal);}
+  .opt.correct{border-color:var(--teal);background:rgba(0,194,168,.12);}
+  .opt.wrong{border-color:var(--danger);background:rgba(242,85,90,.12);}
+  #quiz-score{margin-top:14px;font-family:'IBM Plex Mono';color:var(--amber);}
+
+  /* Social */
+  .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .social-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .social-card h4{margin:0;font-family:'Space Grotesk';font-size:1.05rem;}
+  .social-card .platform{font-family:'IBM Plex Mono';font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .social-card a.btn{
+    display:inline-block;text-align:center;margin-top:auto;text-decoration:none;
+    border:1px solid var(--teal);color:var(--teal);padding:9px 14px;border-radius:6px;font-size:.9rem;font-weight:600;
+  }
+  .social-card a.btn:hover{background:var(--teal);color:#052420;}
+  .social-card a.profile{font-size:.85rem;color:var(--muted);text-decoration:none;}
+  .social-card a.profile:hover{color:var(--teal);}
+
+  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.88rem;}
+
+  @media (max-width:560px){
+    .hero h1{font-size:1.8rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <a class="brand" href="index.html">Smart Tech Hub</a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="owasp.html">OWASP</a>
+      <a href="labs.html">Labs</a>
+      <a href="ctf.html">CTF</a>
+      <a href="network-security.html">Network Security</a>
+      <a href="wireless-security.html" class="active">Wireless Security</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Lesson · Network &amp; Wireless Security</div>
+    <h1>Wireless Security</h1>
+    <p>Learn how Wi-Fi protects (and fails to protect) data in the air — encryption standards, common attack patterns, and the controls defenders use to lock a wireless network down.</p>
+    <span class="progress-pill">Course Progress: <strong id="progress-text">0%</strong></span>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="callout">
+      <strong>⚠️ Safe Learning Rule</strong><br>
+      Only test wireless networks and devices you own or have explicit written permission to test. This lesson explains how wireless attacks work so you can recognize and defend against them — it is not a walkthrough for attacking networks you don't control.
+    </div>
+
+    <div class="section-label">📚 Lessons</div>
+    <h2>Wireless Security Lessons</h2>
+
+    <div class="lesson">
+      <h3>1. Wi-Fi Encryption Standards</h3>
+      <p><span class="badge warn">Deprecated</span><strong>WEP</strong> (Wired Equivalent Privacy) was the original Wi-Fi encryption standard. Its key scheduling is cryptographically broken and it can be defeated quickly with widely available tools — it should never be used.</p>
+      <p><span class="badge warn">Legacy</span><strong>WPA</strong> improved on WEP with TKIP but is also considered outdated and weak by modern standards.</p>
+      <p><span class="badge">Common</span><strong>WPA2</strong> introduced AES-CCMP encryption and is still the most widely deployed standard. Its main weakness is the 4-way handshake, which can be captured and attacked offline if the passphrase is weak.</p>
+      <p><span class="badge good">Current</span><strong>WPA3</strong> replaces the older handshake with SAE (Simultaneous Authentication of Equals), which resists offline password-guessing even against weak passphrases, and adds forward secrecy so past traffic stays protected if a key is later compromised.</p>
+    </div>
+
+    <div class="lesson">
+      <h3>2. SSID, BSSID, and Hidden Networks</h3>
+      <p>The <strong>SSID</strong> is the human-readable network name (e.g. "HomeWiFi"). The <strong>BSSID</strong> is the MAC address of the specific access point radio broadcasting it. "Hiding" an SSID stops it appearing in a casual scan, but it is still visible to anyone actively monitoring wireless traffic — so it's a minor inconvenience for attackers, not a real security control.</p>
+    </div>
+
+    <div class="lesson">
+      <h3>3. Common Wireless Attack Patterns</h3>
+      <p><strong>Rogue access point</strong> — an unauthorized AP connected to a network, sometimes set up by an attacker (or an employee) that bypasses normal security controls.</p>
+      <p><strong>Evil twin</strong> — a fake access point broadcasting a legitimate-looking SSID to trick devices into connecting, so traffic can be intercepted.</p>
+      <p><strong>Deauthentication attack</strong> — forged management frames that disconnect a device from an AP, often used to force a device to reconnect so its handshake can be captured.</p>
+      <p><strong>Handshake capture &amp; offline cracking</strong> — capturing a WPA2 4-way handshake and attempting to recover the passphrase offline using a wordlist. A long, random passphrase makes this impractical.</p>
+    </div>
+
+    <div class="lesson">
+      <h3>4. Defensive Controls</h3>
+      <p>Use <strong>WPA3</strong> where supported, or WPA2-AES at minimum. Choose a long, unique passphrase (16+ characters). Disable <strong>WPS</strong> (Wi-Fi Protected Setup), which has known PIN-brute-force weaknesses. Segment guest and IoT devices onto a separate network/VLAN. Keep router firmware updated, and monitor for unrecognized access points on the network.</p>
+    </div>
+
+    <div class="section-label" style="margin-top:44px;">📖 Wireless Dictionary</div>
+    <h2>Key Terms</h2>
+    <div class="term-grid">
+      <div class="term"><h4>WPA3 / SAE</h4><p>The current Wi-Fi security standard; SAE is its handshake method, designed to resist offline password-guessing attacks even against weaker passphrases.</p></div>
+      <div class="term"><h4>WPS</h4><p>A setup feature meant to simplify connecting devices to a router. Its PIN implementation is often vulnerable to brute-force and is generally recommended to be disabled.</p></div>
+      <div class="term"><h4>4-Way Handshake</h4><p>The exchange an AP and device use to prove both know the network passphrase and derive session keys, without sending the passphrase itself over the air.</p></div>
+      <div class="term"><h4>Rogue AP</h4><p>An unauthorized wireless access point connected to a network, which can bypass firewall and monitoring controls if not detected.</p></div>
+      <div class="term"><h4>Evil Twin</h4><p>A malicious access point mimicking a legitimate SSID to trick users into connecting so their traffic can be observed or altered.</p></div>
+      <div class="term"><h4>Deauthentication Frame</h4><p>A wireless management frame that disconnects a client from an AP; forged deauth frames are used to disrupt connections or force reconnection.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="subnet-tool">
+  <div class="wrap">
+    <div class="section-label">🧮 Interactive Tool</div>
+    <h2>Subnet Calculator</h2>
+    <p style="color:var(--muted);max-width:60ch;">Enter an IPv4 address with CIDR notation (e.g. <span class="mono">192.168.1.10/24</span>) to see the network address, broadcast address, usable host range, and subnet mask.</p>
+
+    <div class="tool">
+      <div class="tool-row">
+        <input id="cidr-input" type="text" placeholder="192.168.1.10/24" value="192.168.1.10/24">
+        <button onclick="calcSubnet()">Calculate</button>
+      </div>
+      <div class="hint">Try values like 10.0.0.5/8, 172.16.4.20/20, or 192.168.1.10/30.</div>
+      <div id="subnet-error" class="error"></div>
+      <div id="subnet-results" class="result-grid" style="display:none;">
+        <div class="result-cell"><div class="k">Network Address</div><div class="v" id="r-network"></div></div>
+        <div class="result-cell"><div class="k">Broadcast Address</div><div class="v" id="r-broadcast"></div></div>
+        <div class="result-cell"><div class="k">Subnet Mask</div><div class="v" id="r-mask"></div></div>
+        <div class="result-cell"><div class="k">Wildcard Mask</div><div class="v" id="r-wildcard"></div></div>
+        <div class="result-cell"><div class="k">Usable Host Range</div><div class="v" id="r-range"></div></div>
+        <div class="result-cell"><div class="k">Usable Hosts</div><div class="v" id="r-hosts"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">🧠 Wireless Security Quiz</div>
+    <h2>Test Your Knowledge</h2>
+    <div id="quiz"></div>
+    <div id="quiz-score"></div>
+  </div>
+</section>
+
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-label">🎥 Follow &amp; Watch</div>
+    <h2>Connect With Smart Tech Hub</h2>
+    <p style="color:var(--muted);max-width:60ch;">Follow along for more cybersecurity breakdowns, and watch a short video explainer on each platform.</p>
+    <div class="social-grid">
+      <div class="social-card">
+        <div class="platform">Facebook</div>
+        <h4>Smart Tech Hub</h4>
+        <a class="profile" href="https://www.facebook.com/share/1CKo66juDJ/?mibextid=wwXIfr" target="_blank" rel="noopener">View profile →</a>
+        <a class="btn" href="https://www.facebook.com/share/v/19n3MbrLe6/?mibextid=wwXIfr" target="_blank" rel="noopener">Watch on Facebook</a>
+      </div>
+      <div class="social-card">
+        <div class="platform">Instagram</div>
+        <h4>@smarttechhubcyber</h4>
+        <a class="profile" href="https://www.instagram.com/smarttechhubcyber?stkn=MTkzbzF4aXc5djhscQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">View profile →</a>
+        <a class="btn" href="https://www.instagram.com/reel/DdVxwWCNUT2/?stkn=ejE4aGhic2V0aWRh" target="_blank" rel="noopener">Watch the Reel</a>
+      </div>
+      <div class="social-card">
+        <div class="platform">TikTok</div>
+        <h4>@smarttech.hub5</h4>
+        <a class="profile" href="https://www.tiktok.com/@smarttech.hub5?_r=1&_t=ZS-9A5n2vgmpU5" target="_blank" rel="noopener">View profile →</a>
+        <a class="btn" href="https://www.tiktok.com/@smarttech.hub5/video/7682722643627265281" target="_blank" rel="noopener">Watch on TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Smart Tech Hub. Learn • Practice • Protect.<br>
+  Cybersecurity education for beginners and future security professionals.
+</footer>
+
+<script>
+// ---- Subnet Calculator ----
+function ipToLong(ip){
+  const parts = ip.split('.').map(Number);
+  if(parts.length!==4 || parts.some(p=>isNaN(p)||p<0||p>255)) return null;
+  return ((parts[0]<<24)>>>0) + (parts[1]<<16) + (parts[2]<<8) + parts[3];
+}
+function longToIp(long){
+  return [(long>>>24)&255,(long>>>16)&255,(long>>>8)&255,long&255].join('.');
+}
+function calcSubnet(){
+  const input = document.getElementById('cidr-input').value.trim();
+  const errEl = document.getElementById('subnet-error');
+  const resEl = document.getElementById('subnet-results');
+  errEl.textContent = '';
+  resEl.style.display = 'none';
+
+  const match = input.match(/^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\/(\d{1,2})$/);
+  if(!match){
+    errEl.textContent = 'Enter a valid address in the form 192.168.1.10/24';
+    return;
+  }
+  const ip = match[1];
+  const prefix = parseInt(match[2],10);
+  if(prefix<0 || prefix>32){
+    errEl.textContent = 'Prefix must be between 0 and 32.';
+    return;
+  }
+  const ipLong = ipToLong(ip);
+  if(ipLong===null){
+    errEl.textContent = 'Each octet must be between 0 and 255.';
+    return;
+  }
+
+  const maskLong = prefix===0 ? 0 : (0xFFFFFFFF << (32-prefix)) >>> 0;
+  const wildcardLong = (~maskLong) >>> 0;
+  const networkLong = (ipLong & maskLong) >>> 0;
+  const broadcastLong = (networkLong | wildcardLong) >>> 0;
+
+  let usableFirst, usableLast, hostCount;
+  if(prefix>=31){
+    usableFirst = longToIp(networkLong);
+    usableLast = longToIp(broadcastLong);
+    hostCount = prefix===32 ? 1 : 2;
+  } else {
+    usableFirst = longToIp(networkLong+1);
+    usableLast = longToIp(broadcastLong-1);
+    hostCount = Math.pow(2,32-prefix)-2;
+  }
+
+  document.getElementById('r-network').textContent = longToIp(networkLong)+'/'+prefix;
+  document.getElementById('r-broadcast').textContent = longToIp(broadcastLong);
+  document.getElementById('r-mask').textContent = longToIp(maskLong);
+  document.getElementById('r-wildcard').textContent = longToIp(wildcardLong);
+  document.getElementById('r-range').textContent = usableFirst + ' – ' + usableLast;
+  document.getElementById('r-hosts').textContent = hostCount.toLocaleString();
+  resEl.style.display = 'grid';
+}
+document.getElementById('cidr-input').addEventListener('keydown', e=>{ if(e.key==='Enter') calcSubnet(); });
+window.addEventListener('load', calcSubnet);
+
+// ---- Quiz ----
+const quizData = [
+  {q:"Which Wi-Fi standard is considered broken and should never be used?",
+   options:["WPA3","WPA2","WEP","SAE"], correct:2},
+  {q:"What does WPA3's SAE handshake mainly protect against?",
+   options:["Physical theft of the router","Offline password-guessing on a weak passphrase","Power outages","Slow internet speeds"], correct:1},
+  {q:"What is an 'evil twin' in wireless security?",
+   options:["A backup router","A fake AP mimicking a legitimate SSID","A type of firewall","A VPN protocol"], correct:1},
+  {q:"Which feature is commonly recommended to disable due to PIN brute-force weaknesses?",
+   options:["WPA3","WPS","DHCP","DNS"], correct:1},
+  {q:"Hiding an SSID mainly protects against which type of visibility?",
+   options:["Active wireless traffic monitoring","Casual network scans only","All forms of detection","Nothing at all"], correct:1}
+];
+let score = 0, answered = 0;
+const quizEl = document.getElementById('quiz');
+quizData.forEach((item, qi)=>{
+  const box = document.createElement('div');
+  box.className = 'quiz-q';
+  const p = document.createElement('p');
+  p.className = 'q';
+  p.textContent = (qi+1)+'. '+item.q;
+  box.appendChild(p);
+  item.options.forEach((opt, oi)=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.textContent = opt;
+    btn.onclick = ()=>{
+      if(box.dataset.done) return;
+      box.dataset.done = '1';
+      answered++;
+      const allOpts = box.querySelectorAll('.opt');
+      if(oi===item.correct){
+        btn.classList.add('correct');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        allOpts[item.correct].classList.add('correct');
+      }
+      allOpts.forEach(o=>o.disabled=true);
+      updateScore();
+    };
+    box.appendChild(btn);
+  });
+  quizEl.appendChild(box);
+});
+function updateScore(){
+  document.getElementById('quiz-score').textContent =
+    'Score: '+score+' / '+quizData.length+(answered===quizData.length ? ' — Quiz complete! 🏆' : '');
+  const pct = Math.round((answered/quizData.length)*100);
+  document.getElementById('progress-text').textContent = pct+'%';
+}
+</script>
+
+</body>
+</html>
