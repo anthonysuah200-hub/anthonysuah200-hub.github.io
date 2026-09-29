@@ -1,2 +1,664 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cybersecurity Courses | Smart Tech Hub</title>
+
+<meta name="description" content="Smart Tech Hub cybersecurity courses covering foundations, network security, cryptography, wireless security, OWASP, CTF and incident response.">
+
+<link rel="canonical" href="https://anthonysuah200-hub.github.io/courses.html">
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07111f;
+  color:#eef5ff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+header{
+  background:#09182b;
+  border-bottom:1px solid #203653;
+  padding:18px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  color:white;
+  font-size:1.3rem;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#00d4b4;
+}
+
+nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#aabbd0;
+}
+
+nav a:hover{
+  color:#00d4b4;
+}
+
+.hero{
+  text-align:center;
+  padding:70px 20px 55px;
+  background:linear-gradient(135deg,#07111f,#0b2038);
+}
+
+.hero h1{
+  font-size:clamp(2.2rem,6vw,4rem);
+  margin:10px 0 15px;
+}
+
+.hero h1 span{
+  color:#00d4b4;
+}
+
+.hero p{
+  max-width:750px;
+  margin:0 auto;
+  color:#aabbd0;
+}
+
+.container{
+  width:92%;
+  max-width:1150px;
+  margin:auto;
+}
+
+.section{
+  padding:55px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:2rem;
+  margin:5px 0 10px;
+}
+
+.section-title p{
+  color:#9fb1c7;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  background:#0d1b2e;
+  border:1px solid #203653;
+  border-radius:16px;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#00d4b4;
+}
+
+.icon{
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+.level{
+  display:inline-block;
+  width:max-content;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:.72rem;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.beginner{
+  background:#123c32;
+  color:#45e0a0;
+}
+
+.intermediate{
+  background:#403514;
+  color:#f4cc58;
+}
+
+.advanced{
+  background:#401d25;
+  color:#ff7b85;
+}
+
+.practical{
+  background:#163452;
+  color:#69b8ff;
+}
+
+.card h3{
+  font-size:1.35rem;
+  margin:5px 0 10px;
+}
+
+.card p{
+  color:#9fb1c7;
+}
+
+.card ul{
+  color:#b8c7d8;
+  padding-left:20px;
+  flex:1;
+}
+
+.card li{
+  margin:6px 0;
+}
+
+.btn{
+  display:inline-block;
+  text-align:center;
+  background:#00d4b4;
+  color:#031713;
+  font-weight:bold;
+  padding:12px 16px;
+  border-radius:8px;
+  margin-top:15px;
+}
+
+.btn:hover{
+  background:#25e5c8;
+}
+
+.coming{
+  opacity:.8;
+}
+
+.learning{
+  background:#09182b;
+  border-top:1px solid #203653;
+  border-bottom:1px solid #203653;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.step{
+  text-align:center;
+  background:#0d1b2e;
+  border:1px solid #203653;
+  border-radius:12px;
+  padding:20px;
+}
+
+.step h3{
+  color:#00d4b4;
+}
+
+.step p{
+  color:#9fb1c7;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#8fa3ba;
+}
+
+footer a{
+  color:#00d4b4;
+}
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  header{
+    align-items:flex-start;
+  }
+
+  nav{
+    width:100%;
+  }
+
+  .grid,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:50px 15px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a class="logo" href="index.html">
+Smart <span>Tech Hub</span>
+</a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="network-security.html">Network</a>
+<a href="cryptography.html">Cryptography</a>
+<a href="wireless-security.html">Wireless</a>
+<a href="owasp.html">OWASP</a>
+<a href="labs.html">Labs</a>
+<a href="ctf.html">CTF</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+Cybersecurity <span>Courses</span>
+</h1>
+
+<p>
+Build real cybersecurity knowledge through structured lessons,
+quizzes, practical labs and safe security challenges.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>7 Cybersecurity Learning Paths</h2>
+
+<p>
+Start with the fundamentals and continue building your technical skills.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<!-- COURSE 1 -->
+
+<article class="card">
+
+<div class="icon">🟢</div>
+
+<span class="level beginner">BEGINNER</span>
+
+<h3>Cybersecurity Foundations</h3>
+
+<p>
+Learn the essential concepts every cybersecurity beginner needs.
+</p>
+
+<ul>
+<li>Cybersecurity basics</li>
+<li>Threats and vulnerabilities</li>
+<li>Password security</li>
+<li>Account protection</li>
+<li>Network fundamentals</li>
+</ul>
+
+<a class="btn" href="index.html#course">
+Start Course →
+</a>
+
+</article>
+
+
+<!-- COURSE 2 -->
+
+<article class="card">
+
+<div class="icon">🌐</div>
+
+<span class="level intermediate">INTERMEDIATE</span>
+
+<h3>Network Security</h3>
+
+<p>
+Understand networks, ports, protocols, firewalls and network discovery.
+</p>
+
+<ul>
+<li>IP addresses</li>
+<li>Ports and protocols</li>
+<li>TCP and UDP</li>
+<li>DNS</li>
+<li>Firewalls</li>
+<li>Nmap fundamentals</li>
+</ul>
+
+<a class="btn" href="network-security.html">
+Start Course →
+</a>
+
+</article>
+
+
+<!-- COURSE 3 -->
+
+<article class="card">
+
+<div class="icon">🔐</div>
+
+<span class="level intermediate">INTERMEDIATE</span>
+
+<h3>Cryptography</h3>
+
+<p>
+Learn how encryption and hashing protect information.
+</p>
+
+<ul>
+<li>Encryption</li>
+<li>Hashing</li>
+<li>AES</li>
+<li>RSA</li>
+<li>Digital signatures</li>
+<li>TLS and HTTPS</li>
+</ul>
+
+<a class="btn" href="cryptography.html">
+Start Course →
+</a>
+
+</article>
+
+
+<!-- COURSE 4 -->
+
+<article class="card">
+
+<div class="icon">📡</div>
+
+<span class="level intermediate">INTERMEDIATE</span>
+
+<h3>Wireless Security</h3>
+
+<p>
+Learn how Wi-Fi networks are protected and how wireless threats are addressed.
+</p>
+
+<ul>
+<li>Wi-Fi fundamentals</li>
+<li>WPA2 and WPA3</li>
+<li>Wireless threats</li>
+<li>Rogue access points</li>
+<li>Wireless defense</li>
+<li>Network protection</li>
+</ul>
+
+<a class="btn" href="wireless-security.html">
+Start Course →
+</a>
+
+</article>
+
+
+<!-- COURSE 5 -->
+
+<article class="card">
+
+<div class="icon">🛡️</div>
+
+<span class="level advanced">ADVANCED</span>
+
+<h3>OWASP Top 10</h3>
+
+<p>
+Learn important web application security risks and defensive techniques.
+</p>
+
+<ul>
+<li>Injection</li>
+<li>Broken access control</li>
+<li>XSS</li>
+<li>Security misconfiguration</li>
+<li>Authentication security</li>
+<li>Web security testing</li>
+</ul>
+
+<a class="btn" href="owasp.html">
+Start Course →
+</a>
+
+</article>
+
+
+<!-- COURSE 6 -->
+
+<article class="card">
+
+<div class="icon">🚩</div>
+
+<span class="level practical">PRACTICAL</span>
+
+<h3>Capture The Flag</h3>
+
+<p>
+Test your cybersecurity knowledge with safe fictional challenges.
+</p>
+
+<ul>
+<li>Web security</li>
+<li>Networking</li>
+<li>Encoding</li>
+<li>Security analysis</li>
+<li>Flags</li>
+<li>Problem solving</li>
+</ul>
+
+<a class="btn" href="ctf.html">
+Enter CTF →
+</a>
+
+</article>
+
+
+<!-- COURSE 7 -->
+
+<article class="card coming">
+
+<div class="icon">🚨</div>
+
+<span class="level advanced">COMING SOON</span>
+
+<h3>Incident Response</h3>
+
+<p>
+Learn how security teams investigate and respond to cybersecurity incidents.
+</p>
+
+<ul>
+<li>Incident identification</li>
+<li>Alert analysis</li>
+<li>Log investigation</li>
+<li>Containment</li>
+<li>Evidence handling</li>
+<li>Incident reporting</li>
+</ul>
+
+<a class="btn" href="#">
+Coming Soon
+</a>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section learning">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>How You Learn</h2>
+
+<p>
+Smart Tech Hub follows a simple learning process.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<h3>📚 Learn</h3>
+
+<p>
+Understand the cybersecurity concept through clear lessons.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>🧪 Practice</h3>
+
+<p>
+Apply your knowledge in safe and authorized environments.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>🧠 Test</h3>
+
+<p>
+Use quizzes and challenges to test your understanding.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>🏆 Improve</h3>
+
+<p>
+Review your knowledge and continue developing your skills.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Practice Responsibly</h2>
+
+<p>
+Only test systems, networks and applications that you own
+or have explicit permission to assess.
+Smart Tech Hub promotes ethical cybersecurity education.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+<strong>Smart Tech Hub</strong>
+</p>
+
+<p>
+Learn • Practice • Protect
+</p>
+
+<p>
+
+<a href="index.html">Home</a> ·
+
+<a href="courses.html">Courses</a> ·
+
+<a href="labs.html">Labs</a> ·
+
+<a href="ctf.html">CTF</a>
+
+</p>
+
+</footer>
+
+</body>
 </html>
