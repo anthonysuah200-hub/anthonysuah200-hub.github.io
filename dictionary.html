@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cybersecurity Dictionary | Smart Tech Hub</title>
+
+<meta name="description" content="Beginner-friendly cybersecurity definitions and terminology from Smart Tech Hub.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07111f;
+  color:#e8f0f7;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+header{
+  background:#0b1728;
+  border-bottom:1px solid #1d344d;
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  color:#35e0a1;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  justify-content:center;
+}
+
+.nav-links a{
+  color:#c7d4e2;
+  font-size:14px;
+}
+
+.nav-links a:hover,
+.nav-links .active{
+  color:#35e0a1;
+}
+
+.hero{
+  max-width:900px;
+  margin:auto;
+  padding:65px 20px 40px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  color:#35e0a1;
+  border:1px solid #27516b;
+  background:#0b1d2d;
+  padding:7px 14px;
+  border-radius:999px;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(35px,6vw,55px);
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#35e0a1;
+}
+
+.hero p{
+  color:#aebdca;
+  max-width:700px;
+  margin:auto;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:20px;
+}
+
+.controls{
+  display:flex;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+input,
+select{
+  background:#0c1b2d;
+  border:1px solid #284158;
+  color:#fff;
+  padding:14px;
+  border-radius:9px;
+  outline:none;
+}
+
+input{
+  flex:1;
+}
+
+input:focus,
+select:focus{
+  border-color:#35e0a1;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.term{
+  background:#0c1a2b;
+  border:1px solid #1e354b;
+  border-radius:13px;
+  padding:22px;
+  transition:.2s;
+}
+
+.term:hover{
+  transform:translateY(-3px);
+  border-color:#35e0a1;
+}
+
+.term h3{
+  color:#35e0a1;
+  margin-bottom:9px;
+}
+
+.term small{
+  display:inline-block;
+  color:#91a4b5;
+  margin-bottom:10px;
+}
+
+.term p{
+  color:#b7c5d2;
+  font-size:14px;
+}
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:40px;
+  color:#91a4b5;
+}
+
+footer{
+  margin-top:60px;
+  padding:30px;
+  text-align:center;
+  background:#050d17;
+  border-top:1px solid #1d344d;
+  color:#8193a5;
+}
+
+footer strong{
+  color:#35e0a1;
+}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .nav{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:560px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .controls{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="nav">
+
+<a href="index.html" class="logo">🛡️ Smart Tech Hub</a>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="news.html">News</a>
+<a href="dictionary.html" class="active">Dictionary</a>
+<a href="roadmap.html">Roadmap</a>
+<a href="labs.html">Labs</a>
+<a href="ctf.html">CTF</a>
+</div>
+
+</nav>
+</header>
+
+<section class="hero">
+
+<span class="badge">📚 CYBERSECURITY DICTIONARY</span>
+
+<h1>Learn the Language of <span>Cybersecurity</span></h1>
+
+<p>
+Understand important cybersecurity terms using simple,
+beginner-friendly explanations.
+</p>
+
+</section>
+
+<main class="container">
+
+<div class="controls">
+
+<input
+type="search"
+id="search"
+placeholder="🔎 Search a cybersecurity term..."
+>
+
+<select id="category">
+
+<option value="all">All Categories</option>
+<option value="network">Networking</option>
+<option value="security">Security</option>
+<option value="web">Web Security</option>
+<option value="malware">Malware</option>
+<option value="identity">Identity</option>
+
+</select>
+
+</div>
+
+<section class="grid" id="dictionary">
+
+<article class="term" data-category="network">
+<h3>IP Address</h3>
+<small>Networking</small>
+<p>A numerical address used to identify a device on a network.</p>
+</article>
+
+<article class="term" data-category="network">
+<h3>DNS</h3>
+<small>Networking</small>
+<p>The Domain Name System translates domain names into IP addresses.</p>
+</article>
+
+<article class="term" data-category="network">
+<h3>Firewall</h3>
+<small>Security</small>
+<p>A security system that controls network traffic according to defined rules.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Encryption</h3>
+<small>Security</small>
+<p>The process of transforming readable information into protected data.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Authentication</h3>
+<small>Identity</small>
+<p>The process of verifying that a person or system is who they claim to be.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>MFA</h3>
+<small>Identity</small>
+<p>Multi-factor authentication requires more than one verification method.</p>
+</article>
+
+<article class="term" data-category="web">
+<h3>SQL Injection</h3>
+<small>Web Security</small>
+<p>A vulnerability where malicious SQL input is used to manipulate a database query.</p>
+</article>
+
+<article class="term" data-category="web">
+<h3>XSS</h3>
+<small>Web Security</small>
+<p>Cross-Site Scripting allows unwanted scripts to execute in another user's browser.</p>
+</article>
+
+<article class="term" data-category="web">
+<h3>HTTPS</h3>
+<small>Web Security</small>
+<p>A secure version of HTTP that protects communication using encryption.</p>
+</article>
+
+<article class="term" data-category="malware">
+<h3>Malware</h3>
+<small>Security</small>
+<p>Malicious software designed to damage, disrupt, spy on or gain unauthorized access to systems.</p>
+</article>
+
+<article class="term" data-category="malware">
+<h3>Ransomware</h3>
+<small>Malware</small>
+<p>Malware that prevents access to data or systems and demands payment from victims.</p>
+</article>
+
+<article class="term" data-category="malware">
+<h3>Trojan</h3>
+<small>Malware</small>
+<p>Malicious software that disguises itself as legitimate software.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Phishing</h3>
+<small>Security</small>
+<p>A social engineering technique used to trick people into revealing information or taking unsafe actions.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Vulnerability</h3>
+<small>Security</small>
+<p>A weakness in software, hardware, configuration or processes that could be exploited.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Exploit</h3>
+<small>Security</small>
+<p>A technique or code that takes advantage of a vulnerability.</p>
+</article>
+
+<article class="term" data-category="security">
+<h3>Zero-Day</h3>
+<small>Security</small>
+<p>A vulnerability that is unknown or has not yet been properly addressed by its developer.</p>
+</article>
+
+<article class="term" data-category="identity">
+<h3>Authorization</h3>
+<small>Identity</small>
+<p>The process of determining what an authenticated user is allowed to access or do.</p>
+</article>
+
+<article class="term" data-category="network">
+<h3>VPN</h3>
+<small>Networking</small>
+<p>A virtual private network creates an encrypted connection between a device and a network service.</p>
+</article>
+
+</section>
+
+<div class="empty" id="empty">
+No matching cybersecurity terms found.
+</div>
+
+</main>
+
+<footer>
+<p><strong>Smart Tech Hub</strong> — Learn • Practice • Protect</p>
+<p>© 2026 Smart Tech Hub</p>
+</footer>
+
+<script>
+
+const search=document.getElementById("search");
+const category=document.getElementById("category");
+const terms=document.querySelectorAll(".term");
+const empty=document.getElementById("empty");
+
+function filterTerms(){
+
+const query=search.value.toLowerCase().trim();
+const selected=category.value;
+
+let visible=0;
+
+terms.forEach(term=>{
+
+const text=term.innerText.toLowerCase();
+const cat=term.dataset.category;
+
+const matchesText=text.includes(query);
+const matchesCategory=
+selected==="all" || cat===selected;
+
+if(matchesText && matchesCategory){
+
+term.style.display="";
+visible++;
+
+}else{
+
+term.style.display="none";
+
+}
+
+});
+
+empty.style.display=visible===0 ? "block":"none";
+
+}
+
+search.addEventListener("input",filterTerms);
+category.addEventListener("change",filterTerms);
+
+</script>
+
+</body>
+</html>
