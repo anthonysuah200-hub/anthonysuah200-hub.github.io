@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cyber News | Smart Tech Hub</title>
+
+  <meta name="description"
+        content="Smart Tech Hub cybersecurity news, security alerts, privacy tips, cyber threats and technology updates.">
+
+  <link rel="canonical" href="https://anthonysuah200-hub.github.io/news.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #e8f0f7;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #0b1728;
+      border-bottom: 1px solid #1d344d;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      color: #35e0a1;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: #c7d4e2;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #35e0a1;
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 20px 45px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #27516b;
+      border-radius: 999px;
+      color: #35e0a1;
+      background: #0b1d2d;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #35e0a1;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #aebdca;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 230px;
+      background: #0c1b2d;
+      border: 1px solid #284158;
+      color: white;
+      padding: 13px 15px;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: #35e0a1;
+    }
+
+    .filter {
+      background: #0c1b2d;
+      border: 1px solid #284158;
+      color: #dce8f2;
+      padding: 13px 15px;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .section-title {
+      margin: 10px 0 22px;
+      font-size: 28px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #0c1a2b;
+      border: 1px solid #1e354b;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #35e0a1;
+    }
+
+    .card-top {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #10243a;
+      font-size: 48px;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: bold;
+      color: #35e0a1;
+      border: 1px solid #275442;
+      padding: 4px 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aebdca;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #74889a;
+      margin-bottom: 14px;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: #35e0a1;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      color: #91a2b2;
+    }
+
+    .tips {
+      margin: 60px 0 30px;
+      padding: 28px;
+      background: #0c1a2b;
+      border: 1px solid #1e354b;
+      border-radius: 14px;
+    }
+
+    .tips h2 {
+      color: #35e0a1;
+      margin-bottom: 12px;
+    }
+
+    .tips ul {
+      padding-left: 20px;
+      color: #b7c5d2;
+    }
+
+    .tips li {
+      margin: 8px 0;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px 20px;
+      text-align: center;
+      background: #050d17;
+      border-top: 1px solid #1d344d;
+      color: #8193a5;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #35e0a1;
+    }
+
+    @media (max-width: 850px) {
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">🛡️ Smart Tech Hub</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="news.html" class="active">Cyber News</a>
+      <a href="network-security.html">Network</a>
+      <a href="cryptography.html">Cryptography</a>
+      <a href="wireless-security.html">Wireless</a>
+      <a href="owasp.html">OWASP</a>
+      <a href="labs.html">Labs</a>
+      <a href="ctf.html">CTF</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="hero-badge">📰 SMART TECH HUB CYBER NEWS</span>
+
+  <h1>
+    Cybersecurity <span>News & Insights</span>
+  </h1>
+
+  <p>
+    Stay informed about cybersecurity threats, privacy,
+    online safety, vulnerabilities and the latest technology developments.
+  </p>
+</section>
+
+<main class="container">
+
+  <div class="controls">
+    <input
+      type="search"
+      id="search"
+      class="search"
+      placeholder="🔎 Search cybersecurity articles..."
+      aria-label="Search articles"
+    >
+
+    <select id="filter" class="filter" aria-label="Filter articles">
+      <option value="all">All Categories</option>
+      <option value="news">Cyber News</option>
+      <option value="threats">Threats</option>
+      <option value="privacy">Privacy</option>
+      <option value="learning">Learning</option>
+      <option value="career">Career</option>
+    </select>
+  </div>
+
+  <h2 class="section-title">Latest Articles</h2>
+
+  <section class="news-grid" id="newsGrid">
+
+    <article class="card" data-category="threats">
+      <div class="card-top">🚨</div>
+
+      <div class="card-content">
+        <span class="category">Threats</span>
+
+        <h3>Why Humans Remain One of the Biggest Cybersecurity Risks</h3>
+
+        <div class="date">October 5, 2026</div>
+
+        <p>
+          Technology can be strong, but attackers often target people
+          through phishing, social engineering and deception.
+        </p>
+
+        <a href="#" class="read-more"
+           onclick="return comingSoon(event)">
+          Read Article →
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card" data-category="privacy">
+      <div class="card-top">🔐</div>
+
+      <div class="card-content">
+        <span class="category">Privacy</span>
+
+        <h3>5 Simple Ways to Protect Your Online Accounts</h3>
+
+        <div class="date">October 4, 2026</div>
+
+        <p>
+          Learn practical security habits including strong passwords,
+          multi-factor authentication and safer account recovery.
+        </p>
+
+        <a href="#" class="read-more"
+           onclick="return comingSoon(event)">
+          Read Article →
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card" data-category="learning">
+      <div class="card-top">🧪</div>
+
+      <div class="card-content">
+        <span class="category">Learning</span>
+
+        <h3>Why Cybersecurity Students Should Practice in Legal Labs</h3>
+
+        <div class="date">October 3, 2026</div>
+
+        <p>
+          Discover why controlled labs and CTF environments are safer
+          places to develop practical cybersecurity skills.
+        </p>
+
+        <a href="labs.html" class="read-more">
+          Explore Labs →
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card" data-category="career">
+      <div class="card-top">💻</div>
+
+      <div class="card-content">
+        <span class="category">Career</span>
+
+        <h3>How to Start Building a Cybersecurity Career</h3>
+
+        <div class="date">October 2, 2026</div>
+
+        <p>
+          A beginner-friendly look at networking, Linux, security
+          fundamentals, practical labs and professional development.
+        </p>
+
+        <a href="courses.html" class="read-more">
+          Start Learning →
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card" data-category="news">
+      <div class="card-top">🌍</div>
+
+      <div class="card-content">
+        <span class="category">Cyber News</span>
+
+        <h3>Why Cybersecurity Awareness Matters in Africa</h3>
+
+        <div class="date">October 1, 2026</div>
+
+        <p>
+          Cybersecurity awareness helps individuals, organizations and
+          communities recognize threats and respond more safely.
+        </p>
+
+        <a href="#" class="read-more"
+           onclick="return comingSoon(event)">
+          Read Article →
+        </a>
+      </div>
+    </article>
+
+
+    <article class="card" data-category="threats">
+      <div class="card-top">🎣</div>
+
+      <div class="card-content">
+        <span class="category">Threats</span>
+
+        <h3>Phishing: The Attack That Starts With a Message</h3>
+
+        <div class="date">September 30, 2026</div>
+
+        <p>
+          Learn how phishing attempts manipulate users and the warning
+          signs you should look for before clicking a suspicious link.
+        </p>
+
+        <a href="#" class="read-more"
+           onclick="return comingSoon(event)">
+          Read Article →
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="empty" id="empty">
+    No articles match your search.
+  </div>
+
+
+  <section class="tips">
+    <h2>🛡️ Smart Security Reminder</h2>
+
+    <ul>
+      <li>Use strong, unique passwords for important accounts.</li>
+      <li>Enable multi-factor authentication whenever possible.</li>
+      <li>Never share passwords, verification codes or recovery codes.</li>
+      <li>Think before clicking links in unexpected messages.</li>
+      <li>Keep your operating system and applications updated.</li>
+      <li>Practice cybersecurity skills only in systems you are authorized to test.</li>
+    </ul>
+  </section>
+
+</main>
+
+
+<footer>
+  <p>
+    <strong>Smart Tech Hub</strong> — Learn • Practice • Protect
+  </p>
+
+  <p>
+    © 2026 Smart Tech Hub. Educational cybersecurity content.
+  </p>
+</footer>
+
+
+<script>
+  const searchInput = document.getElementById("search");
+  const filter = document.getElementById("filter");
+  const cards = document.querySelectorAll(".card");
+  const empty = document.getElementById("empty");
+
+  function filterArticles() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const category = filter.value;
+
+    let visible = 0;
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const cardCategory = card.dataset.category;
+
+      const matchesSearch = text.includes(searchTerm);
+      const matchesCategory =
+        category === "all" || cardCategory === category;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = "";
+        visible++;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    empty.style.display = visible === 0 ? "block" : "none";
+  }
+
+  searchInput.addEventListener("input", filterArticles);
+  filter.addEventListener("change", filterArticles);
+
+  function comingSoon(event) {
+    event.preventDefault();
+
+    alert(
+      "This article is being prepared. More detailed cybersecurity articles will be available soon on Smart Tech Hub."
+    );
+
+    return false;
+  }
+</script>
+
+</body>
+</html>
