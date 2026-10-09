@@ -1,1750 +1,1061 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="utf-8">
+  <title>Smart Tech Hub | Learn Cybersecurity</title>
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+  <meta name="description"
+        content="Learn cybersecurity with Smart Tech Hub. Explore security courses, practical labs, ethical hacking fundamentals, CTF challenges, and online safety guides.">
 
-<title>
-Smart Tech Hub | Free Cybersecurity Academy
-</title>
+  <meta name="theme-color" content="#07111f">
 
-<meta name="description"
-content="Smart Tech Hub provides free beginner-friendly cybersecurity lessons, courses, practical labs, OWASP training, CTF challenges and online security resources.">
+  <link rel="canonical"
+        href="https://anthonysuah200-hub.github.io/">
 
-<meta name="keywords"
-content="cybersecurity, cybersecurity lessons, ethical hacking, network security, OWASP, CTF, cybersecurity Liberia, Smart Tech Hub">
+  <style>
+    :root {
+      --background: #07111f;
+      --surface: #0c1a2b;
+      --surface-light: #10243a;
+      --border: #203950;
+      --primary: #35e0a1;
+      --text: #edf5fc;
+      --muted: #a9bac9;
+    }
 
-<meta name="robots"
-content="index,follow">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<link rel="canonical"
-href="https://anthonysuah200-hub.github.io/">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-<link rel="stylesheet"
-href="style.css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      background: rgba(7, 17, 31, 0.97);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--primary);
+      font-size: 21px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+
+    .nav-links a {
+      color: #cfdae5;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--primary);
+      padding: 8px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 85px;
+      background:
+        radial-gradient(
+          ellipse at 85% 20%,
+          rgba(53, 224, 161, 0.12),
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 10% 80%,
+          rgba(31, 101, 143, 0.15),
+          transparent 40%
+        );
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #28614e;
+      background: #0c2928;
+      color: var(--primary);
+      border-radius: 50px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 690px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 21px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: #052017;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(53, 224, 161, 0.15);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--primary);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      scroll-margin-top: 95px;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.25;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 530px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .text-link {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* FEATURE STRIP */
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature {
+      padding: 12px;
+    }
+
+    .feature-icon {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SEARCH */
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 27px;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      padding: 14px 16px;
+      background: var(--surface);
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-box input::placeholder {
+      color: #8093a5;
+    }
+
+    .search-status {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    /* COURSE CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 23px;
+      min-width: 0;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      font-size: 27px;
+      margin-bottom: 17px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-label {
+      color: #8fa4b7;
+      font-size: 11px;
+    }
+
+    .card-link {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .coming-soon {
+      color: #e9c66e;
+      border-color: #5b4b25;
+    }
+
+    /* LEARNING PATH */
+
+    .roadmap-panel {
+      background:
+        linear-gradient(120deg, #0d292b, #0c1a2b 65%);
+      border: 1px solid #275345;
+      border-radius: 16px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .roadmap-panel h2 {
+      font-size: 30px;
+      line-height: 1.3;
+      margin-bottom: 13px;
+    }
+
+    .roadmap-panel p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .roadmap-list {
+      list-style: none;
+    }
+
+    .roadmap-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: #d3e0e9;
+      font-size: 14px;
+    }
+
+    .roadmap-list li:last-child {
+      border-bottom: none;
+    }
+
+    .roadmap-list span {
+      color: var(--primary);
+      font-weight: bold;
+      margin-right: 9px;
+    }
+
+    /* SAFETY */
+
+    .safety-box {
+      padding: 28px;
+      border: 1px solid #5b4b25;
+      background: #201d13;
+      border-radius: 13px;
+    }
+
+    .safety-box h2 {
+      color: #f0ca69;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .safety-box p {
+      color: #d2c9b0;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #050c15;
+      padding: 40px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-brand {
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-description {
+      color: var(--muted);
+      max-width: 370px;
+      font-size: 13px;
+    }
+
+    footer h3 {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      color: #8193a5;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .empty-state {
+      display: none;
+      color: var(--muted);
+      padding: 30px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 950px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 16px 0;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -0.7px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .feature-strip {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .roadmap-panel {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .roadmap-panel h2 {
+        font-size: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .hero-buttons .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+<header>
+  <div class="container navbar">
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
+    <a class="brand" href="index.html">
+      🛡️ Smart Tech Hub
+    </a>
 
-<header class="nav">
+    <button
+      class="menu-button"
+      id="menuButton"
+      type="button"
+      aria-expanded="false"
+      aria-controls="navLinks">
+      ☰ Menu
+    </button>
 
-<a class="brand" href="index.html">
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="dictionary.html">Dictionary</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="news.html">Cyber News</a>
+      <a href="labs.html">Labs</a>
+      <a href="ctf.html">CTF Academy</a>
+    </nav>
 
-<b>
-🛡️ Smart Tech <i>Hub</i>
-</b>
-
-<small>
-Learn • Practice • Protect
-</small>
-
-</a>
-
-
-<nav>
-
-<a href="index.html">
-Home
-</a>
-
-<a href="courses.html">
-Courses
-</a>
-
-<a href="owasp.html">
-OWASP
-</a>
-
-<a href="labs.html">
-Labs
-</a>
-
-<a href="ctf.html">
-CTF
-</a>
-
-<a href="#resources">
-Resources
-</a>
-
-<a href="#about">
-About
-</a>
-
-</nav>
-
-
-<a class="btn"
-href="courses.html">
-
-Start Learning
-
-</a>
-
+  </div>
 </header>
-
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<section class="hero">
-
-
-<div class="profile-photo">
-
-<img
-src="smart-tech-hub-profile.jpg"
-alt="Smart Tech Hub Founder">
-
-</div>
-
-
-<div>
-
-<p class="eyebrow">
-FREE CYBERSECURITY EDUCATION
-</p>
-
-
-<h1>
-
-Learn Cybersecurity.
-<br>
-
-<span>
-Build Skills. Protect the Digital World.
-</span>
-
-</h1>
-
-
-<p class="lead">
-
-Welcome to Smart Tech Hub — a free cybersecurity
-learning platform designed to help beginners
-understand cybersecurity, online safety, networking,
-ethical security and practical security concepts.
-
-</p>
-
-
-<p>
-
-<a class="btn"
-href="courses.html">
-
-Explore Courses →
-
-</a>
-
-
-<a class="btn ghost"
-href="#resources">
-
-Free Resources
-
-</a>
-
-</p>
-
-</div>
-
-
-<div class="art">
-
-🔐
-
-<small>
-CYBER<br>
-SECURITY
-</small>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================================
-     STATS
-========================================= -->
-
-<section class="stats">
-
-<div>
-
-<b>
-100% Free
-</b>
-
-<small>
-No payment required
-</small>
-
-</div>
-
-
-<div>
-
-<b>
-Beginner Friendly
-</b>
-
-<small>
-Learn step by step
-</small>
-
-</div>
-
-
-<div>
-
-<b>
-Practical
-</b>
-
-<small>
-Learn by doing
-</small>
-
-</div>
-
-
-<div>
-
-<b>
-Learn Anywhere
-</b>
-
-<small>
-Phone or computer
-</small>
-
-</div>
-
-</section>
-
-
 
 <main>
 
-
-
-<!-- =========================================
-     ACADEMY
-========================================= -->
-
-<section class="section">
-
-<p class="eyebrow">
-SMART TECH HUB ACADEMY
-</p>
-
-
-<h2>
-Your Cybersecurity Learning Journey
-</h2>
-
-
-<p>
-
-Start with the fundamentals and gradually build
-your cybersecurity knowledge through courses,
-quizzes, practical labs and challenges.
-
-</p>
-
-
-<div class="grid">
-
-
-<article>
-
-<b class="icon">
-📚
-</b>
-
-<h3>
-Cybersecurity Courses
-</h3>
-
-<p>
-
-Structured cybersecurity courses ranging from
-beginner fundamentals to more advanced topics.
-
-</p>
-
-<a href="courses.html">
-
-Explore Courses →
-
-</a>
-
-</article>
-
-
-
-<article>
-
-<b class="icon">
-🔐
-</b>
-
-<h3>
-OWASP Web Security
-</h3>
-
-<p>
-
-Learn important web application security concepts
-through lessons, quizzes and safe training examples.
-
-</p>
-
-<a href="owasp.html">
-
-Learn OWASP →
-
-</a>
-
-</article>
-
-
-
-<article>
-
-<b class="icon">
-🧪
-</b>
-
-<h3>
-Practical Labs
-</h3>
-
-<p>
-
-Practice cybersecurity concepts inside isolated,
-authorized training environments.
-
-</p>
-
-<a href="labs.html">
-
-Explore Labs →
-
-</a>
-
-</article>
-
-
-
-<article>
-
-<b class="icon">
-🚩
-</b>
-
-<h3>
-Capture The Flag
-</h3>
-
-<p>
-
-Test your cybersecurity knowledge with fictional
-and educational security challenges.
-
-</p>
-
-<a href="ctf.html">
-
-Enter CTF →
-
-</a>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================
-     COURSE
-========================================= -->
-
-<section class="section dark"
-id="course">
-
-
-<div class="course-header">
-
-<p class="eyebrow">
-FREE BEGINNER COURSE
-</p>
-
-
-<h2>
-Cybersecurity Foundations
-</h2>
-
-
-<p>
-
-Learn the essential cybersecurity concepts every
-beginner should understand.
-
-</p>
-
-
-<div class="progress-container">
-
-<div class="progress-info">
-
-<span>
-Course Progress
-</span>
-
-<strong id="progressText">
-0%
-</strong>
-
-</div>
-
-
-<div class="progress-bar">
-
-<div id="progressBar">
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- LESSON 1 -->
-
-<article
-id="basics"
-class="course-lesson">
-
-
-<div class="lesson-number">
-01
-</div>
-
-
-<p class="eyebrow">
-LESSON 1
-</p>
-
-
-<h3>
-What Is Cybersecurity?
-</h3>
-
-
-<p>
-
-Cybersecurity is the practice of protecting
-computers, networks, applications and information
-from unauthorized access, misuse, damage or disruption.
-
-</p>
-
-
-<h4>
-Common Cyber Threats
-</h4>
-
-
-<ul>
-
-<li>
-<strong>Phishing:</strong>
-deceptive messages designed to trick people.
-</li>
-
-<li>
-<strong>Malware:</strong>
-harmful software that can compromise systems.
-</li>
-
-<li>
-<strong>Password attacks:</strong>
-attempts to steal or guess passwords.
-</li>
-
-<li>
-<strong>Social engineering:</strong>
-manipulating people into revealing information.
-</li>
-
-</ul>
-
-
-<div class="warning-box">
-
-<strong>
-⚠️ Security Rule
-</strong>
-
-<p>
-
-Never test, access or attack a computer system
-without permission. Practice cybersecurity only
-in authorized environments.
-
-</p>
-
-</div>
-
-
-
-<div class="quiz">
-
-<h4>
-🧠 Lesson 1 Quiz
-</h4>
-
-
-<p>
-
-<strong>
-What is the main purpose of cybersecurity?
-</strong>
-
-</p>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q1"
-value="wrong">
-
-To make computers run faster
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q1"
-value="correct">
-
-To protect systems, networks and information
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q1"
-value="wrong">
-
-To create social media accounts
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q1"
-value="wrong">
-
-To increase internet speed
-
-</label>
-
-
-<button
-class="quiz-check"
-onclick="checkQuestion('q1')">
-
-Check Answer
-
-</button>
-
-
-<div
-id="result-q1"
-class="quiz-result">
-</div>
-
-</div>
-
-
-<button
-class="continue-btn"
-onclick="completeLesson(1)">
-
-Continue to Lesson 2 →
-
-</button>
-
-
-</article>
-
-
-
-<!-- LESSON 2 -->
-
-<article
-id="safety"
-class="course-lesson locked"
-data-lesson="2">
-
-
-<div class="lesson-number">
-02
-</div>
-
-
-<p class="eyebrow">
-LESSON 2
-</p>
-
-
-<h3>
-Protect Your Accounts
-</h3>
-
-
-<p>
-
-Your online accounts contain valuable personal
-information. Strong authentication and good security
-habits can reduce the risk of account compromise.
-
-</p>
-
-
-<h4>
-Good Security Habits
-</h4>
-
-
-<ul>
-
-<li>
-Use strong and unique passwords.
-</li>
-
-<li>
-Enable multi-factor authentication.
-</li>
-
-<li>
-Keep software updated.
-</li>
-
-<li>
-Never share passwords or verification codes.
-</li>
-
-<li>
-Be careful with unexpected links and attachments.
-</li>
-
-</ul>
-
-
-
-<div class="quiz">
-
-<h4>
-🧠 Lesson 2 Quiz
-</h4>
-
-
-<p>
-
-<strong>
-Which security habit provides strong protection
-for an account?
-</strong>
-
-</p>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q2"
-value="wrong">
-
-Using the same password everywhere
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q2"
-value="correct">
-
-Using a unique password and multi-factor authentication
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q2"
-value="wrong">
-
-Sharing your password with friends
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q2"
-value="wrong">
-
-Disabling security updates
-
-</label>
-
-
-<button
-class="quiz-check"
-onclick="checkQuestion('q2')">
-
-Check Answer
-
-</button>
-
-
-<div
-id="result-q2"
-class="quiz-result">
-</div>
-
-</div>
-
-
-<button
-class="continue-btn"
-onclick="completeLesson(2)">
-
-Continue to Lesson 3 →
-
-</button>
-
-
-</article>
-
-
-
-<!-- LESSON 3 -->
-
-<article
-id="network"
-class="course-lesson locked"
-data-lesson="3">
-
-
-<div class="lesson-number">
-03
-</div>
-
-
-<p class="eyebrow">
-LESSON 3
-</p>
-
-
-<h3>
-Network Security Basics
-</h3>
-
-
-<p>
-
-Networks allow computers and devices to communicate.
-Network security focuses on protecting those connections,
-devices and information moving through them.
-
-</p>
-
-
-<h4>
-Important Concepts
-</h4>
-
-
-<ul>
-
-<li>
-<strong>Router:</strong>
-directs traffic between networks.
-</li>
-
-<li>
-<strong>Firewall:</strong>
-helps control network traffic.
-</li>
-
-<li>
-<strong>Encryption:</strong>
-protects information by transforming it into a protected form.
-</li>
-
-<li>
-<strong>Wi-Fi security:</strong>
-helps protect wireless networks from unauthorized access.
-</li>
-
-</ul>
-
-
-
-<div class="quiz">
-
-<h4>
-🧠 Lesson 3 Quiz
-</h4>
-
-
-<p>
-
-<strong>
-What is one important purpose of a firewall?
-</strong>
-
-</p>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q3"
-value="correct">
-
-To help control network traffic
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q3"
-value="wrong">
-
-To increase monitor brightness
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q3"
-value="wrong">
-
-To create stronger passwords automatically
-
-</label>
-
-
-<label class="quiz-option">
-
-<input
-type="radio"
-name="q3"
-value="wrong">
-
-To replace an operating system
-
-</label>
-
-
-<button
-class="quiz-check"
-onclick="checkQuestion('q3')">
-
-Check Answer
-
-</button>
-
-
-<div
-id="result-q3"
-class="quiz-result">
-</div>
-
-</div>
-
-
-<button
-class="continue-btn"
-onclick="completeLesson(3)">
-
-Finish Course 🏆
-
-</button>
-
-
-</article>
-
-
-
-<!-- CERTIFICATE -->
-
-<section
-id="certificate"
-class="certificate"
-style="display:none;">
-
-
-<div class="certificate-icon">
-🏆
-</div>
-
-
-<p class="eyebrow">
-COURSE COMPLETED
-</p>
-
-
-<h2>
-Congratulations!
-</h2>
-
-
-<p>
-
-You successfully completed the
-<strong>
-Cybersecurity Foundations
-</strong>
-course.
-
-</p>
-
-
-<div class="certificate-card">
-
-<p>
-SMART TECH HUB
-</p>
-
-
-<h3>
-Certificate of Completion
-</h3>
-
-
-<span>
-This certificate recognizes successful completion of
-</span>
-
-
-<h4>
-Cybersecurity Foundations
-</h4>
-
-
-<span>
-Final Score
-</span>
-
-
-<strong id="finalScore">
-0 / 3
-</strong>
-
-</div>
-
-
-<button
-class="continue-btn"
-onclick="window.print()">
-
-🖨️ Print Certificate
-
-</button>
-
-
-</section>
-
-
-</section>
-
-
-
-<!-- =========================================
-     RESOURCES
-========================================= -->
-
-<section
-id="resources"
-class="section">
-
-
-<p class="eyebrow">
-FREE CYBERSECURITY RESOURCES
-</p>
-
-
-<h2>
-Learn & Practice
-</h2>
-
-
-<p>
-
-Continue learning with trusted cybersecurity
-education and practice platforms.
-
-</p>
-
-
-
-<div class="resources">
-
-
-<a
-href="https://tryhackme.com/"
-target="_blank"
-rel="noopener">
-
-<b>
-TryHackMe
-</b>
-
-<span>
-Guided cybersecurity learning and hands-on rooms.
-</span>
-
-</a>
-
-
-
-<a
-href="https://portswigger.net/web-security"
-target="_blank"
-rel="noopener">
-
-<b>
-PortSwigger Web Security Academy
-</b>
-
-<span>
-Free web-security lessons and interactive labs.
-</span>
-
-</a>
-
-
-
-<a
-href="https://picoctf.org/"
-target="_blank"
-rel="noopener">
-
-<b>
-picoCTF
-</b>
-
-<span>
-Cybersecurity challenges for learners and students.
-</span>
-
-</a>
-
-
-
-<a
-href="https://overthewire.org/wargames/"
-target="_blank"
-rel="noopener">
-
-<b>
-OverTheWire
-</b>
-
-<span>
-Security games for practicing Linux and security skills.
-</span>
-
-</a>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================================
-     WHY SMART TECH HUB
-========================================= -->
-
-<section class="section dark">
-
-
-<div class="course-header">
-
-<p class="eyebrow">
-WHY SMART TECH HUB?
-</p>
-
-
-<h2>
-Learn → Practice → Protect
-</h2>
-
-
-<p>
-
-Cybersecurity becomes easier when you learn the
-concept, practice it safely and understand how
-to defend against threats.
-
-</p>
-
-</div>
-
-
-
-<div class="grid">
-
-
-<article>
-
-<h3>
-📚 Learn
-</h3>
-
-<p>
-
-Understand cybersecurity concepts through simple
-lessons designed for beginners.
-
-</p>
-
-</article>
-
-
-
-<article>
-
-<h3>
-🧪 Practice
-</h3>
-
-<p>
-
-Apply your knowledge using safe and authorized
-training environments.
-
-</p>
-
-</article>
-
-
-
-<article>
-
-<h3>
-🧠 Test
-</h3>
-
-<p>
-
-Use quizzes and challenges to test what you have learned.
-
-</p>
-
-</article>
-
-
-
-<article>
-
-<h3>
-🚀 Improve
-</h3>
-
-<p>
-
-Keep learning and gradually build stronger
-technical cybersecurity skills.
-
-</p>
-
-</article>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================
-     ABOUT
-========================================= -->
-
-<section
-id="about"
-class="section">
-
-
-<p class="eyebrow">
-ABOUT SMART TECH HUB
-</p>
-
-
-<h2>
-Building Cybersecurity Knowledge
-</h2>
-
-
-<p>
-
-Smart Tech Hub is a cybersecurity education project
-focused on making cybersecurity knowledge easier to
-understand and more accessible to beginners.
-
-</p>
-
-
-<p>
-
-The platform covers cybersecurity awareness,
-network security, online safety, ethical security
-concepts, web security and practical learning.
-
-</p>
-
-
-<div class="warning-box">
-
-<strong>
-🛡️ Learn Responsibly
-</strong>
-
-<p>
-
-Cybersecurity skills should always be used legally
-and ethically. Only test systems that you own or
-have explicit permission to test.
-
-</p>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================================
-     FINAL CTA
-========================================= -->
-
-<section class="cta">
-
-
-<p class="eyebrow">
-YOUR CYBERSECURITY JOURNEY
-</p>
-
-
-<h2>
-Ready to Start Learning?
-</h2>
-
-
-<p>
-
-Start with the fundamentals and build your
-cybersecurity skills one lesson at a time.
-
-</p>
-
-
-<a
-class="btn"
-href="courses.html">
-
-Explore Cybersecurity Courses →
-
-</a>
-
-
-</section>
-
-
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <span class="badge">
+          🔐 YOUR CYBERSECURITY LEARNING PLATFORM
+        </span>
+
+        <h1>
+          Learn Cybersecurity.<br>
+          <span>Build Real Skills.</span>
+        </h1>
+
+        <p>
+          Welcome to Smart Tech Hub — a cybersecurity education
+          platform helping beginners understand digital security,
+          develop technical skills, and practice responsibly.
+          Start learning today, one step at a time.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="courses.html" class="button button-primary">
+            Explore Courses →
+          </a>
+
+          <a href="labs.html" class="button button-secondary">
+            Explore Practical Labs
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PLATFORM BENEFITS -->
+
+  <section>
+    <div class="container">
+
+      <div class="feature-strip">
+
+        <article class="feature">
+          <div class="feature-icon">🎓</div>
+          <h3>Learn at Your Pace</h3>
+          <p>
+            Study cybersecurity concepts through structured
+            lessons designed for learners.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">🧪</div>
+          <h3>Practice Your Skills</h3>
+          <p>
+            Develop practical knowledge using controlled,
+            authorized cybersecurity exercises.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Protect the Digital World</h3>
+          <p>
+            Understand online threats and learn safer
+            digital habits.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEARNING RESOURCES -->
+
+  <section class="section" id="resources">
+    <div class="container">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Explore the platform</div>
+          <h2>Your Cybersecurity Learning Center</h2>
+          <p>
+            Explore courses, technical resources and practical
+            learning opportunities in one place.
+          </p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="resourceSearch"
+          placeholder="🔎 Search courses and learning resources..."
+          aria-label="Search learning resources">
+      </div>
+
+      <p class="search-status" id="searchStatus" aria-live="polite"></p>
+
+      <div class="grid" id="resourceGrid">
+
+        <article class="card" data-search="courses cybersecurity foundations lessons beginner">
+          <div class="card-icon">🎓</div>
+          <h3>Cybersecurity Courses</h3>
+          <p>
+            Explore structured learning materials covering
+            cybersecurity fundamentals and technical topics.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">LEARN</span>
+            <a href="courses.html" class="card-link">Explore →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="network security networking tcp ip dns ports">
+          <div class="card-icon">🌐</div>
+          <h3>Network Security</h3>
+          <p>
+            Learn about networks, protocols, network threats,
+            traffic and defensive security practices.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">NETWORKING</span>
+            <a href="network-security.html" class="card-link">Study →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="cryptography encryption decryption keys privacy">
+          <div class="card-icon">🔐</div>
+          <h3>Cryptography</h3>
+          <p>
+            Understand encryption, hashing, digital signatures
+            and the role of cryptography in information security.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">DATA PROTECTION</span>
+            <a href="cryptography.html" class="card-link">Study →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="wireless wifi router wpa2 wpa3 wireless security">
+          <div class="card-icon">📶</div>
+          <h3>Wireless Security</h3>
+          <p>
+            Study Wi-Fi security, wireless threats, secure
+            configurations and protection strategies.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">WIRELESS</span>
+            <a href="wireless-security.html" class="card-link">Study →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="owasp web security vulnerabilities applications">
+          <div class="card-icon">🕸️</div>
+          <h3>OWASP Web Security</h3>
+          <p>
+            Explore common web application security risks
+            and learn defensive approaches.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">WEB SECURITY</span>
+            <a href="owasp.html" class="card-link">Explore →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="capture the flag ctf flags challenges problem solving">
+          <div class="card-icon">🏴‍☠️</div>
+          <h3>CTF Academy</h3>
+          <p>
+            Challenge yourself with cybersecurity puzzles
+            and practice problem-solving in safe environments.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">CHALLENGES</span>
+            <a href="ctf.html" class="card-link">Start →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="cybersecurity dictionary definitions terminology glossary">
+          <div class="card-icon">📚</div>
+          <h3>Cybersecurity Dictionary</h3>
+          <p>
+            Understand essential cybersecurity terminology
+            through simple, searchable definitions.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">REFERENCE</span>
+            <a href="dictionary.html" class="card-link">Browse →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="cybersecurity roadmap career linux python networking learning path">
+          <div class="card-icon">🧭</div>
+          <h3>Cybersecurity Roadmap</h3>
+          <p>
+            Follow a structured learning path from computer
+            fundamentals to more advanced security concepts.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">CAREER PATH</span>
+            <a href="roadmap.html" class="card-link">View Roadmap →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="practical labs ethical hacking linux security exercises">
+          <div class="card-icon">🧪</div>
+          <h3>Practical Security Labs</h3>
+          <p>
+            Build practical skills through guided exercises
+            and authorized cybersecurity training environments.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">PRACTICE</span>
+            <a href="labs.html" class="card-link">Enter Labs →</a>
+          </div>
+        </article>
+
+        <article class="card" data-search="cyber news security alerts technology updates online threats">
+          <div class="card-icon">📰</div>
+          <h3>Cyber News & Insights</h3>
+          <p>
+            Visit our cybersecurity news section for articles,
+            security awareness and educational insights.
+          </p>
+          <div class="card-footer">
+            <span class="card-label">ARTICLES</span>
+            <a href="news.html" class="card-link">Read News →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        No matching resources found. Try another search.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROADMAP SECTION -->
+
+  <section class="section">
+    <div class="container">
+
+      <div class="roadmap-panel">
+
+        <div>
+          <div class="eyebrow">Your next step starts here</div>
+
+          <h2>Build Your Cybersecurity Skills Step by Step</h2>
+
+          <p>
+            You don't need to know everything before you begin.
+            Start with the fundamentals, practice regularly,
+            and gradually develop your technical abilities.
+          </p>
+
+          <a href="roadmap.html" class="button button-primary">
+            Explore the Roadmap →
+          </a>
+        </div>
+
+        <ul class="roadmap-list">
+          <li><span>01</span> Computer and networking fundamentals</li>
+          <li><span>02</span> Linux and command-line skills</li>
+          <li><span>03</span> Security principles and cryptography</li>
+          <li><span>04</span> Web security and vulnerability assessment</li>
+          <li><span>05</span> Practical labs and CTF challenges</li>
+          <li><span>06</span> Defensive security and incident response</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SAFETY SECTION -->
+
+  <section class="section">
+    <div class="container">
+
+      <div class="safety-box">
+        <h2>🛡️ Learn Ethically. Practice Responsibly.</h2>
+
+        <p>
+          Smart Tech Hub promotes responsible cybersecurity
+          education. Only assess systems you own or have explicit
+          permission to test. Use controlled labs for practical
+          exercises, respect privacy, and never use your skills
+          to access other people's accounts or systems without
+          authorization.
+        </p>
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- FOOTER -->
 
 <footer>
+  <div class="container">
 
-<b>
-🛡️ Smart Tech Hub
-</b>
+    <div class="footer-grid">
 
+      <div>
+        <div class="footer-brand">🛡️ Smart Tech Hub</div>
 
-<span>
-Free cybersecurity education •
-Learn • Practice • Protect
-</span>
+        <p class="footer-description">
+          Helping learners develop cybersecurity knowledge,
+          practical skills and safer digital habits.
+          Learn • Practice • Protect.
+        </p>
+      </div>
 
+      <div>
+        <h3>Learning</h3>
 
-<div>
+        <div class="footer-links">
+          <a href="courses.html">All Courses</a>
+          <a href="dictionary.html">Cybersecurity Dictionary</a>
+          <a href="roadmap.html">Learning Roadmap</a>
+          <a href="network-security.html">Network Security</a>
+          <a href="cryptography.html">Cryptography</a>
+        </div>
+      </div>
 
-<a href="courses.html">
-Courses
-</a>
+      <div>
+        <h3>Practice & Resources</h3>
 
-&nbsp; • &nbsp;
+        <div class="footer-links">
+          <a href="labs.html">Practical Labs</a>
+          <a href="ctf.html">CTF Academy</a>
+          <a href="owasp.html">OWASP Security</a>
+          <a href="wireless-security.html">Wireless Security</a>
+          <a href="news.html">Cyber News</a>
+        </div>
+      </div>
 
-<a href="owasp.html">
-OWASP
-</a>
+    </div>
 
-&nbsp; • &nbsp;
+    <div class="copyright">
+      © <span id="year"></span> Smart Tech Hub.
+      Learn • Practice • Protect.
+    </div>
 
-<a href="labs.html">
-Labs
-</a>
-
-&nbsp; • &nbsp;
-
-<a href="ctf.html">
-CTF
-</a>
-
-</div>
-
-
+  </div>
 </footer>
 
-
-
-<!-- =========================================
-     COURSE JAVASCRIPT
-========================================= -->
-
 <script>
-
-let score = 0;
-
-let completedLessons = 0;
-
-let answeredQuestions = {};
-
-
-
-const answers = {
-
-q1: "correct",
-
-q2: "correct",
-
-q3: "correct"
-
-};
-
-
-
-/* =========================================
-   LOAD SAVED PROGRESS
-========================================= */
-
-const savedProgress =
-localStorage.getItem("sth_course_progress");
-
-const savedScore =
-localStorage.getItem("sth_course_score");
-
-const savedAnswers =
-localStorage.getItem("sth_course_answers");
-
-
-if (savedProgress) {
-
-completedLessons =
-parseInt(savedProgress);
-
-}
-
-
-if (savedScore) {
-
-score =
-parseInt(savedScore);
-
-}
-
-
-if (savedAnswers) {
-
-try {
-
-answeredQuestions =
-JSON.parse(savedAnswers);
-
-} catch {
-
-answeredQuestions = {};
-
-}
-
-}
-
-
-
-/* =========================================
-   CHECK QUIZ ANSWER
-========================================= */
-
-function checkQuestion(question) {
-
-const selected =
-document.querySelector(
-'input[name="' + question + '"]:checked'
-);
-
-
-const result =
-document.getElementById(
-"result-" + question
-);
-
-
-if (!selected) {
-
-result.className =
-"quiz-result wrong";
-
-result.innerHTML =
-"⚠️ Please select an answer first.";
-
-return;
-
-}
-
-
-if (selected.value === answers[question]) {
-
-result.className =
-"quiz-result correct";
-
-result.innerHTML =
-"✅ Correct! Great job.";
-
-
-if (!answeredQuestions[question]) {
-
-score++;
-
-answeredQuestions[question] = true;
-
-saveProgress();
-
-}
-
-} else {
-
-result.className =
-"quiz-result wrong";
-
-result.innerHTML =
-"❌ Not quite. Review the lesson and try again.";
-
-}
-
-}
-
-
-
-/* =========================================
-   COMPLETE LESSON
-========================================= */
-
-function completeLesson(lesson) {
-
-const question =
-"q" + lesson;
-
-
-const selected =
-document.querySelector(
-'input[name="' + question + '"]:checked'
-);
-
-
-if (!selected) {
-
-alert(
-"Please answer the quiz before continuing."
-);
-
-return;
-
-}
-
-
-if (selected.value !== "correct") {
-
-alert(
-"Please answer the quiz correctly before continuing."
-);
-
-return;
-
-}
-
-
-if (lesson > completedLessons) {
-
-completedLessons =
-lesson;
-
-}
-
-
-saveProgress();
-
-updateProgress();
-
-
-
-/* LESSON 1 */
-
-if (lesson === 1) {
-
-const nextLesson =
-document.querySelector(
-'[data-lesson="2"]'
-);
-
-
-nextLesson.classList.remove(
-"locked"
-);
-
-
-nextLesson.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-
-
-/* LESSON 2 */
-
-if (lesson === 2) {
-
-const nextLesson =
-document.querySelector(
-'[data-lesson="3"]'
-);
-
-
-nextLesson.classList.remove(
-"locked"
-);
-
-
-nextLesson.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-
-
-/* LESSON 3 */
-
-if (lesson === 3) {
-
-document.getElementById(
-"certificate"
-).style.display =
-"block";
-
-
-document.getElementById(
-"finalScore"
-).textContent =
-score + " / 3";
-
-
-document.getElementById(
-"certificate"
-).scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-}
-
-
-
-/* =========================================
-   UPDATE PROGRESS
-========================================= */
-
-function updateProgress() {
-
-const percentage =
-Math.round(
-(completedLessons / 3) * 100
-);
-
-
-document.getElementById(
-"progressBar"
-).style.width =
-percentage + "%";
-
-
-document.getElementById(
-"progressText"
-).textContent =
-percentage + "%";
-
-
-}
-
-
-
-/* =========================================
-   SAVE PROGRESS
-========================================= */
-
-function saveProgress() {
-
-localStorage.setItem(
-"sth_course_progress",
-completedLessons
-);
-
-
-localStorage.setItem(
-"sth_course_score",
-score
-);
-
-
-localStorage.setItem(
-"sth_course_answers",
-JSON.stringify(
-answeredQuestions
-)
-);
-
-}
-
-
-
-/* =========================================
-   RESTORE COURSE STATE
-========================================= */
-
-function restoreCourse() {
-
-if (completedLessons >= 1) {
-
-document.querySelector(
-'[data-lesson="2"]'
-).classList.remove("locked");
-
-}
-
-
-if (completedLessons >= 2) {
-
-document.querySelector(
-'[data-lesson="3"]'
-).classList.remove("locked");
-
-}
-
-
-if (completedLessons >= 3) {
-
-document.getElementById(
-"certificate"
-).style.display =
-"block";
-
-
-document.getElementById(
-"finalScore"
-).textContent =
-score + " / 3";
-
-}
-
-
-updateProgress();
-
-}
-
-
-
-/* START */
-
-restoreCourse();
-
-
+  // Mobile navigation
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
+
+  menuButton.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "✕ Close" : "☰ Menu";
+  });
+
+  // Close mobile navigation after selecting a link
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰ Menu";
+    });
+  });
+
+  // Search learning resources
+  const resourceSearch = document.getElementById("resourceSearch");
+  const resourceCards = document.querySelectorAll("#resourceGrid .card");
+  const emptyState = document.getElementById("emptyState");
+  const searchStatus = document.getElementById("searchStatus");
+
+  function searchResources() {
+    const query = resourceSearch.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    resourceCards.forEach(function (card) {
+      const searchableText =
+        (card.innerText + " " + card.dataset.search).toLowerCase();
+
+      const matches = searchableText.includes(query);
+
+      card.style.display = matches ? "flex" : "none";
+
+      if (matches) {
+        visibleCount++;
+      }
+    });
+
+    emptyState.style.display = visibleCount === 0 ? "block" : "none";
+
+    searchStatus.textContent = query
+      ? visibleCount + " resource(s) found"
+      : "";
+  }
+
+  resourceSearch.addEventListener("input", searchResources);
+
+  // Automatically display the current year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
 
-
 </body>
-
 </html>
