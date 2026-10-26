@@ -520,14 +520,19 @@ footer h3 {
   .hero {
     min-height: 540px;
     padding: 65px 0;
-    background-position: 58% center;
+
+    background-color: #07111f;
     background-image:
       linear-gradient(
         90deg,
-        rgba(4, 12, 23, 0.92),
-        rgba(4, 12, 23, 0.72)
+        rgba(4, 12, 23, 0.20),
+        rgba(4, 12, 23, 0.08)
       ),
       url("hero-background.jpg");
+
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
   }
 
   .hero h1 {
@@ -540,25 +545,6 @@ footer h3 {
 
   .hero-buttons .button {
     width: 100%;
-  }
-
-  .feature-strip,
-  .grid,
-  .roadmap-panel,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 50px 0;
-  }
-
-  .roadmap-panel {
-    padding: 23px;
-  }
-
-  .roadmap-panel h2 {
-    font-size: 25px;
   }
 }
 
