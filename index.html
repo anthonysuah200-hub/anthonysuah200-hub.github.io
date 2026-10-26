@@ -17,10 +17,54 @@
   --bg: #07111f;
   --surface: #0c1a2b;
   --surface-light: #10243a;
+  --surface-strong: #0a1728;
   --border: #203950;
   --green: #35e0a1;
   --text: #edf5fc;
   --muted: #a9bac9;
+  --nav-link: #cfdae5;
+  --header-bg: rgba(7, 17, 31, 0.97);
+  --hero-overlay-1: rgba(4, 12, 23, 0.78);
+  --hero-overlay-2: rgba(4, 12, 23, 0.94);
+  --hero-overlay-3: rgba(4, 12, 23, 0.75);
+  --hero-overlay-4: rgba(4, 12, 23, 0.23);
+  --button-secondary-bg: rgba(12, 26, 43, 0.8);
+  --card-shadow: none;
+  --footer-bg: #050c15;
+  --roadmap-panel-bg: linear-gradient(120deg, #0d292b, #0c1a2b);
+  --safety-box-bg: #201d13;
+  --safety-box-border: #5b4b25;
+  --safety-box-text: #d2c9b0;
+  --toggle-bg: #12263c;
+  --toggle-text: #edf5fc;
+  --toggle-border: #203950;
+}
+
+body[data-theme="light"] {
+  --bg: #edf5ff;
+  --surface: #ffffff;
+  --surface-light: #eff5ff;
+  --surface-strong: #eaf1fb;
+  --border: #d5e0ee;
+  --green: #0a9f73;
+  --text: #122334;
+  --muted: #53697d;
+  --nav-link: #32485e;
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --hero-overlay-1: rgba(10, 18, 31, 0.44);
+  --hero-overlay-2: rgba(10, 18, 31, 0.56);
+  --hero-overlay-3: rgba(10, 18, 31, 0.43);
+  --hero-overlay-4: rgba(10, 18, 31, 0.16);
+  --button-secondary-bg: rgba(255, 255, 255, 0.76);
+  --card-shadow: 0 10px 22px rgba(15, 33, 53, 0.08);
+  --footer-bg: #eaf3ff;
+  --roadmap-panel-bg: linear-gradient(120deg, #dffaf0, #eaf2ff);
+  --safety-box-bg: #fff7e5;
+  --safety-box-border: #e2bf6a;
+  --safety-box-text: #564921;
+  --toggle-bg: #edf5ff;
+  --toggle-text: #122334;
+  --toggle-border: #c9d7ea;
 }
 
 * {
@@ -39,6 +83,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -61,7 +106,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(7, 17, 31, 0.97);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -88,7 +133,7 @@ header {
 }
 
 .nav-links a {
-  color: #cfdae5;
+  color: var(--nav-link);
   font-size: 13px;
 }
 
@@ -96,14 +141,33 @@ header {
   color: var(--green);
 }
 
-.menu-button {
-  display: none;
+.menu-button,
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 8px 12px;
   color: var(--green);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 7px;
   cursor: pointer;
+}
+
+.theme-toggle {
+  min-width: 132px;
+  color: var(--toggle-text);
+  background: var(--toggle-bg);
+  border-color: var(--toggle-border);
+}
+
+.theme-toggle-icon {
+  font-size: 14px;
+}
+
+.menu-button {
+  display: none;
 }
 
 /* HOMEPAGE HERO WITH YOUR PHOTO */
@@ -120,10 +184,10 @@ header {
   background-image:
     linear-gradient(
       90deg,
-      rgba(4, 12, 23, 0.30) 0%,
-      rgba(4, 12, 23, 0.22) 32%,
-      rgba(4, 12, 23, 0.12) 51%,
-      rgba(4, 12, 23, 0.05) 100%
+      var(--hero-overlay-1) 0%,
+      var(--hero-overlay-2) 32%,
+      var(--hero-overlay-3) 51%,
+      var(--hero-overlay-4) 100%
     ),
     url("hero-background.jpg");
   background-size: cover;
@@ -194,9 +258,9 @@ header {
 }
 
 .button-secondary {
-  color: white;
-  background: rgba(12, 26, 43, 0.8);
-  border: 1px solid #52677a;
+  color: var(--text);
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--border);
 }
 
 .button-secondary:hover {
@@ -277,7 +341,7 @@ header {
   border-radius: 8px;
   outline: none;
   background: var(--surface);
-  color: white;
+  color: var(--text);
 }
 
 .search-box input:focus {
@@ -306,6 +370,7 @@ header {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
+  box-shadow: var(--card-shadow);
   transition: transform 0.2s, border-color 0.2s;
 }
 
@@ -377,7 +442,7 @@ header {
   padding: 32px;
   border: 1px solid #275345;
   border-radius: 14px;
-  background: linear-gradient(120deg, #0d292b, #0c1a2b);
+  background: var(--roadmap-panel-bg);
 }
 
 .roadmap-panel h2 {
@@ -399,7 +464,7 @@ header {
 .roadmap-list li {
   padding: 11px 0;
   border-bottom: 1px solid var(--border);
-  color: #d3e0e9;
+  color: var(--text);
   font-size: 13px;
 }
 
@@ -417,9 +482,9 @@ header {
 
 .safety-box {
   padding: 28px;
-  border: 1px solid #5b4b25;
+  border: 1px solid var(--safety-box-border);
   border-radius: 12px;
-  background: #201d13;
+  background: var(--safety-box-bg);
 }
 
 .safety-box h2 {
@@ -429,7 +494,7 @@ header {
 }
 
 .safety-box p {
-  color: #d2c9b0;
+  color: var(--safety-box-text);
   font-size: 14px;
 }
 
@@ -438,7 +503,7 @@ header {
 footer {
   padding: 40px 0 20px;
   border-top: 1px solid var(--border);
-  background: #050c15;
+  background: var(--footer-bg);
 }
 
 .footer-grid {
@@ -520,7 +585,6 @@ footer h3 {
   .hero {
     min-height: 540px;
     padding: 65px 0;
-
     background-color: #07111f;
     background-image:
       linear-gradient(
@@ -529,7 +593,6 @@ footer h3 {
         rgba(4, 12, 23, 0.08)
       ),
       url("hero-background.jpg");
-
     background-size: cover;
     background-position: center 35%;
     background-repeat: no-repeat;
@@ -545,6 +608,25 @@ footer h3 {
 
   .hero-buttons .button {
     width: 100%;
+  }
+
+  .feature-strip,
+  .grid,
+  .roadmap-panel,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .roadmap-panel {
+    padding: 23px;
+  }
+
+  .roadmap-panel h2 {
+    font-size: 25px;
   }
 }
 
@@ -567,14 +649,25 @@ footer h3 {
 
     <a class="brand" href="index.html">🛡️ Smart Tech Hub</a>
 
-    <button
-      class="menu-button"
-      id="menuButton"
-      type="button"
-      aria-expanded="false"
-      aria-controls="navLinks">
-      ☰ Menu
-    </button>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch to light mode">
+        <span class="theme-toggle-icon" aria-hidden="true">☀️</span>
+        <span class="theme-toggle-label">Light mode</span>
+      </button>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        ☰ Menu
+      </button>
+    </div>
 
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="index.html">Home</a>
@@ -890,6 +983,26 @@ footer h3 {
 <script>
 const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
+const themeToggle = document.getElementById("themeToggle");
+const themeLabel = themeToggle.querySelector(".theme-toggle-label");
+const themeIcon = themeToggle.querySelector(".theme-toggle-icon");
+
+function applyTheme(theme) {
+  document.body.setAttribute("data-theme", theme);
+
+  const isLight = theme === "light";
+  themeIcon.textContent = isLight ? "🌙" : "☀️";
+  themeLabel.textContent = isLight ? "Dark mode" : "Light mode";
+  themeToggle.setAttribute(
+    "aria-label",
+    isLight ? "Switch to dark mode" : "Switch to light mode"
+  );
+  localStorage.setItem("theme", theme);
+}
+
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
 
 menuButton.addEventListener("click", function () {
   const open = navLinks.classList.toggle("open");
@@ -903,6 +1016,11 @@ navLinks.querySelectorAll("a").forEach(function (link) {
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.textContent = "☰ Menu";
   });
+});
+
+themeToggle.addEventListener("click", function () {
+  const currentTheme = document.body.getAttribute("data-theme") === "light" ? "dark" : "light";
+  applyTheme(currentTheme);
 });
 
 const search = document.getElementById("resourceSearch");
@@ -929,8 +1047,7 @@ search.addEventListener("input", function () {
   status.textContent = query ? count + " resource(s) found" : "";
 });
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
