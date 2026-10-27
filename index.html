@@ -12,8 +12,7 @@
 
 <link rel="canonical" href="https://anthonysuah200-hub.github.io/">
 
-<style>
-:root {
+<style>:root {
   --bg: #07111f;
   --surface: #0c1a2b;
   --surface-light: #10243a;
@@ -24,11 +23,11 @@
   --muted: #a9bac9;
   --nav-link: #cfdae5;
   --header-bg: rgba(7, 17, 31, 0.97);
+  --button-secondary-bg: rgba(12, 26, 43, 0.8);
   --hero-overlay-1: rgba(4, 12, 23, 0.78);
   --hero-overlay-2: rgba(4, 12, 23, 0.94);
   --hero-overlay-3: rgba(4, 12, 23, 0.75);
   --hero-overlay-4: rgba(4, 12, 23, 0.23);
-  --button-secondary-bg: rgba(12, 26, 43, 0.8);
   --card-shadow: none;
   --footer-bg: #050c15;
   --roadmap-panel-bg: linear-gradient(120deg, #0d292b, #0c1a2b);
@@ -51,11 +50,11 @@ body[data-theme="light"] {
   --muted: #53697d;
   --nav-link: #32485e;
   --header-bg: rgba(255, 255, 255, 0.94);
+  --button-secondary-bg: rgba(255, 255, 255, 0.8);
   --hero-overlay-1: rgba(10, 18, 31, 0.44);
   --hero-overlay-2: rgba(10, 18, 31, 0.56);
   --hero-overlay-3: rgba(10, 18, 31, 0.43);
   --hero-overlay-4: rgba(10, 18, 31, 0.16);
-  --button-secondary-bg: rgba(255, 255, 255, 0.76);
   --card-shadow: 0 10px 22px rgba(15, 33, 53, 0.08);
   --footer-bg: #eaf3ff;
   --roadmap-panel-bg: linear-gradient(120deg, #dffaf0, #eaf2ff);
@@ -100,6 +99,73 @@ button, input {
   margin: auto;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: var(--green);
+  font-size: 21px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--nav-link);
+  font-size: 13px;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 132px;
+  padding: 8px 12px;
+  color: var(--toggle-text);
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.theme-toggle-icon,
+.theme-toggle-label {
+  display: inline-block;
+}
+
+.menu-button {
+  display: none;
+  padding: 8px 12px;
+  color: var(--green);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+}
 /* NAVIGATION */
 
 header {
